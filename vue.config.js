@@ -36,6 +36,16 @@ module.exports = {
         }
     },
     // configureWebpack: {
+    //     name: '测试',
+    //     resolve: {
+    //         alias: {
+    //             '@': resolve('src')
+    //             // SingleMember: resolve('src/components/SingleMember'),
+    //             // images: resolve('public/images')
+    //         }
+    //     }
+    // },
+    // configureWebpack: {
     //   // provide the app's title in webpack's name field, so that
     //   // it can be accessed in index.html to inject the correct title.
     //   name: name,
@@ -154,13 +164,24 @@ module.exports = {
     //     })
     //     config.optimization.runtimeChunk('single')
     //   })
-    // },
+    // // },
     // css: {
-    //   loaderOptions: {
-    //     // 此文件为主题切换文件
-    //     sass: {
-    //       data: `@import "./src/styles/scss/_variable.scss";`
+    //     modules: false,
+    //     // 是否使用css分离插件
+    //     extract: true,
+    //     // 开启 CSS source maps，一般不建议开启
+    //     sourceMap: false,
+    //     loaderOptions: {
+    //         // 此文件为主题切换文件
+    //         scss: {
+    //             prependData: `@import ".src/styles/scss/variable.scss";`
+    //         }
     //     }
-    //   }
     // }
 }
+// 配置scss变量的坑 src/styles/scss/variable.scss
+// // 旧
+// data: `@import "~@/assets/scss/variables.scss";`
+// // 新
+// prependData: `@import "~@/assets/scss/variables.scss";`
+// src/styles/scss/variable.scss
