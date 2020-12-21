@@ -10,13 +10,13 @@
 export default {
   data() {
     return {
-      activeName: 'second',
+      activeName: 'second'
     }
   },
   methods: {
     handleClick(tab, event) {
       console.log(tab, event)
-    },
-  },
+    }
+  }
 }
 </script>
