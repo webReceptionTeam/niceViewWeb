@@ -165,23 +165,20 @@ module.exports = {
     //     config.optimization.runtimeChunk('single')
     //   })
     // // },
-    // css: {
-    //     modules: false,
-    //     // 是否使用css分离插件
-    //     extract: true,
-    //     // 开启 CSS source maps，一般不建议开启
-    //     sourceMap: false,
-    //     loaderOptions: {
-    //         // 此文件为主题切换文件
-    //         scss: {
-    //             prependData: `@import ".src/styles/scss/variable.scss";`
-    //         }
-    //     }
-    // }
+    chainWebpack: config => {
+        const oneOfsMap = config.module.rule('scss').oneOfs.store
+        oneOfsMap.forEach(item => {
+            item
+                .use('sass-resources-loader')
+                .loader('sass-resources-loader')
+                .options({
+                    // Provide path to the file with resources
+                    resources: './src/styles/scss/variable.scss',
+
+                    // Or array of paths
+                    // resources: ['./path/to/vars.scss', './path/to/mixins.scss']
+                })
+                .end()
+        })
+    },
 }
-// 配置scss变量的坑 src/styles/scss/variable.scss
-// // 旧
-// data: `@import "~@/assets/scss/variables.scss";`
-// // 新
-// prependData: `@import "~@/assets/scss/variables.scss";`
-// src/styles/scss/variable.scss
