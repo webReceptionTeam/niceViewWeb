@@ -42,7 +42,7 @@ const routes = [
             }
         ]
     },
-    // 
+    // 404
     {
         path: '/404',
         component: () => import('@/views/error-page/404.vue'),

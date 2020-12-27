@@ -1,5 +1,10 @@
 const port = 8080
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
+
+const path = require('path')
+function resolve(dir) {
+    return path.join(__dirname, dir)
+}
 module.exports = {
     /**
      * You will need to set publicPath if you plan to deploy your site under a sub path,
@@ -35,16 +40,19 @@ module.exports = {
             },
         }
     },
-    // configureWebpack: {
-    //     name: '测试',
-    //     resolve: {
-    //         alias: {
-    //             '@': resolve('src')
-    //             // SingleMember: resolve('src/components/SingleMember'),
-    //             // images: resolve('public/images')
-    //         }
-    //     }
-    // },
+    configureWebpack: {
+        name: '测试',
+        resolve: {
+            alias: {
+                '@': resolve('src')
+                // SingleMember: resolve('src/components/SingleMember'),
+                // images: resolve('public/images')
+            }
+        },
+        externals: {
+            vue: 'Vue'
+        },
+    },
     // configureWebpack: {
     //   // provide the app's title in webpack's name field, so that
     //   // it can be accessed in index.html to inject the correct title.
