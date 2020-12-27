@@ -49,9 +49,9 @@ module.exports = {
                 // images: resolve('public/images')
             }
         },
-        externals: {
-            vue: 'Vue'
-        },
+        // externals: {
+        //     vue: 'Vue'
+        // },
     },
     // configureWebpack: {
     //   // provide the app's title in webpack's name field, so that
