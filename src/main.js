@@ -6,6 +6,8 @@ import router from './router'
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
 
+import './permission.js'
+
 import store from './store'
 
 // 导入App页面

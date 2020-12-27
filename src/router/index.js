@@ -2,22 +2,57 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // 创建模式
 const routerHistory = createWebHistory()
-// 引入页面
-import Home from '../App.vue'
-import Contact from '../components/HelloWorld.vue'
 
+const routes = [
+    {
+        path: '/',
+        component: () => import('@/layout/home/index.vue'),
+        name: "LayoutHome",
+        meta: { aaa: '11' }
+    },
+    {
+        path: '/view',
+        component: () => import('@/layout'),
+        name: "LayoutView",
+        meta: { liu: '11' },
+        children: [
+            {
+                path: 'aaa',
+                component: () => import('@/components/HelloWorld.vue'),
+                name: "HelloWorld",
+                meta: {
+                    tao: '11'
+                }
+            }
+        ]
+    },
+    {
+        path: '/system',
+        component: () => import('@/layout'),
+        name: "LayoutSystem",
+        meta: { liu: '11' },
+        children: [
+            {
+                path: 'aaa',
+                component: () => import('@/components/HelloWorld.vue'),
+                name: "HelloWorld",
+                meta: {
+                    tao: '11'
+                }
+            }
+        ]
+    },
+    // 
+    {
+        path: '/404',
+        component: () => import('@/views/error-page/404.vue'),
+        name: "error404"
+    },
+    { path: '/:catchAll(.*)', redirect: { name: 'error404' } }
+]
 const router = createRouter({
     history: routerHistory,
-    routes: [
-        {
-            path: '/',
-            component: Home
-        },
-        {
-            path: '/contact',
-            component: Contact
-        }
-    ]
+    routes
 })
 
 
