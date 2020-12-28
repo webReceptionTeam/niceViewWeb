@@ -35,17 +35,14 @@ See [Vant 3.0](https://vant-contrib.gitee.io/vant/next).
 ├── mock                       # 项目mock 模拟数据
 ├── plop-templates             # 基本模板
 ├── public                     # 静态资源
-│   │── Tinymce                # 富文本
 │   │── favicon.ico            # favicon图标
 │   └── index.html             # html模板
 ├── src                        # 源代码
 │   ├── api                    # 所有请求
 │   ├── assets                 # 主题 字体等静态资源
 │   ├── components             # 全局公用组件
-│   ├── |——TablePage           # 表格和模态框的公用组件
 │   ├── |——...                 # 其他的公用组件
 │   ├── directive              # 全局指令
-│   ├── filters                # 全局 filter
 │   ├── icons                  # 项目所有 svg icons
 │   ├── lang                   # 国际化 language
 │   ├── layout                 # 全局 layout
@@ -57,8 +54,6 @@ See [Vant 3.0](https://vant-contrib.gitee.io/vant/next).
 │   ├── |——request.js          #axios配置（请求拦截和返回拦截）的公用方法
 │   ├── vendor                 # 公用vendor
 │   ├── views                  # views 所有页面
-│   ├── |——redis               # redis缓存管理（监控平台）模块
-│   ├── |——sys                 # 系统管理模块
 │   ├── App.vue                # 入口页面
 │   ├── main.js                # 入口文件 加载组件 初始化等
 │   └── permission.js          # 权限管理
