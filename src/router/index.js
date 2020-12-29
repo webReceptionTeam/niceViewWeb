@@ -10,6 +10,13 @@ const routes = [
         name: "LayoutHome",
         meta: { aaa: '11' }
     },
+    // 登录
+    {
+        path: '/login',
+        component: () => import('@/login/index.vue'),
+        name: "Login",
+        meta: { aaa: '11' }
+    },
     {
         path: '/view',
         component: () => import('@/layout'),

@@ -21,10 +21,13 @@ npm run lint
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-See [Ant Design of Vue](https://2x.antdv.com/docs/vue/introduce-cn/).
-See [element-plus](https://element-plus.gitee.io/#/zh-CN/component/installation).
+#### Configuration Reference
+See [vue-cli @3.0.0](https://cli.vuejs.org/config/).
+See [vue-router @4.0.0-alpha.5](https://next.router.vuejs.org/).
+See [element-plus @1.0.1-beta.10](https://element-plus.gitee.io/#/zh-CN/component/installation).
+#### 其他ui框架参考地址
 See [Vant 3.0](https://vant-contrib.gitee.io/vant/next).
+See [Ant Design of Vue](https://2x.antdv.com/docs/vue/introduce-cn/).
 
 
 
