@@ -15,39 +15,18 @@ const routes = [
         path: '/login',
         component: () => import('@/login/index.vue'),
         name: "Login",
-        meta: { aaa: '11' }
     },
+    //  测试页面 待删除
     {
-        path: '/view',
-        component: () => import('@/layout'),
-        name: "LayoutView",
-        meta: { liu: '11' },
-        children: [
-            {
-                path: 'aaa',
-                component: () => import('@/components/HelloWorld.vue'),
-                name: "HelloWorld",
-                meta: {
-                    tao: '11'
-                }
-            }
-        ]
+        path: '/login1',
+        component: () => import('@/login/index.vue'),
+        name: "Login1",
     },
+    // 后台登录
     {
-        path: '/system',
-        component: () => import('@/layout'),
-        name: "LayoutSystem",
-        meta: { liu: '11' },
-        children: [
-            {
-                path: 'aaa',
-                component: () => import('@/components/HelloWorld.vue'),
-                name: "HelloWorld",
-                meta: {
-                    tao: '11'
-                }
-            }
-        ]
+        path: '/backstageLogin',
+        component: () => import('@/login/systemLogin.vue'),
+        name: "systemLogin",
     },
     // 404
     {

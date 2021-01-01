@@ -1,23 +1,40 @@
-// import { from } from "core-js/fn/array";
-import NProgress from 'nprogress'
-// import { sendToAnalytics } from 'vue-router'
 import router from './router'
-import { sendToAnalytics } from 'vue-router'
+import NProgress from 'nprogress' // progress bar
+import 'nprogress/nprogress.css' // progress bar style
+// 前台路由
+import viewRouter from './router/view'
+// 后台路由
+import systemRouter from './router/system'
+
 NProgress.configure({ showSpinner: false });
+
+/**
+ * 白名单
+ */
+const whiteList = ['/', '/login', '/backstageLogin']
+// 免检权
+const businessList = []
+
+// 判断前后项目逻辑 待调整
+const type = window.localStorage.getItem("type")
+if (type) {
+    router.addRoute(type == '02' ? systemRouter : viewRouter)
+}
 
 router.beforeEach((to, from,) => {
     NProgress.start()
-    console.log(to, from, 'beforeEach');
-    // sendToAnalytics('/view')
-    // return false
-    // sendToAnalytics()
-    // if (to.path == '/login') {
-    //     return { path: '/view' }
-    // }
+    console.log(String(to.path), from, 'beforeEach');
+    console.log(whiteList.indexOf(to.path));
+    // 判断是否需要登陆 在此之前需要判断是否登陆啦
+    if (whiteList.indexOf(to.path) == -1) {
+        // 重定向登陆页
+        return { path: type == '02' ? '/backstageLogin' : "/login" }
+    }
 })
 
 router.afterEach((to, from,) => {
     NProgress.done()
+    NProgress.set(1.0);
     console.log(to, from, 'afterEach');
 
 })
