@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routerHistory = createWebHistory()
 
 const routes = [
+    // 首页
     {
         path: '/',
         component: () => import('@/layout/home/index.vue'),
@@ -41,7 +42,4 @@ const router = createRouter({
     routes
 })
 
-
-
 export default router
-
