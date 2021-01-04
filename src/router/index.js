@@ -10,7 +10,7 @@ const routes = [
         name: "LayoutHome",
         meta: { aaa: '11' }
     },
-    // 登录
+    // 前台登录
     {
         path: '/login',
         component: () => import('@/login/index.vue'),
@@ -22,11 +22,11 @@ const routes = [
         component: () => import('@/login/index.vue'),
         name: "Login1",
     },
-    // 后台登录
+    // 前台注册
     {
-        path: '/backstageLogin',
-        component: () => import('@/login/systemLogin.vue'),
-        name: "systemLogin",
+        path: '/register',
+        component: () => import('@/login/registerLogin.vue'),
+        name: "registerLogin",
     },
     // 404
     {

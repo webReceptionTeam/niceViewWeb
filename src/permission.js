@@ -11,7 +11,7 @@ NProgress.configure({ showSpinner: false });
 /**
  * 白名单
  */
-const whiteList = ['/', '/login', '/backstageLogin']
+const whiteList = ['/', '/login', '/register']
 // 免检权
 const businessList = []
 
@@ -28,13 +28,12 @@ router.beforeEach((to, from,) => {
     // 判断是否需要登陆 在此之前需要判断是否登陆啦
     if (whiteList.indexOf(to.path) == -1) {
         // 重定向登陆页
-        return { path: type == '02' ? '/backstageLogin' : "/login" }
+        return { path: "/login" }
     }
 })
 
 router.afterEach((to, from,) => {
     NProgress.done()
-    NProgress.set(1.0);
     console.log(to, from, 'afterEach');
 
 })

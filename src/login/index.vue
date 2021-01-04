@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrap">
     <!-- 登录页 再拆 后台登录 注册 -->
-    <div class="login-wrap-box">
+    <div class="login-wrap-box" v-if="!dialogVisible">
       <div class="login-wrap-box-title">用户登录CSDN</div>
       <el-tabs v-model="loginMode" @tab-click="handLoginModeClick">
         <el-tab-pane label="账号登录" name="01">
@@ -54,17 +54,54 @@
           <span class="forgot">忘记密码?</span>
         </el-col>
         <el-col>
-          <el-button type="primary" @click="btn">登陆</el-button>
+          <el-button type="primary" class="el-signin" @click="loginBtn"
+            >登陆</el-button
+          >
         </el-col>
         <el-col>
           <div class="social-contactp">
             <h6>社交帐号登录</h6>
-            <span>qq</span>
-            <span>微信</span>
+            <div class="mode">
+              <span>qq</span>
+              <span>微信</span>
+              <span @click="openSystem">我是管理员</span>
+            </div>
           </div>
         </el-col>
       </el-row>
     </div>
+    <el-dialog
+      title="管理员登录"
+      v-model="dialogVisible"
+      custom-class="el-system-dialog"
+      :before-close="handleClose"
+    >
+      <el-row>
+        <el-col :span="24">
+          <el-input
+            placeholder="请输入管理员用户名"
+            prefix-icon="el-icon-user-solid"
+            v-model="userName"
+          >
+          </el-input>
+        </el-col>
+        <el-col :span="24">
+          <el-input
+            placeholder="请输入管理员密码"
+            prefix-icon="el-icon-key"
+            v-model="passWord"
+            :show-password="true"
+          >
+          </el-input>
+        </el-col>
+      </el-row>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="dialogVisible = false">取消登录</el-button>
+          <el-button type="primary" @click="systemBtn">登录</el-button>
+        </span>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -79,23 +116,43 @@ export default {
   name: 'login',
   data() {
     return {
-      loginMode: '01',
+      loginMode: '01', // 01 账号密码登录 02 手机号登录
       userName: '',
       passWord: '',
       remember: false,
       phone: '',
-      phoneCode: ''
+      phoneCode: '',
+      dialogVisible: false,
+      systemUserName: '',
+      systemPassWord: ''
     }
   },
   methods: {
-    // 登录方式切换触发
+    // 用户登录方式切换触发
     handLoginModeClick(type) {},
     // 登录
-    btn() {
+    loginBtn() {
       console.log(this.userName, this.passWord, this.remember)
     },
     // 获取验证码
-    getPhoneCode() {}
+    getPhoneCode() {},
+    /**
+     * 管理员操作
+     */
+    // 管理员弹层
+    openSystem() {
+      this.dialogVisible = true
+      this.systemUserName = ''
+      this.systemPassWord = ''
+    },
+    // 管理员登录
+    systemBtn() {
+      this.dialogVisible = false
+    },
+    // 取消管理员登录
+    handleClose(done) {
+      this.dialogVisible = false
+    }
   }
 }
 </script>
@@ -144,18 +201,18 @@ export default {
 /deep/ .el-col-24 {
   margin-bottom: 15px;
 }
-/deep/ .el-button {
+/deep/ .el-signin.el-button {
   width: 240px;
   height: 40px;
   border-radius: 30px;
   display: block;
   margin: 0 auto;
 }
-/deep/ .el-button--primary {
+/deep/ .el-signin.el-button--primary {
   background-color: #4a33f5;
   border-color: #4a33f5;
 }
-/deep/ .el-button--primary:hover {
+/deep/ .el-signin.el-button--primary:hover {
   opacity: 0.8;
 }
 .forgot {
@@ -199,6 +256,30 @@ export default {
   }
   h6::after {
     right: 30px;
+  }
+  .mode {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+// 弹层
+/deep/ .el-system-dialog {
+  width: 450px !important;
+  height: 280px;
+  border-radius: 10px;
+  .el-dialog__body {
+    padding: 30px 50px 5px;
+  }
+  .el-dialog__footer {
+    display: flex;
+    justify-content: center;
+    .el-button {
+      width: 88px;
+      border-radius: 5px;
+      padding: 0;
+      height: 37px;
+    }
   }
 }
 </style>
