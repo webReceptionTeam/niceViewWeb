@@ -51,9 +51,9 @@
       <el-row>
         <el-col>
           <el-checkbox v-model="remember">记住账号</el-checkbox>
-          <span class="forgot">忘记密码?</span>
+          <span class="forgot">忘记密码?｜注册新账号</span>
         </el-col>
-        <el-col>
+        <el-col style="margin-top: 10px">
           <el-button type="primary" class="el-signin" @click="loginBtn"
             >登陆</el-button
           >
@@ -217,7 +217,8 @@ export default {
 }
 .forgot {
   color: blue;
-  font-size: 14px;
+  font-size: 12px;
+  line-height: 22px;
   float: right;
   cursor: pointer;
 }
@@ -233,7 +234,7 @@ export default {
   padding-right: 90px;
 }
 .social-contactp {
-  margin-top: 40px;
+  margin-top: 25px;
   h6 {
     position: relative;
     margin: 0 0 10px;
