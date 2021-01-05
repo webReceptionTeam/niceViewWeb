@@ -44,9 +44,10 @@ module.exports = {
         name: '测试',
         resolve: {
             alias: {
-                '@': resolve('src')
+                '@': resolve('src'),
+                
                 // SingleMember: resolve('src/components/SingleMember'),
-                // images: resolve('public/images')
+                 'images': resolve('public/images')
             }
         },
         // externals: {
