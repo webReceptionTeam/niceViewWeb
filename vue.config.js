@@ -3,7 +3,7 @@ const port = 8080
 
 const path = require('path')
 function resolve(dir) {
-    return path.join(__dirname, dir)
+  return path.join(__dirname, dir)
 }
 module.exports = {
     /**
@@ -45,9 +45,9 @@ module.exports = {
         resolve: {
             alias: {
                 '@': resolve('src'),
-                
+
                 // SingleMember: resolve('src/components/SingleMember'),
-                 'images': resolve('public/images')
+                'images': resolve('public/images')
             }
         },
         // externals: {

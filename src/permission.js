@@ -11,11 +11,7 @@ NProgress.configure({ showSpinner: false });
 /**
  * 白名单
  */
-<<<<<<< HEAD
 const whiteList = ['/', '/login', '/backstageLogin','/reception']
-=======
-const whiteList = ['/', '/login', '/register']
->>>>>>> 88331610a3e0b8e938777b379a18b94e990e39e7
 // 免检权
 const businessList = []
 
