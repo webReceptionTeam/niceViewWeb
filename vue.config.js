@@ -3,7 +3,7 @@ const port = 8080
 
 const path = require('path')
 function resolve(dir) {
-  return path.join(__dirname, dir)
+    return path.join(__dirname, dir)
 }
 module.exports = {
     /**
@@ -31,11 +31,12 @@ module.exports = {
             errors: true
         },
         proxy: {
-            '/api/xxx': {
-                target: 'xxx', //   注册
+            // http://8.131.91.95:3000/users/login
+            '/api': {
+                target: 'http://8.131.91.95:3000', //   注册
                 changeOrigin: true, // 是否跨域
                 pathRewrite: {
-                    '^/api/xxx': '' // 重写接口
+                    '^/api': 'http://8.131.91.95:3000' // 重写接口
                 }
             },
         }

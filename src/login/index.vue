@@ -112,8 +112,24 @@
  * 查询用户昵称重复及查询账号重复
  * 重置接口
  */
+// 账号 测试用5
+// 密码 1234567
+import axios from '@/utils/http.js'
+import { onBeforeMount } from 'vue'
 export default {
   name: 'login',
+  setup(props) {
+    onBeforeMount(() => {
+      // axios
+      //   .post('/users/login', {
+      //     userName: '测试用15',
+      //     userPassWord: 1234567
+      //   })
+      //   .then((res) => {
+      //     console.log(res, '测试')
+      //   })
+    })
+  },
   data() {
     return {
       loginMode: '01', // 01 账号密码登录 02 手机号登录
@@ -131,7 +147,14 @@ export default {
     // 用户登录方式切换触发
     handLoginModeClick(type) {},
     // 登录
-    loginBtn() {
+    async loginBtn() {
+      try {
+        let { data: res } = await axios.post('/users/login', {
+          userName: this.userName,
+          userPassWord: this.passWord
+        })
+        console.log(res, '测试')
+      } catch (err) {}
       console.log(this.userName, this.passWord, this.remember)
     },
     // 获取验证码
