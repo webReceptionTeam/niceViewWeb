@@ -1,11 +1,9 @@
 <template>
-  <div>管理员登陆</div>
+  <div>这是后台系统页面文件夹</div>
 </template>
 
 <script>
-export default {
-  name: 'systemLogin'
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
