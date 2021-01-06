@@ -94,6 +94,7 @@ export default {
   min-height: 700px;
   background: url('../assets/login.jpg') no-repeat;
   background-size: 100% 100%;
+  position: relative;
   &-box {
     width: 400px;
     // height: 450px;

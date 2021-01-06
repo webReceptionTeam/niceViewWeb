@@ -22,7 +22,7 @@ npm run lint
 
 ### Customize configuration
 #### Configuration Reference
-See [vue-cli @3.0.0](https://cli.vuejs.org/config/).
+See [vue-cli @3.0.0](https://cli.vuejs.org/config/)(https://www.vue3js.cn/docs/zh/).
 See [vue-router @4.0.0-alpha.5](https://next.router.vuejs.org/).
 See [element-plus @1.0.1-beta.10](https://element-plus.gitee.io/#/zh-CN/component/installation).
 #### 其他ui框架参考地址

@@ -116,6 +116,8 @@
 // 密码 1234567
 import axios from '@/utils/http.js'
 import { onBeforeMount } from 'vue'
+import { signIn } from './use/signIn'
+
 export default {
   name: 'login',
   setup(props) {
@@ -129,12 +131,14 @@ export default {
       //     console.log(res, '测试')
       //   })
     })
+    const loginBtn = signIn()
+    return {
+      ...loginBtn
+    }
   },
   data() {
     return {
       loginMode: '01', // 01 账号密码登录 02 手机号登录
-      userName: '',
-      passWord: '',
       remember: false,
       phone: '',
       phoneCode: '',
@@ -146,17 +150,6 @@ export default {
   methods: {
     // 用户登录方式切换触发
     handLoginModeClick(type) {},
-    // 登录
-    async loginBtn() {
-      try {
-        let { data: res } = await axios.post('/users/login', {
-          userName: this.userName,
-          userPassWord: this.passWord
-        })
-        console.log(res, '测试')
-      } catch (err) {}
-      console.log(this.userName, this.passWord, this.remember)
-    },
     // 获取验证码
     getPhoneCode() {},
     /**
@@ -203,6 +196,7 @@ export default {
   min-height: 700px;
   background: url('../assets/login.jpg') no-repeat;
   background-size: 100% 100%;
+  position: relative;
   &-box {
     width: 400px;
     height: 450px;
