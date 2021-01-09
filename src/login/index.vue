@@ -51,7 +51,11 @@
       <el-row>
         <el-col>
           <el-checkbox v-model="remember">记住账号</el-checkbox>
-          <span class="forgot">忘记密码?｜注册新账号</span>
+          <span class="forgot"
+            ><span>忘记密码?</span>｜<span @click="openRegister"
+              >注册新账号</span
+            ></span
+          >
         </el-col>
         <el-col style="margin-top: 10px">
           <el-button type="primary" class="el-signin" @click="loginBtn"
@@ -116,7 +120,7 @@
 // 密码 1234567
 import axios from '@/utils/http.js'
 import { onBeforeMount, ref } from 'vue'
-import { useSignIn } from './use/signIn'
+import { useSignIn, useOpen } from './use/signIn'
 import { useRoute } from 'vue-router'
 
 export default {
@@ -132,11 +136,14 @@ export default {
 
     // 账号登录
     const loginBtn = useSignIn(loginMode, route)
+    // 打开页面或其他链接
+    const open = useOpen()
     // 手机号登录
     return {
+      route,
       loginMode,
       ...loginBtn,
-      route
+      ...open
     }
   },
   data() {

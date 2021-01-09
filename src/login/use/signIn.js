@@ -51,4 +51,12 @@ export function useSignIn(loginMode, route) {
     }
 }
 
+export function useOpen() {
+    const openRegister = () => {
+        router.push('/register')
+    }
+    return {
+        openRegister
+    }
+}
 
