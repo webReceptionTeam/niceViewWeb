@@ -115,33 +115,36 @@
 // 账号 测试用5
 // 密码 1234567
 import axios from '@/utils/http.js'
-import { onBeforeMount } from 'vue'
-import { signIn } from './use/signIn'
+import { onBeforeMount, ref } from 'vue'
+import { useSignIn } from './use/signIn'
+import { useRoute } from 'vue-router'
 
 export default {
   name: 'login',
   setup(props) {
+    // 登录区分 01 账号密码登录 02 手机号登录
+    let loginMode = ref('01')
+    // 路由信息存储
+    let route = ref('')
     onBeforeMount(() => {
-      // axios
-      //   .post('/users/login', {
-      //     userName: '测试用15',
-      //     userPassWord: 1234567
-      //   })
-      //   .then((res) => {
-      //     console.log(res, '测试')
-      //   })
+      route.value = useRoute()
     })
-    const loginBtn = signIn()
+
+    // 账号登录
+    const loginBtn = useSignIn(loginMode, route)
+    // 手机号登录
     return {
-      ...loginBtn
+      loginMode,
+      ...loginBtn,
+      route
     }
   },
   data() {
     return {
-      loginMode: '01', // 01 账号密码登录 02 手机号登录
+      // loginMode: '01', // 01 账号密码登录 02 手机号登录
       remember: false,
-      phone: '',
-      phoneCode: '',
+      // phone: '',
+      // phoneCode: '',
       dialogVisible: false,
       systemUserName: '',
       systemPassWord: ''

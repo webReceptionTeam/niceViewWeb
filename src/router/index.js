@@ -9,7 +9,7 @@ const routes = [
         path: '/reception',
         component: () => import('@/layout/reception/index.vue'),
         name: "reception"
-        
+
     },
     {
         path: '/',
@@ -21,6 +21,7 @@ const routes = [
     {
         path: '/login',
         component: () => import('@/login/index.vue'),
+        meta: { redirect: '' },
         name: "Login",
     },
     //  测试页面 待删除

@@ -5,13 +5,15 @@ import 'nprogress/nprogress.css' // progress bar style
 import viewRouter from './router/view'
 // 后台路由
 import systemRouter from './router/system'
+// 加密函数
+import { str_encrypt } from '@/utils/dense'
 
 NProgress.configure({ showSpinner: false });
 
 /**
  * 白名单
  */
-const whiteList = ['/', '/login', '/backstageLogin','/reception']
+const whiteList = ['/', '/login', '/backstageLogin', '/reception']
 // 免检权
 const businessList = []
 
@@ -23,17 +25,16 @@ if (type) {
 
 router.beforeEach((to, from,) => {
     NProgress.start()
-    console.log(String(to.path), from, 'beforeEach');
-    console.log(whiteList.indexOf(to.path));
+    // console.log(String(to.path), from, 'beforeEach');
+    // console.log(whiteList.indexOf(to.path));
     // 判断是否需要登陆 在此之前需要判断是否登陆啦
     if (whiteList.indexOf(to.path) == -1) {
         // 重定向登陆页
-        return { path: "/login" }
+        // console.log(to.path);
+        return { path: "/login", query: { redirect: str_encrypt(to.path || '/') } }
     }
 })
 
 router.afterEach((to, from,) => {
     NProgress.done()
-    console.log(to, from, 'afterEach');
-
 })
