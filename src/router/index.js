@@ -9,7 +9,6 @@ const routes = [
     //     path: '/reception',
     //     component: () => import('@/layout/reception/index.vue'),
     //     name: "reception"
-
     // },
     // 首页
     {
