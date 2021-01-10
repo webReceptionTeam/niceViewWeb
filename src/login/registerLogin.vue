@@ -51,36 +51,17 @@
 </template>
 
 <script>
-/* *
- * 入参：username:string--用户名
- *      password:string--密码
- *      nickname:string -- 昵称
- *      repassword:string --重复确认输入的密码
- *      gender:'0'|'1' ---- 性别
- *      email: string ----邮箱
- *      phone:string ----电话
- *      info:string ---- 自我介绍
- */
-// 注册需要 用户名 秘密 昵称 其他的先默认传死
-// 如果需要全部写上 考虑其他页面重构及排版
+import { useSignIn, useOpen } from './use/register'
 export default {
   name: 'registerLogin',
-  data() {
+  setup(props) {
+    // 注册方法
+    const loginBtn = useSignIn()
+    // 跳转方法
+    const open = useOpen()
     return {
-      username: '',
-      password: '',
-      repassword: '',
-      nickname: ''
-    }
-  },
-  methods: {
-    // 调整登录
-    openLogin() {
-      this.$router.push('/login')
-    },
-    // 注册
-    loginBtn() {
-      //
+      ...loginBtn,
+      ...open
     }
   }
 }

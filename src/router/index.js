@@ -11,6 +11,7 @@ const routes = [
         name: "reception"
 
     },
+    // 首页
     {
         path: '/',
         component: () => import('@/layout/home/index.vue'),
@@ -23,12 +24,6 @@ const routes = [
         component: () => import('@/login/index.vue'),
         meta: { redirect: '' },
         name: "Login",
-    },
-    //  测试页面 待删除
-    {
-        path: '/login1',
-        component: () => import('@/login/index.vue'),
-        name: "Login1",
     },
     // 前台注册
     {
