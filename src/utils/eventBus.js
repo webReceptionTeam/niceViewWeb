@@ -1,6 +1,6 @@
 /**
  * 注意:
- *     onMounted 实例之前调用emit传值方法 on方法不会接收到
+ *     onMounted之前的实例调用emit传值方法 on方法不会接收到
  * 
  *  使用方法
  * on(event, callback[, context])
@@ -19,6 +19,7 @@
  *  Unsubscribe from an event or all events. If no callback is provided, it unsubscribes you from all events.
  *      event - the name of the event to unsubscribe from
  *      callback - the function used when binding to the event
+ * 
  * emit(event[, arguments...])
  *  Trigger a named event
  *      event - the event name to emit
