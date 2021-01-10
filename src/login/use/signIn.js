@@ -4,16 +4,16 @@ import { ElMessage } from 'element-plus'
 import { str_decrypt } from '@/utils/dense.js'
 import { useRoute } from 'vue-router'
 import axios from '@/utils/http.js'
-export function useSignIn(loginMode, route) {
+export function useSignIn(loginMode,) {
     let userName = ref('')
         , passWord = ref('')
         , phone = ref('')
         , phoneCode = ref('');
-    let aa = useRoute()
+    let route = useRoute()
     // 登录
     const loginBtn = async () => {
         // 账号登录
-        console.log(aa.query, '9cehsi ');
+        console.log(route.query, '9cehsi ');
         if (loginMode.value === '01') {
             try {
                 let { data: res } = await axios.post('/users/login', {
@@ -23,8 +23,8 @@ export function useSignIn(loginMode, route) {
                 console.log(res, '测试')
                 if (res.code == 0) {
                     let path = '/'
-                    if (route.value && route.value.query && route.value.query.redirect) {
-                        path = str_decrypt(route.value.query.redirect)
+                    if (route && route.redirect) {
+                        path = str_decrypt(route.redirect)
                     }
                     router.push(path)
                 } else if (res.code == -1) {
