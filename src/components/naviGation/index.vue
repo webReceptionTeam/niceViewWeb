@@ -14,6 +14,7 @@
 <script>
 import { onBeforeMount, ref, toRefs, inject } from 'vue'
 import { useMethod } from './use/index'
+import emitter from '@/utils/eventBus'
 export default {
   name: 'naviGation',
   props: {
@@ -23,6 +24,9 @@ export default {
     onBeforeMount(() => {
       console.log(props.list, '测试props')
       console.log(inject('aaa'))
+      emitter.on('some-event', function (arg1, arg2, arg3) {
+        console.log(arg1, arg2, arg3)
+      })
     })
     let tab = ref('1')
     let list = ref([

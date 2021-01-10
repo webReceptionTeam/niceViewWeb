@@ -7,7 +7,7 @@ const viewRouter = {
     children: [
         {
             path: 'aaa',
-            component: () => import('@/components/HelloWorld.vue'),
+            component: () => import('@/views/home/index.vue'),
             name: "HelloWorld",
             meta: {
                 tao: '11'
