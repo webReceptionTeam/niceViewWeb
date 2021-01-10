@@ -8,6 +8,8 @@
 <script>
 import administration from './administration'
 import reception from './reception'
+import { ref ,onBeforeMount} from 'vue'
+import { useRoute } from "vue-router"
 export default {
   name: 'Layout',
   components: {
@@ -15,19 +17,25 @@ export default {
     reception
   },
   setup(props) {
-    let viewIs = 'reception'
+
+    let viewIs = ref('')
+    const route = useRoute()
+
+    onBeforeMount(()=>{
+      console.log(route.path, '路由名称判断')
+      if (route.path.indexOf('/system') != -1) {
+        viewIs.value = 'administration'
+      } else {
+        viewIs.value = 'reception'
+      }
+    })
+    
+
     return {
       viewIs
     }
   },
-  beforeMount() {
-    console.log(this.$route.name, '路由名称判断')
-    if (this.$route.path.indexOf('/system') != -1) {
-      this.viewIs = 'administration'
-    } else {
-      this.viewIs = 'reception'
-    }
-  }
+  
 }
 </script>
 

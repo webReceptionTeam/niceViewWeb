@@ -4,13 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routerHistory = createWebHistory()
 
 const routes = [
-    // //前台首页(ceshi)
-    // {
-    //     path: '/reception',
-    //     component: () => import('@/layout/reception/index.vue'),
-    //     name: "reception"
-
-    // },
+   
     // 首页
     {
         path: '/',
