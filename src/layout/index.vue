@@ -1,6 +1,6 @@
 <template>
   <div>
-    这是首页,这里区分用户网站和后台管理系统
+    <!-- 这是首页,这里区分用户网站和后台管理系统 -->
     <component :is="viewIs" />
   </div>
 </template>

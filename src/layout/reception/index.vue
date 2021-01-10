@@ -1,7 +1,6 @@
 <template>
   <div>
     <myHeader />
-    前台框架
     <router-view />
   </div>
 </template>

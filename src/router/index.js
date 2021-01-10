@@ -4,17 +4,17 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routerHistory = createWebHistory()
 
 const routes = [
-    //前台首页(ceshi)
-    {
-        path: '/reception',
-        component: () => import('@/layout/reception/index.vue'),
-        name: "reception"
+    // //前台首页(ceshi)
+    // {
+    //     path: '/reception',
+    //     component: () => import('@/layout/reception/index.vue'),
+    //     name: "reception"
 
-    },
+    // },
     // 首页
     {
         path: '/',
-        component: () => import('@/layout/home/index.vue'),
+        component: () => import('@/layout/index.vue'),
         name: "LayoutHome",
         meta: { aaa: '11' }
     },

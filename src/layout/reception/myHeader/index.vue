@@ -7,9 +7,6 @@
       
           <el-menu  active-text-color="red" :default-active="activeIndex" class="el-menu-csdn" mode="horizontal" @select="handleSelect">
             <el-menu-item v-for="(item,index) in navList" :key="index" :index="index+''">{{item.text}}</el-menu-item>
-            <!-- <el-menu-item index="1">首页</el-menu-item>
-            <el-menu-item index="2">博客</el-menu-item>
-            <el-menu-item index="3">论坛</el-menu-item> -->
           </el-menu>
         </div>
       </el-col>
@@ -28,7 +25,32 @@
       </el-col>
         <el-col :span="8">
           <div class="header-right-wrap">
-            <a href="javascript:;"><el-avatar :size="32" :src="circleUrl"></el-avatar></a>
+            <el-dropdown>
+              <a href="javascript:;" class="avater-wrap"><el-avatar :size="32" :src="circleUrl"></el-avatar></a>
+              <template #dropdown >
+                <el-dropdown-menu>
+                  <div class="userinfo-menu">
+                    <p class="nick_name">weixin_39822683</p>
+                    <p class="level"><i class="el-icon-star-on"></i></p>
+                    <el-divider></el-divider>
+                    <div class="user-info">
+                      <a href="javascript:;">
+                        <span>--</span>
+                        <span class="gray">粉丝</span>
+                      </a>
+                      <a href="javascript:;">
+                        <span>--</span>
+                        <span class="gray">收藏</span>
+                      </a>
+                      <a href="javascript:;">
+                        <span>--</span>
+                        <span class="gray">获赞</span>
+                      </a>
+                    </div>
+                  </div>
+                </el-dropdown-menu>
+              </template>
+            </el-dropdown>
           </div>
         </el-col>
     </el-row>
@@ -42,7 +64,7 @@ import { useAvater } from "./use/avater"
 export default {
   name: 'my-header',
 
-  setup(props){
+  setup(props,context){
 
     //导航相关逻辑
     const { activeIndex,handleSelect,navList } = useInitNav();
@@ -95,4 +117,36 @@ export default {
 .el-menu.el-menu--horizontal{
   border-bottom:none;
 }
+/**头像菜单 */
+
+.userinfo-menu{
+  width:300px;
+
+}
+.nick_name{
+  color:#2e2e2e;
+  text-align:center;
+  font-size:20px;
+}
+.level{
+  color:coral;
+  text-align:center;
+  font-size:20px;
+}
+.user-info{
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  padding-bottom:20px;
+  a{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    line-height:22px;
+    .gray{
+     color:rgb(165, 157, 157); 
+    }
+  }
+}
+
 </style>
