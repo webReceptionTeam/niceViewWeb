@@ -16,17 +16,21 @@ export function useSignIn(loginMode,) {
         console.log(route.query, '9cehsi ');
         if (loginMode.value === '01') {
             try {
-                let { data: res } = await axios.post('/users/login', {
+                //为了拿到token先不要解构
+                let result = await axios.post('/users/login', {
                     userName: userName.value,
                     userPassWord: passWord.value
                 })
-                console.log(data, '测试')
+               const {data:res} = result;//在这解构
+
                 if (res.code == 0) {
+                    //登陆成功从响应头里拿token存入Localstorage
                     let path = '/'
                     if (route && route.redirect) {
                         path = str_decrypt(route.redirect)
                     }
-                    
+                    const token = result.headers.authorization
+                   token && localStorage.setItem('token',token)
                     router.push(path)
                 } else if (res.code == -1) {
                     ElMessage.warning({

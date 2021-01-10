@@ -42,11 +42,11 @@
       <el-col :span="8">
         <div class="header-right-wrap">
           <!-- 登录注册或头像 -->
-          <span class="login-register">
-            <router-link to="/login">登录</router-link>/
+          <span class="login-register" v-if="!isLogin">
+            <router-link to="/login" >登录</router-link>/
             <router-link to="/register">注册</router-link>
           </span>
-          <el-dropdown >
+          <el-dropdown v-else >
             <a href="javascript:;" class="avater-wrap"
               ><el-avatar :size="32" :src="circleUrl"></el-avatar
             ></a>
@@ -81,9 +81,11 @@
 </template>
 
 <script>
+import { onBeforeMount,ref } from 'vue' 
 import { useInitNav } from './use/nav'
 import { useSearch } from './use/search'
 import { useAvater } from './use/avater'
+import { useIsLogin } from './use/isLogin'
 export default {
   name: 'my-header',
 
@@ -95,13 +97,17 @@ export default {
     //头像
     const { circleUrl } = useAvater()
 
+    //是否已经登录
+    const { isLogin } = useIsLogin()
+    
     return {
       navList,
       handleSelect,
       activeIndex,
       searchInput,
       searchClickHandler,
-      circleUrl
+      circleUrl,
+      isLogin
     }
   }
 }
@@ -172,6 +178,11 @@ export default {
     .gray {
       color: rgb(165, 157, 157);
     }
+  }
+}
+.login-register {
+  a:hover{
+    color:red;
   }
 }
 </style>
