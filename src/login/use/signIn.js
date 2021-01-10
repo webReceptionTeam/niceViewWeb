@@ -2,16 +2,18 @@ import { ref } from 'vue'
 import router from '@/router/index'
 import { ElMessage } from 'element-plus'
 import { str_decrypt } from '@/utils/dense.js'
-
+import { useRoute } from 'vue-router'
 import axios from '@/utils/http.js'
 export function useSignIn(loginMode, route) {
     let userName = ref('')
         , passWord = ref('')
         , phone = ref('')
-        , phoneCode = ref('')
+        , phoneCode = ref('');
+    let aa = useRoute()
     // 登录
     const loginBtn = async () => {
         // 账号登录
+        console.log(aa.query, '9cehsi ');
         if (loginMode.value === '01') {
             try {
                 let { data: res } = await axios.post('/users/login', {
