@@ -13,7 +13,7 @@ NProgress.configure({ showSpinner: false });
 /**
  * 白名单
  */
-const whiteList = ['/', '/login', '/register', '/reception']
+const whiteList = ['/', '/login', '/register', '/reception', '/view/aaa']
 // 免检权
 const businessList = []
 
@@ -31,7 +31,11 @@ router.beforeEach((to, from,) => {
     if (whiteList.indexOf(to.path) == -1) {
         // 重定向登陆页
         // console.log(to.path);
-        return { path: "/login", query: { redirect: str_encrypt(to.path || '/') } }
+        if (to.path == '/404') {
+            return { path: "/login" }
+        } else {
+            return { path: "/login", query: { redirect: str_encrypt(to.path || '/') } }
+        }
     }
 })
 
