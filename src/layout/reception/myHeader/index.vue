@@ -41,7 +41,12 @@
       </el-col>
       <el-col :span="8">
         <div class="header-right-wrap">
-          <el-dropdown>
+          <!-- 登录注册或头像 -->
+          <span class="login-register">
+            <router-link to="/login">登录</router-link>/
+            <router-link to="/register">注册</router-link>
+          </span>
+          <el-dropdown >
             <a href="javascript:;" class="avater-wrap"
               ><el-avatar :size="32" :src="circleUrl"></el-avatar
             ></a>
