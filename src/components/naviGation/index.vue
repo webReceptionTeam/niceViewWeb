@@ -12,22 +12,30 @@
 </template>
 
 <script>
-import { onBeforeMount, ref, toRefs, inject } from 'vue'
+import { onBeforeMount, ref, toRefs, inject, watch } from 'vue'
 import { useMethod } from './use/index'
 import emitter from '@/utils/eventBus'
 export default {
   name: 'naviGation',
   props: {
-    list: Boolean | Number | String
+    list: Boolean | Number | String,
+    tabIndex: Number
   },
   setup(props) {
     onBeforeMount(() => {
-      console.log(props.list, '测试props')
+      console.log(props.list, props.tabIndex, '测试props')
       console.log(inject('aaa'))
       emitter.on('some-event', function (arg1, arg2, arg3) {
         console.log(arg1, arg2, arg3)
       })
     })
+    watch(
+      () => props.tabIndex,
+      (count, prevCount) => {
+        /* ... */
+        console.log(count, prevCount, '9009')
+      }
+    )
     let tab = ref('1')
     let list = ref([
       '导航',

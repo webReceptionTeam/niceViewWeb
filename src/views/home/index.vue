@@ -2,9 +2,20 @@
   <div class="home_wrap">
     <div class="content_wrap">
       <!-- 导航 -->
-      <div class="content-wrap-div" id="div1">导航</div>
-      <div class="content-wrap-div" id="div2">精选头条</div>
-      <div class="content-wrap-div" id="div3">会员精选</div>
+      <div
+        class="content-wrap-div"
+        v-for="(item, index) in list"
+        :id="`div${index + 1}`"
+        :key="index"
+        :ref="
+          (el) => {
+            divs[index] = el
+          }
+        "
+      >
+        {{ item.name }}
+      </div>
+      <!-- <div class="content-wrap-div" id="div3">会员精选</div>
       <div class="content-wrap-div" id="div4">精彩视频</div>
       <div class="content-wrap-div" id="div5">推荐专题</div>
       <div class="content-wrap-div" id="div6">Python</div>
@@ -13,12 +24,12 @@
       <div class="content-wrap-div" id="div9">技术团队/社区号</div>
       <div class="content-wrap-div" id="div10">Java</div>
       <div class="content-wrap-div" id="div11">开源技术</div>
-      <div class="content-wrap-div" id="div12">人工智能</div>
-      <div class="content-wrap-div" id="div13">
+      <div class="content-wrap-div" id="div12">人工智能</div> -->
+      <!-- <div class="content-wrap-div" id="div13">
         <a href="#div1">友情链接</a>
-      </div>
+      </div> -->
     </div>
-    <myNav :list="'刘江涛'" />
+    <myNav :list="'刘江涛'" :tabIndex="tabIndex" />
   </div>
 </template>
 
@@ -26,7 +37,7 @@
 import emitter from '@/utils/eventBus'
 
 import myNav from '../../components/naviGation'
-import { onBeforeMount, provide, onMounted } from 'vue'
+import { onBeforeMount, provide, onMounted, ref } from 'vue'
 export default {
   name: 'LayoutHome',
   components: { myNav },
@@ -35,14 +46,67 @@ export default {
     onBeforeMount(() => {
       document.addEventListener('scroll', handleScroll)
     })
+    let heightList = ref([])
+    let tabIndex = ref(0)
     onMounted(() => {
-      emitter.emit('some-event', 'arg1 value', 'arg2 value', 'arg3 value')
+      // window.addEventListener('scroll', handleScroll)
+      divs.value.map((item) => {
+        // if (item.offsetTop <= docScrollTop) {
+        // }
+        // console.log(item.offsetTop)
+        heightList.value.push(item.offsetTop)
+      })
     })
-    const handleScroll = () => {
-      console.log('handleScroll')
+    const divs = ref([])
+    const list = ref([
+      {
+        ref: 'div1',
+        name: '导航'
+      },
+      {
+        ref: 'div2',
+        name: '精选头条2'
+      },
+      {
+        ref: 'div3',
+        name: '精选头3条'
+      },
+      {
+        ref: 'div4',
+        name: '精选4头条'
+      },
+      {
+        ref: 'div5',
+        name: '精选5头条'
+      },
+      {
+        ref: 'div6',
+        name: '精选6头条'
+      },
+      {
+        ref: 'div7',
+        name: '精选7头条'
+      }
+    ])
+
+    const handleScroll = (el) => {
+      let docScrollTop = document.documentElement.scrollTop
+      // console.log('handleScroll', docScrollTop)
+
+      // console.log(divs.value[0].offsetTop, '990')
+      heightList.value.map((item, index) => {
+        if (item <= docScrollTop) {
+          // console.log('adfa')
+          tabIndex.value = index
+        }
+      })
+      // console.log(tabIndex.value)
     }
     return {
-      handleScroll
+      handleScroll,
+      divs,
+      list,
+      tabIndex
     }
   }
 }
