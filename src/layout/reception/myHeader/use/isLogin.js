@@ -2,7 +2,6 @@
 import { ref , onBeforeMount} from 'vue'
 export function useIsLogin(){
     let isLogin = ref(false);//是否登录
-
     
     onBeforeMount(()=>{
   
@@ -10,9 +9,7 @@ export function useIsLogin(){
      isLogin.value = token ? true : false 
     })
 
-    return {
-        isLogin
-    }
+    return { isLogin }
 
 }
   

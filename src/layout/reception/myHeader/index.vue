@@ -46,34 +46,42 @@
             <router-link to="/login" >登录</router-link>/
             <router-link to="/register">注册</router-link>
           </span>
-          <el-dropdown v-else >
+          <el-dropdown @command="commandCallback" v-else>
             <a href="javascript:;" class="avater-wrap"
               ><el-avatar :size="32" :src="circleUrl"></el-avatar
             ></a>
             <template #dropdown>
-              <el-dropdown-menu>
+              <el-dropdown-menu >
                 <div class="userinfo-menu">
-                  <p class="nick_name">weixin_39822683</p>
+                  <p class="nick_name">{{nickname}}</p>
                   <p class="level"><i class="el-icon-star-on"></i></p>
                   <el-divider></el-divider>
                   <div class="user-info">
-                    <a href="javascript:;">
+                    <a href="javascript:;" @click="directTo('粉丝页path')">
                       <span>--</span>
-                      <span class="gray">粉丝</span>
+                      <span class="gray" >粉丝</span>
                     </a>
-                    <a href="javascript:;">
+                    <a href="javascript:;" @click="directTo('收藏页path')">
                       <span>--</span>
                       <span class="gray">收藏</span>
                     </a>
-                    <a href="javascript:;">
+                    <a href="javascript:;" @click="directTo('获赞页path')">
                       <span>--</span>
                       <span class="gray">获赞</span>
                     </a>
                   </div>
                 </div>
+                <el-divider></el-divider>
+                <el-dropdown-item command="personal"><i class="el-icon-user-solid"></i>个人中心</el-dropdown-item>
+                <el-dropdown-item command="manage"><i class="el-icon-document"></i>内容管理</el-dropdown-item>
+                <el-dropdown-item divided command="exit"><i class="el-icon-switch-button"></i>退出</el-dropdown-item>
               </el-dropdown-menu>
+              
             </template>
           </el-dropdown>
+          <a href="javascript:;" class="shoucang">收藏</a>
+          <a href="javascript:;" class="message">消息</a>
+          <el-button type="danger" icon="el-icon-edit" round>创作中心</el-button>
         </div>
       </el-col>
     </el-row>
@@ -81,7 +89,7 @@
 </template>
 
 <script>
-import { onBeforeMount,ref } from 'vue' 
+import { onBeforeMount,ref,toRefs } from 'vue' 
 import { useInitNav } from './use/nav'
 import { useSearch } from './use/search'
 import { useAvater } from './use/avater'
@@ -90,16 +98,16 @@ export default {
   name: 'my-header',
 
   setup(props, context) {
+    //是否已经登录
+    const  {isLogin}  = useIsLogin()
     //导航相关逻辑
     const { activeIndex, handleSelect, navList } = useInitNav()
     //搜索
     const { searchInput, searchClickHandler } = useSearch()
-    //头像
-    const { circleUrl } = useAvater()
+    //头像以及退出前台登录
+    const { circleUrl,userInfo ,commandCallback,directTo} = useAvater(isLogin)
 
-    //是否已经登录
-    const { isLogin } = useIsLogin()
-    
+
     return {
       navList,
       handleSelect,
@@ -107,7 +115,10 @@ export default {
       searchInput,
       searchClickHandler,
       circleUrl,
-      isLogin
+      isLogin,
+      commandCallback,
+      directTo,
+      ...toRefs(userInfo)
     }
   }
 }
@@ -128,6 +139,7 @@ export default {
   height: 48px;
   padding: 0 10px;
 }
+
 .logo {
   width: 80px;
   height: 44px;
@@ -182,6 +194,18 @@ export default {
 }
 .login-register {
   a:hover{
+    color:red;
+  }
+}
+.menu-item{
+  color:#2e2e2e;
+  text-align:center;
+}
+.shoucang,.message{
+  color:#2e2e2e;
+  margin:0 20px;
+  font-size:12px;
+  &:hover{
     color:red;
   }
 }

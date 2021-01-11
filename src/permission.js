@@ -13,7 +13,7 @@ NProgress.configure({ showSpinner: false });
 /**
  * 白名单
  */
-const whiteList = ['/', '/login', '/register', '/reception', '/view/aaa']
+const whiteList = ['/', '/login', '/register', '/view/aaa']
 // 免检权
 const businessList = []
 
@@ -25,12 +25,12 @@ if (type) {
 
 router.beforeEach((to, from,) => {
     NProgress.start()
-    // console.log(String(to.path), from, 'beforeEach');
+     console.log(String(to.path), from, 'beforeEach');
     // console.log(whiteList.indexOf(to.path));
     // 判断是否需要登陆 在此之前需要判断是否登陆啦
     if (whiteList.indexOf(to.path) == -1) {
         // 重定向登陆页
-        // console.log(to.path);
+         console.log(to.path);
         if (to.path == '/404') {
             return { path: "/login" }
         } else {

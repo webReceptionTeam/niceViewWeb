@@ -30,7 +30,12 @@ export function useSignIn(loginMode,) {
                         path = str_decrypt(route.redirect)
                     }
                     const token = result.headers.authorization
-                   token && localStorage.setItem('token',token)
+                    token && localStorage.setItem('token',token)
+                    //存用户nickname，userid,gender
+                    const {userId,nickname,gender} = res.data
+                    localStorage.setItem('userid',userId);
+                    localStorage.setItem('nickname',nickname);
+                    localStorage.setItem('gender',gender);
                     router.push(path)
                 } else if (res.code == -1) {
                     ElMessage.warning({
