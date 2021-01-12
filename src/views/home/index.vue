@@ -29,7 +29,7 @@
         <a href="#div1">友情链接</a>
       </div> -->
     </div>
-    <myNav :list="'刘江涛'" :tabIndex="tabIndex" />
+    <myNav :list="'刘江涛'" :tabIndex="tabIndex" :heightList="heightList" />
   </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
   name: 'LayoutHome',
   components: { myNav },
   setup(props) {
-    provide('aaa', '刘江涛')
+    // provide('aaa', '刘江涛')
     onBeforeMount(() => {
       document.addEventListener('scroll', handleScroll)
     })
@@ -56,6 +56,7 @@ export default {
         // console.log(item.offsetTop)
         heightList.value.push(item.offsetTop)
       })
+      // provide('aaa', heightList)
     })
     const divs = ref([])
     const list = ref([
@@ -86,6 +87,34 @@ export default {
       {
         ref: 'div7',
         name: '精选7头条'
+      },
+      {
+        ref: 'div7',
+        name: '精选7头条'
+      },
+      {
+        ref: 'div8',
+        name: '精选8头条'
+      },
+      {
+        ref: 'div9',
+        name: '精选9头条'
+      },
+      {
+        ref: 'div10',
+        name: '精选10头条'
+      },
+      {
+        ref: 'div11',
+        name: '精选11头条'
+      },
+      {
+        ref: 'div12',
+        name: '精选12头条'
+      },
+      {
+        ref: 'div13',
+        name: '精选13头条'
       }
     ])
 
@@ -106,7 +135,8 @@ export default {
       handleScroll,
       divs,
       list,
-      tabIndex
+      tabIndex,
+      heightList
     }
   }
 }

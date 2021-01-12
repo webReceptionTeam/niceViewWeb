@@ -1,39 +1,50 @@
 <template>
   <div class="box-nav">
-    <a
-      :href="`#div${index + 1}`"
+    <div
       v-for="(item, index) in list"
       :key="index"
       :class="{ chosen: tabIndex == index }"
       @click="tabClick(index)"
-      >{{ item }}</a
     >
+      {{ item }}
+    </div>
   </div>
 </template>
 
 <script>
-import { onBeforeMount, ref, toRefs, inject, watch } from 'vue'
+import { onBeforeMount, onMounted, ref, toRefs, inject, watch } from 'vue'
 import { useMethod } from './use/index'
 import emitter from '@/utils/eventBus'
 export default {
   name: 'naviGation',
   props: {
     list: Boolean | Number | String,
-    tabIndex: Number
+    tabIndex: Number,
+    heightList: Array
   },
   setup(props) {
     onBeforeMount(() => {
-      console.log(props.list, props.tabIndex, '测试props')
-      console.log(inject('aaa'))
-      emitter.on('some-event', function (arg1, arg2, arg3) {
-        console.log(arg1, arg2, arg3)
-      })
+      // console.log(inject('aaa'))
+      console.log(props.list, props, '测试props')
+      // emitter.on('some-event', function (arg1, arg2, arg3) {
+      //   console.log(arg1, arg2, arg3)
+      // })
+    })
+    onMounted(() => {
+      console.log(props.list, props, '测试props')
     })
     watch(
       () => props.tabIndex,
       (count, prevCount) => {
         /* ... */
         console.log(count, prevCount, '9009')
+      }
+    )
+    watch(
+      () => props.heightList,
+      (count, prevCount) => {
+        /* ... */
+        console.log(count, prevCount, '测试')
       }
     )
     let tab = ref('1')
@@ -54,7 +65,7 @@ export default {
     ])
 
     // 点击事件
-    const method = useMethod()
+    const method = useMethod(props.heightList)
     return {
       ...props,
       tab,
