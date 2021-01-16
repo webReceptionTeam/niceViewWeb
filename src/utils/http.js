@@ -3,7 +3,8 @@ import axios from 'axios'
 
 const http = axios.create({
     // 在config文件夹下dev.evn.js和prod.env.js里分别配置开发和生产环境对应的路径前缀
-    baseURL: '/api',
+    // baseURL: '/api',
+    baseURL: '/local',
     timeout: 35000, // request timeout
     withCredentials: true // 默认为false,true为携带cookie
 })

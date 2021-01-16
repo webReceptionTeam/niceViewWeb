@@ -1,7 +1,11 @@
 <template>
   <div class="login-wrap">
     <!-- 登录页 再拆 后台登录 注册 -->
-    <div class="login-wrap-box" v-if="!dialogVisible">
+    <div
+      class="login-wrap-box"
+      v-if="!dialogVisible"
+      @keyup.enter.stop="loginBtn"
+    >
       <div class="login-wrap-box-title">用户登录CSDN</div>
       <el-tabs v-model="loginMode" @tab-click="handLoginModeClick">
         <el-tab-pane label="账号登录" name="01">

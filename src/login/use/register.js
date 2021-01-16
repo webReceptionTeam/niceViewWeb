@@ -1,8 +1,7 @@
 import { ref } from 'vue'
 import router from '@/router/index'
 import { ElMessage } from 'element-plus'
-
-import axios from '@/utils/http.js'
+import { userRegister } from '@/api/loginApi'
 export function useSignIn() {
     let username = ref('')
         , password = ref('')
@@ -16,15 +15,15 @@ export function useSignIn() {
             password: password.value,
             repassword: repassword.value,
             nickname: nickname.value,
-            gender: '2',
-            email: '',
-            phone: '',
-            info: ''
         }
         try {
-            let { data: res } = await axios.post('/users/register', data)
-            console.log(res, '测试')
+            let { data: res } = await userRegister(data)
             if (res.code == 0) {
+                ElMessage({
+                    showClose: true,
+                    message: res.msg + '已自动为您跳转到登录页',
+                    type: 'success'
+                });
                 router.push('/login')
             } else if (res.code == -1) {
                 ElMessage.warning({
@@ -50,6 +49,7 @@ export function useSignIn() {
     }
 }
 
+// 跳转登录
 export function useOpen() {
     const openLogin = () => {
         router.push('/login')

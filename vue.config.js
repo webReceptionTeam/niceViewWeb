@@ -39,6 +39,13 @@ module.exports = {
                     '^/api': 'http://8.131.91.95:3000' // 重写接口
                 }
             },
+            '/local': {
+                target: 'http://127.0.0.1:3000', //   注册
+                changeOrigin: true, // 是否跨域
+                pathRewrite: {
+                    '^/local': 'http://127.0.0.1:3000' // 重写接口
+                }
+            },
         }
     },
     configureWebpack: {

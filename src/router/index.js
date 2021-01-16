@@ -4,13 +4,23 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routerHistory = createWebHistory()
 
 const routes = [
-   
+
     // 首页
     {
         path: '/',
         component: () => import('@/layout/index.vue'),
         name: "LayoutHome",
-        meta: { aaa: '11' }
+        meta: { aaa: '11' },
+        children: [
+            {
+                path: '',
+                component: () => import('@/views/home/index.vue'),
+                name: "HelloWorld",
+                meta: {
+                    tao: '11'
+                }
+            }
+        ]
     },
     // 前台登录
     {

@@ -21,7 +21,7 @@ export function useSignIn(loginMode,) {
                     userName: userName.value,
                     userPassWord: passWord.value
                 })
-               const {data:res} = result;//在这解构
+                const { data: res } = result;//在这解构
 
                 if (res.code == 0) {
                     //登陆成功从响应头里拿token存入Localstorage
@@ -30,12 +30,14 @@ export function useSignIn(loginMode,) {
                         path = str_decrypt(route.redirect)
                     }
                     const token = result.headers.authorization
-                    token && localStorage.setItem('token',token)
+                    token && localStorage.setItem('token', token)
                     //存用户nickname，userid,gender
-                    const {userId,nickname,gender} = res.data
-                    localStorage.setItem('userid',userId);
-                    localStorage.setItem('nickname',nickname);
-                    localStorage.setItem('gender',gender);
+                    const { userId, nickname, gender, premission } = res.data
+                    localStorage.setItem('userid', userId);
+                    localStorage.setItem('nickname', nickname);
+                    localStorage.setItem('gender', gender);
+                    localStorage.setItem('premission', premission);
+
                     router.push(path)
                 } else if (res.code == -1) {
                     ElMessage.warning({

@@ -24,7 +24,7 @@ npm run lint
 #### Configuration Reference
 See [vue-cli @3.0.0](https://cli.vuejs.org/config/)(https://www.vue3js.cn/docs/zh/).
 See [vue-router @4.0.0-alpha.5](https://next.router.vuejs.org/).
-See [element-plus @1.0.1-beta.10](https://element-plus.gitee.io/#/zh-CN/component/installation).
+See [element-plus @1.0.1-beta.10](https://element-plus.org/#/zh-CN/component/installation).
 Set [vue3项目替代eventBus的两个第三方库](https://github.com/developit/mitt)(https://github.com/scottcorgan/tiny-emitter)
 #### 其他ui框架参考地址
 See [Vant 3.0](https://vant-contrib.gitee.io/vant/next).
