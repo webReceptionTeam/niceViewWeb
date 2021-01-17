@@ -17,7 +17,7 @@ const routes = [
                 component: () => import('@/views/home/index.vue'),
                 name: "HelloWorld",
                 meta: {
-                    tao: '11'
+                    aaa: '11'
                 }
             }
         ]

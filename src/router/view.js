@@ -1,16 +1,20 @@
+/**
+ * 前台路由
+ *  meta -> toolbar 参数 true -> 头部固定  false -> 头部固定
+ */
+
 // 前台路由
 const viewRouter = {
     path: '/view',
     component: () => import('@/layout'),
     name: "LayoutView",
-    meta: { liu: '11' },
     children: [
         {
-            path: 'aaa',
+            path: '',
             component: () => import('@/views/home/index.vue'),
             name: "HelloWorld",
             meta: {
-                tao: '11'
+                toolbar: true
             }
         },
         {
@@ -21,37 +25,37 @@ const viewRouter = {
             meta: {
                 us: '11'
             },
-            children:[
+            children: [
                 {
-                    path:'user-info',
-                    component:()=>import('@/views/user-center/components/user-info/index.vue'),
-                    name:'userInfo',
-                    meta:{
-                        usinfo:'22'
+                    path: 'user-info',
+                    component: () => import('@/views/user-center/components/user-info/index.vue'),
+                    name: 'userInfo',
+                    meta: {
+                        usinfo: '22'
                     }
                 },
                 {
-                    path:'account-set',
-                    component:()=>import('@/views/user-center/components/account-set/index.vue'),
-                    name:'accountSet',
-                    meta:{
-                        usinfo:'22'
+                    path: 'account-set',
+                    component: () => import('@/views/user-center/components/account-set/index.vue'),
+                    name: 'accountSet',
+                    meta: {
+                        usinfo: '22'
                     }
                 },
                 {
-                    path:'my-favorites',
-                    component:()=>import('@/views/user-center/components/my-favorites/index.vue'),
-                    name:'myFavorites',
-                    meta:{
-                        usinfo:'22'
+                    path: 'my-favorites',
+                    component: () => import('@/views/user-center/components/my-favorites/index.vue'),
+                    name: 'myFavorites',
+                    meta: {
+                        usinfo: '22'
                     }
                 },
                 {
-                    path:'my-test',
-                    component:()=>import('@/views/user-center/components/my-test/index.vue'),
-                    name:'myTest',
-                    meta:{
-                        usinfo:'22'
+                    path: 'my-test',
+                    component: () => import('@/views/user-center/components/my-test/index.vue'),
+                    name: 'myTest',
+                    meta: {
+                        usinfo: '22'
                     }
                 },
             ]

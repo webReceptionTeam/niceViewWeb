@@ -1,5 +1,5 @@
 <template>
-  <div class="my-header">
+  <div class="my-header" :class="{ toolbar: !toolbarClass }">
     <el-row>
       <el-col :span="8">
         <div class="header-left-wrap">
@@ -43,7 +43,7 @@
         <div class="header-right-wrap">
           <!-- 登录注册或头像 -->
           <span class="login-register" v-if="!isLogin">
-            <router-link to="/login" >登录</router-link>/
+            <router-link to="/login">登录</router-link>/
             <router-link to="/register">注册</router-link>
           </span>
           <el-dropdown @command="commandCallback" v-else>
@@ -51,15 +51,15 @@
               ><el-avatar :size="32" :src="circleUrl"></el-avatar
             ></a>
             <template #dropdown>
-              <el-dropdown-menu >
+              <el-dropdown-menu>
                 <div class="userinfo-menu">
-                  <p class="nick_name">{{nickname}}</p>
+                  <p class="nick_name">{{ nickname }}</p>
                   <p class="level"><i class="el-icon-star-on"></i></p>
                   <el-divider></el-divider>
                   <div class="user-info">
                     <a href="javascript:;" @click="directTo('粉丝页path')">
                       <span>--</span>
-                      <span class="gray" >粉丝</span>
+                      <span class="gray">粉丝</span>
                     </a>
                     <a href="javascript:;" @click="directTo('收藏页path')">
                       <span>--</span>
@@ -72,16 +72,23 @@
                   </div>
                 </div>
                 <el-divider></el-divider>
-                <el-dropdown-item command="personal"><i class="el-icon-user-solid"></i>个人中心</el-dropdown-item>
-                <el-dropdown-item command="manage"><i class="el-icon-document"></i>内容管理</el-dropdown-item>
-                <el-dropdown-item divided command="exit"><i class="el-icon-switch-button"></i>退出</el-dropdown-item>
+                <el-dropdown-item command="personal"
+                  ><i class="el-icon-user-solid"></i>个人中心</el-dropdown-item
+                >
+                <el-dropdown-item command="manage"
+                  ><i class="el-icon-document"></i>内容管理</el-dropdown-item
+                >
+                <el-dropdown-item divided command="exit"
+                  ><i class="el-icon-switch-button"></i>退出</el-dropdown-item
+                >
               </el-dropdown-menu>
-              
             </template>
           </el-dropdown>
           <a href="javascript:;" class="shoucang">收藏</a>
           <a href="javascript:;" class="message">消息</a>
-          <el-button type="danger" icon="el-icon-edit" round>创作中心</el-button>
+          <el-button type="danger" icon="el-icon-edit" round
+            >创作中心</el-button
+          >
         </div>
       </el-col>
     </el-row>
@@ -89,7 +96,8 @@
 </template>
 
 <script>
-import { onBeforeMount,ref,toRefs } from 'vue' 
+import { onBeforeMount, ref, toRefs } from 'vue'
+import { useRoute } from 'vue-router'
 import { useInitNav } from './use/nav'
 import { useSearch } from './use/search'
 import { useAvater } from './use/avater'
@@ -98,15 +106,19 @@ export default {
   name: 'my-header',
 
   setup(props, context) {
+    let toolbarClass = ref(false)
+    const route = useRoute()
+    toolbarClass = route.meta.toolbar
     //是否已经登录
-    const  {isLogin}  = useIsLogin()
+    const { isLogin } = useIsLogin()
     //导航相关逻辑
     const { activeIndex, handleSelect, navList } = useInitNav()
     //搜索
     const { searchInput, searchClickHandler } = useSearch()
     //头像以及退出前台登录
-    const { circleUrl,userInfo ,commandCallback,directTo} = useAvater(isLogin)
-
+    const { circleUrl, userInfo, commandCallback, directTo } = useAvater(
+      isLogin
+    )
 
     return {
       navList,
@@ -118,7 +130,8 @@ export default {
       isLogin,
       commandCallback,
       directTo,
-      ...toRefs(userInfo)
+      ...toRefs(userInfo),
+      toolbarClass
     }
   }
 }
@@ -129,6 +142,12 @@ export default {
   height: 48px;
   background: #fff;
   padding: 0 24px;
+  min-width: 1366px;
+  z-index: 10;
+}
+.toolbar {
+  position: fixed;
+  width: 100%;
 }
 .header-left-wrap,
 .header-middle-wrap,
@@ -193,20 +212,21 @@ export default {
   }
 }
 .login-register {
-  a:hover{
-    color:red;
+  a:hover {
+    color: red;
   }
 }
-.menu-item{
-  color:#2e2e2e;
-  text-align:center;
+.menu-item {
+  color: #2e2e2e;
+  text-align: center;
 }
-.shoucang,.message{
-  color:#2e2e2e;
-  margin:0 20px;
-  font-size:12px;
-  &:hover{
-    color:red;
+.shoucang,
+.message {
+  color: #2e2e2e;
+  margin: 0 20px;
+  font-size: 12px;
+  &:hover {
+    color: red;
   }
 }
 </style>
