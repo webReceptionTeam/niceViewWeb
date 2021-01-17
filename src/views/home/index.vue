@@ -9,27 +9,14 @@
         :key="index"
         :ref="
           (el) => {
-            divs[index] = el
+            refList[index] = el
           }
         "
       >
         {{ item.name }}
       </div>
-      <!-- <div class="content-wrap-div" id="div3">会员精选</div>
-      <div class="content-wrap-div" id="div4">精彩视频</div>
-      <div class="content-wrap-div" id="div5">推荐专题</div>
-      <div class="content-wrap-div" id="div6">Python</div>
-      <div class="content-wrap-div" id="div7">程序人生</div>
-      <div class="content-wrap-div" id="div8">大前端</div>
-      <div class="content-wrap-div" id="div9">技术团队/社区号</div>
-      <div class="content-wrap-div" id="div10">Java</div>
-      <div class="content-wrap-div" id="div11">开源技术</div>
-      <div class="content-wrap-div" id="div12">人工智能</div> -->
-      <!-- <div class="content-wrap-div" id="div13">
-        <a href="#div1">友情链接</a>
-      </div> -->
     </div>
-    <myNav :list="'刘江涛'" :tabIndex="tabIndex" :heightList="heightList" />
+    <myNav :refList="refList" :navList="list" />
   </div>
 </template>
 
@@ -42,101 +29,77 @@ export default {
   name: 'LayoutHome',
   components: { myNav },
   setup(props) {
-    // provide('aaa', '刘江涛')
-    onBeforeMount(() => {
-      document.addEventListener('scroll', handleScroll)
-    })
-    let heightList = ref([])
-    let tabIndex = ref(0)
-    onMounted(() => {
-      // window.addEventListener('scroll', handleScroll)
-      divs.value.map((item) => {
-        // if (item.offsetTop <= docScrollTop) {
-        // }
-        // console.log(item.offsetTop)
-        heightList.value.push(item.offsetTop)
-      })
-      // provide('aaa', heightList)
-    })
-    const divs = ref([])
+    const refList = ref([])
     const list = ref([
       {
         ref: 'div1',
-        name: '导航'
+        name: '导航',
+        tabName: '导航'
       },
       {
         ref: 'div2',
-        name: '精选头条2'
+        name: '精选头条',
+        tabName: '精选头条'
       },
       {
         ref: 'div3',
-        name: '精选头3条'
+        name: '会员精选',
+        tabName: '会员精选'
       },
       {
         ref: 'div4',
-        name: '精选4头条'
+        name: '精彩视频',
+        tabName: '精彩视频'
       },
       {
         ref: 'div5',
-        name: '精选5头条'
+        name: '推荐专题',
+        tabName: '推荐专题'
       },
       {
         ref: 'div6',
-        name: '精选6头条'
+        name: 'Python',
+        tabName: 'Python'
+      },
+      {
+        ref: 'div99',
+        name: '程序人生',
+        tabName: '程序人生'
       },
       {
         ref: 'div7',
-        name: '精选7头条'
-      },
-      {
-        ref: 'div7',
-        name: '精选7头条'
+        name: '大前端',
+        tabName: '大前端'
       },
       {
         ref: 'div8',
-        name: '精选8头条'
+        name: '技术团队',
+        tabName: '技术团队'
       },
       {
         ref: 'div9',
-        name: '精选9头条'
+        name: '技术团队',
+        tabName: '技术团队'
       },
       {
         ref: 'div10',
-        name: '精选10头条'
+        name: '精选10头条',
+        tabName: ''
       },
       {
         ref: 'div11',
-        name: '精选11头条'
+        name: '开源技术',
+        tabName: '开源技术'
       },
       {
         ref: 'div12',
-        name: '精选12头条'
-      },
-      {
-        ref: 'div13',
-        name: '精选13头条'
+        name: '友情链接',
+        tabName: '友情链接'
       }
     ])
-
-    const handleScroll = (el) => {
-      let docScrollTop = document.documentElement.scrollTop
-      // console.log('handleScroll', docScrollTop)
-
-      // console.log(divs.value[0].offsetTop, '990')
-      heightList.value.map((item, index) => {
-        if (item <= docScrollTop) {
-          // console.log('adfa')
-          tabIndex.value = index
-        }
-      })
-      // console.log(tabIndex.value)
-    }
     return {
-      handleScroll,
-      divs,
-      list,
-      tabIndex,
-      heightList
+      refList,
+      list
     }
   }
 }

@@ -3,56 +3,30 @@
     <img src="@/assets/nav/monkey.png" class="top-img" alt="" />
     <div
       class="item"
-      v-for="(item, index) in list"
+      v-for="(item, index) in navList"
       :key="index"
       :class="{ chosen: tabIndex == index }"
       @click="tabClick(index)"
     >
-      {{ item }}
+      {{ item.tabName }}
     </div>
-    <div class="back-top">
+    <div class="back-top" @click="tabTopClick">
       <i class="el-icon-arrow-up"></i>
     </div>
   </div>
 </template>
 
 <script>
-import { onBeforeMount, onMounted, ref, toRefs, inject, watch } from 'vue'
+import { ref } from 'vue'
 import { useMethod } from './use/index'
 import emitter from '@/utils/eventBus'
 export default {
   name: 'naviGation',
   props: {
-    list: Boolean | Number | String,
-    tabIndex: Number,
-    heightList: Array
+    refList: Array,
+    navList: Array
   },
   setup(props) {
-    onBeforeMount(() => {
-      // console.log(inject('aaa'))
-      console.log(props.list, props, '测试props')
-      // emitter.on('some-event', function (arg1, arg2, arg3) {
-      //   console.log(arg1, arg2, arg3)
-      // })
-    })
-    onMounted(() => {
-      console.log(props.list, props, '测试props')
-    })
-    watch(
-      () => props.tabIndex,
-      (count, prevCount) => {
-        /* ... */
-        console.log(count, prevCount, '9009')
-      }
-    )
-    watch(
-      () => props.heightList,
-      (count, prevCount) => {
-        /* ... */
-        console.log(count, prevCount, '测试')
-      }
-    )
-    let tab = ref('1')
     let list = ref([
       '导航',
       '精选头条',
@@ -63,17 +37,15 @@ export default {
       '程序人生',
       '大前端',
       '技术团队',
-      'Java',
+      '技术团队',
       '开源技术',
-      '人工智能',
-      ' 友情链接'
+      '开源技术',
+      '友情链接'
     ])
 
-    // 点击事件
-    const method = useMethod(props.heightList)
+    // 导航事件处理
+    const method = useMethod(props)
     return {
-      ...props,
-      tab,
       list,
       ...method
     }
@@ -115,6 +87,12 @@ export default {
     line-height: 24px;
     font-weight: 400;
     cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
   .back-top {
     line-height: 30px;
@@ -123,7 +101,7 @@ export default {
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 20px;
   }
   .item:hover,
   .back-top:hover {
