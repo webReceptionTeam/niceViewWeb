@@ -1,7 +1,7 @@
 // 后台路由
 const systemRouter = {
     path: '/system',
-    component: () => import('@/layout'),
+    component: () => import('@/layout/administration'),
     name: "LayoutSystem",
     meta: { liu: '11' },
     children: [

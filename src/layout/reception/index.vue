@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 头 -->
     <div style="height: 48px">
       <myHeader />
     </div>

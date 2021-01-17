@@ -6,7 +6,7 @@
 // 前台路由
 const viewRouter = {
     path: '/view',
-    component: () => import('@/layout'),
+    component: () => import('@/layout/reception'),
     name: "LayoutView",
     children: [
         {

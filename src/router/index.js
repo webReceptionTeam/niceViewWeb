@@ -8,19 +8,9 @@ const routes = [
     // 首页
     {
         path: '/',
-        component: () => import('@/layout/index.vue'),
+        component: () => import('@/layout/reception/home/index.vue'),
         name: "LayoutHome",
-        meta: { aaa: '11' },
-        children: [
-            {
-                path: '',
-                component: () => import('@/views/home/index.vue'),
-                name: "HelloWorld",
-                meta: {
-                    aaa: '11'
-                }
-            }
-        ]
+        meta: { toolbar: true },
     },
     // 前台登录
     {
