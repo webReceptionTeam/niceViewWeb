@@ -1,6 +1,7 @@
 <template>
   <myHeader />
   <div class="home_wrap">
+    <hotTopic />
     <div class="content_wrap">
       <!-- 导航 -->
       <div
@@ -17,18 +18,17 @@
         {{ item.name }}
       </div>
     </div>
-    <myNav :refList="refList" :navList="list" />
+    <naviGation :refList="refList" :navList="list" />
   </div>
 </template>
 
 <script>
 import emitter from '@/utils/eventBus'
 import myHeader from '../myHeader'
-import myNav from '@/components/naviGation'
 import { onBeforeMount, provide, onMounted, ref } from 'vue'
 export default {
   name: 'LayoutHome',
-  components: { myNav, myHeader },
+  components: { myHeader },
   setup(props) {
     const refList = ref([])
     const list = ref([
