@@ -1,7 +1,6 @@
 <template>
   <myHeader />
   <div class="home_wrap">
-    <hotTopic />
     <div class="content_wrap">
       <!-- 导航 -->
       <div
