@@ -16,18 +16,18 @@
         {{ item.name }}
       </div>
     </div>
-    <myNav :refList="refList" :navList="list" />
+    <!-- <myNav :refList="refList" :navList="list" /> -->
   </div>
 </template>
 
 <script>
 import emitter from '@/utils/eventBus'
 
-import myNav from '../../components/naviGation'
+// import myNav from '../../components/naviGation'
 import { onBeforeMount, provide, onMounted, ref } from 'vue'
 export default {
   name: 'LayoutHome',
-  components: { myNav },
+  // components: { myNav },
   setup(props) {
     const refList = ref([])
     const list = ref([

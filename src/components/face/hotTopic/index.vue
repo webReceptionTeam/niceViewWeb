@@ -17,6 +17,7 @@
 
 <script>
 import { ref } from 'vue'
+import { useClick } from './index'
 export default {
   name: 'hotTopic',
   setup(props) {
@@ -38,12 +39,10 @@ export default {
         context: '为好书点赞！'
       }
     ])
-    let topicClick = (item) => {
-      console.log(item, '测试')
-    }
+    const click = useClick()
     return {
       list,
-      topicClick
+      ...click
     }
   }
 }
