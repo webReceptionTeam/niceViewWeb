@@ -114,21 +114,6 @@ export default {
   background-color: #fc5531;
   color: #fff;
 }
-@media screen and (max-width: 1919px) and (min-width: 1440px) {
-  .box-nav {
-    margin-left: 626px;
-  }
-}
-@media screen and (max-width: 1439px) and (min-width: 1281px) {
-  // .box-nav {
-  //   margin-left: 512px;
-  // }
-}
-@media screen and (max-width: 1280px) {
-  // .box-nav {
-  //   margin-left: 501px;
-  // }
-}
 .chosen {
   border-radius: 4px;
   background-color: #fc5531;

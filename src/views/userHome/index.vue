@@ -1,6 +1,7 @@
 <template>
-  <div class="home_wrap" @click="btn">
-    刘江涛
+  <div class="user-home">
+    <div class="user-home-top"></div>
+    <div class="user-home-box">内容</div>
     <!-- <myNav :refList="refList" :navList="list" /> -->
   </div>
 </template>
@@ -9,7 +10,7 @@
 import { onBeforeMount, provide, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 export default {
-  name: 'LayoutHome',
+  name: 'userHome',
   // components: { myNav },
   setup(props) {
     const refList = ref([])
@@ -95,30 +96,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home_wrap {
-  width: 100%;
-}
-.content_wrap {
-  margin: 0 auto;
-  padding-bottom: 32px;
-  background: #ffffff;
-}
-@media screen and (max-width: 1919px) and (min-width: 1440px) {
-  .content_wrap {
-    width: 1232px;
+.user-home {
+  min-height: calc(100% - 52px);
+  &-box {
+    margin: 0 auto;
+    padding-bottom: 32px;
   }
-}
-@media screen and (max-width: 1439px) and (min-width: 1281px) {
-  .content_wrap {
-    width: 1004px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .content_wrap {
-    width: 1004px;
-  }
-}
-.content-wrap-div {
-  height: 800px;
 }
 </style>

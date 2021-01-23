@@ -1,0 +1,30 @@
+/* 
+  统一配置media
+*/
+@media screen and (max-width: 1919px) and (min-width: 1440px) {
+
+  .home_wrap .content_wrap,
+  .user-home-box {
+    width: 1232px;
+  }
+
+  .box-nav {
+    margin-left: 626px;
+  }
+}
+
+@media screen and (max-width: 1439px) and (min-width: 1281px) {
+
+  .home_wrap .content_wrap,
+  .user-home-box {
+    width: 1004px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+
+  .home_wrap .content_wrap,
+  .user-home-box {
+    width: 1004px;
+  }
+}

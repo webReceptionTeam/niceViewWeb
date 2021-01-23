@@ -1,6 +1,6 @@
 /**
  * 前台路由
- *  meta -> toolbar 参数 true -> 头部固定  false -> 头部固定
+ *  meta -> toolbar 参数 true -> 固定  false -> 一直在顶部展示
  */
 
 // 前台路由
@@ -12,10 +12,10 @@ const viewRouter = {
     children: [
         {
             path: '',
-            component: () => import('@/views/home/index.vue'),
+            component: () => import('@/views/userHome/index.vue'),
             name: "userHome",
             meta: {
-                toolbar: true
+                toolbar: false
             }
         },
         {

@@ -115,21 +115,6 @@ export default {
   padding-bottom: 32px;
   background: #ffffff;
 }
-@media screen and (max-width: 1919px) and (min-width: 1440px) {
-  .content_wrap {
-    width: 1232px;
-  }
-}
-@media screen and (max-width: 1439px) and (min-width: 1281px) {
-  .content_wrap {
-    width: 1004px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .content_wrap {
-    width: 1004px;
-  }
-}
 .content-wrap-div {
   height: 800px;
 }

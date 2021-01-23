@@ -1,3 +1,7 @@
+/* 引入统一配置scss配置文件 */
+@import './scss/index.scss';
+
+/* 全局配置样式 */
 body {
   height: 100%;
   padding: 0;
@@ -91,7 +95,7 @@ div:focus {
   display: block;
 }
 
-// 设置全局标签的默认样式
+/* 设置全局标签的默认样式 */
 a,
 abbr,
 acronym,
