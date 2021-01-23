@@ -31,7 +31,6 @@ const routes = [
         component: () => import('@/views/error-page/404.vue'),
         name: "error404"
     },
-    { path: '/:catchAll(.*)', redirect: { name: 'error404' } }
 ]
 const router = createRouter({
     history: routerHistory,

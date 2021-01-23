@@ -1,35 +1,23 @@
 <template>
-  <div class="home_wrap">
-    <div class="content_wrap">
-      <!-- 导航 -->
-      <div
-        class="content-wrap-div"
-        v-for="(item, index) in list"
-        :id="`div${index + 1}`"
-        :key="index"
-        :ref="
-          (el) => {
-            refList[index] = el
-          }
-        "
-      >
-        {{ item.name }}
-      </div>
-    </div>
+  <div class="home_wrap" @click="btn">
+    刘江涛
     <!-- <myNav :refList="refList" :navList="list" /> -->
   </div>
 </template>
 
 <script>
-import emitter from '@/utils/eventBus'
-
-// import myNav from '../../components/naviGation'
 import { onBeforeMount, provide, onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
 export default {
   name: 'LayoutHome',
   // components: { myNav },
   setup(props) {
     const refList = ref([])
+    let route = useRoute()
+    const btn = () => {
+      console.log(route.path)
+      open(route.path + '/user-center/user-info')
+    }
     const list = ref([
       {
         ref: 'div1',
@@ -99,7 +87,8 @@ export default {
     ])
     return {
       refList,
-      list
+      list,
+      btn
     }
   }
 }

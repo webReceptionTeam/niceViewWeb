@@ -19,7 +19,6 @@
 <script>
 import { ref } from 'vue'
 import { useMethod } from './index'
-import emitter from '@/utils/eventBus'
 export default {
   name: 'naviGation',
   props: {

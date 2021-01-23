@@ -5,61 +5,31 @@
 
 // 前台路由
 const viewRouter = {
-    path: '/view',
+    // 博客各个用户博客信息
+    path: '/:catchAll(.*)',
     component: () => import('@/layout/reception'),
-    name: "LayoutView",
+    name: "viewCatchAll",
     children: [
         {
             path: '',
             component: () => import('@/views/home/index.vue'),
-            name: "HelloWorld",
+            name: "userHome",
             meta: {
                 toolbar: true
             }
         },
         {
-            path: 'user-center',
-            redirect: { name: 'userInfo' },
-            component: () => import('@/views/user-center/index.vue'),
-            name: "userCenter",
-            meta: {
-                us: '11'
-            },
+            path: 'article',
+            component: () => import('@/views/a.vue'),
             children: [
                 {
-                    path: 'user-info',
-                    component: () => import('@/views/user-center/components/user-info/index.vue'),
-                    name: 'userInfo',
-                    meta: {
-                        usinfo: '22'
-                    }
-                },
-                {
-                    path: 'account-set',
-                    component: () => import('@/views/user-center/components/account-set/index.vue'),
-                    name: 'accountSet',
-                    meta: {
-                        usinfo: '22'
-                    }
-                },
-                {
-                    path: 'my-favorites',
-                    component: () => import('@/views/user-center/components/my-favorites/index.vue'),
-                    name: 'myFavorites',
-                    meta: {
-                        usinfo: '22'
-                    }
-                },
-                {
-                    path: 'my-test',
-                    component: () => import('@/views/user-center/components/my-test/index.vue'),
-                    name: 'myTest',
-                    meta: {
-                        usinfo: '22'
-                    }
-                },
+                    // 匹配全部路由 为了拿到动态博客id
+                    path: ':catchAll(.*)',
+                    component: () => import('@/views/b.vue'),
+                }
             ]
-        }
+        },
+
     ]
 }
 
