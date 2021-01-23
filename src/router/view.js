@@ -6,7 +6,7 @@
 // 前台路由
 const viewRouter = {
     // 博客各个用户博客信息
-    path: '/:catchAll(.*)',
+    path: '/:catch(.*)',
     component: () => import('@/layout/reception'),
     name: "viewCatchAll",
     children: [
@@ -25,6 +25,7 @@ const viewRouter = {
                 {
                     // 匹配全部路由 为了拿到动态博客id
                     path: ':catchAll(.*)',
+                    // path: 'adsfa',
                     component: () => import('@/views/b.vue'),
                 }
             ]

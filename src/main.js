@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp, ref } from 'vue'
 import App from './App.vue';
 
 // 引入ElementPlus ui库
@@ -16,17 +16,24 @@ import registerComponent from './register_workbench.js'
 // 全局样式
 import './styles/index.scss'
 
-// 导入App页面
+// 注册App
 const app = createApp(App)
-
-// 导入ElementPlus
+// 挂载ElementPlus
 app.use(ElementPlus)
-// 导入router
+// 挂载router
 app.use(router)
 // vuex
 app.use(store)
 // 全局注册
 registerComponent(app)
+// 全局挂载自定义方法及数据
+app.config.globalProperties.ljt = '江涛'
+/**
+ * setup 
+ * import { getCurrentInstance } from 'vue'
+ * getCurrentInstance().appContext.config.globalProperties.ljt
+ * 其他可以正常使用 this.ljt
+ */
 
 // 链接根节点
 app.mount('#app')

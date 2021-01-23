@@ -49,11 +49,10 @@ module.exports = {
         }
     },
     configureWebpack: {
-        name: '测试',
+        name: 'asOneWishes',
         resolve: {
             alias: {
                 '@': resolve('src'),
-
                 // SingleMember: resolve('src/components/SingleMember'),
                 'images': resolve('public/images')
             }
