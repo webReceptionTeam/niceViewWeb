@@ -56,7 +56,8 @@ export default {
 .box-nav {
   position: fixed;
   margin-left: 512px;
-  bottom: 40px;
+  top: 400px;
+  // bottom: 40px;
   left: 50%;
   transition: all 0.1s;
   background: #fff;

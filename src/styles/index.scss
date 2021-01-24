@@ -96,6 +96,15 @@ div:focus {
 }
 
 /* 设置全局标签的默认样式 */
+em,
+i,
+label,
+small,
+strong {
+  font-style: normal;
+  font-weight: 400;
+}
+
 a,
 abbr,
 acronym,

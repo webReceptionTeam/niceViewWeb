@@ -4,30 +4,49 @@
 @media screen and (max-width: 1919px) and (min-width: 1440px) {
 
   .home_wrap .content_wrap,
-  .user-home .header-box,
-  .user-home-box {
+  .user-home .header-box {
     width: 1232px;
   }
 
   .box-nav {
-    margin-left: 626px;
+    margin-left: 626px !important;
   }
 }
 
 @media screen and (max-width: 1439px) and (min-width: 1281px) {
 
   .home_wrap .content_wrap,
-  .user-home .header-box,
-  .user-home-box {
+  .user-home .header-box {
     width: 1004px;
   }
+
 }
 
 @media screen and (max-width: 1280px) {
 
   .home_wrap .content_wrap,
-  .user-home .header-box,
-  .user-home-box {
+  .user-home .header-box {
     width: 1004px;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .user-home-box {
+    width: 1366px;
+  }
+
+  .user-home main {
+    width: 1010px;
+  }
+
+}
+
+@media screen and (max-width: 1366px) {
+  .user-home-box {
+    width: 1116px;
+  }
+
+  .user-home main {
+    width: 760px;
   }
 }
