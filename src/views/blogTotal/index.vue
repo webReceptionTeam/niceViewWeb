@@ -1,13 +1,10 @@
 <template>
-  <div>
-    底层布局aaa
-    <router-view />
-  </div>
+  <div>博客首页</div>
 </template>
 
 <script>
 export default {
-  name: '测试'
+  name: 'blogTotal'
 }
 </script>
 

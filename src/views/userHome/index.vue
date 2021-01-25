@@ -4,8 +4,12 @@
       <headerView />
     </div>
     <div class="user-home-box">
-      <aside>测试二</aside>
-      <main>asdf</main>
+      <!-- 左侧模块 -->
+      <aside-box />
+      <main>
+        <!-- 这里做无此用户及无此博客id时展示 总博客列表 -->
+        <router-view></router-view>
+      </main>
     </div>
     <!-- <myNav :refList="refList" :navList="list" /> -->
   </div>
@@ -15,8 +19,10 @@
 // import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useHandleScroll } from './useIndex'
+import asideBox from './components'
 export default {
   name: 'userHome',
+  components: { asideBox },
   setup(props) {
     let route = useRoute()
     const btn = () => {
@@ -47,14 +53,9 @@ export default {
     margin: 0 auto;
     padding-bottom: 32px;
     height: 10000px;
-    aside {
-      width: 300px;
-      float: left;
-      background: #fff;
-    }
     main {
       float: right;
-      background: red;
+      // background: red;
     }
   }
 }

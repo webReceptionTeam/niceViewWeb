@@ -2,6 +2,7 @@
   <div class="header-box">
     <div class="title-blog">
       <h1>{{ userName }}的博客</h1>
+      <p class="description">共同学习，共同进步</p>
     </div>
     <div class="opt-box">
       <a href="" class="btn btn-sm">管理博客</a>
@@ -41,6 +42,16 @@ export default {
     h1 {
       font-size: 24px;
       color: #fff;
+    }
+    .description {
+      font-size: 14px;
+      color: #858585;
+      word-wrap: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
   }
   .opt-box {

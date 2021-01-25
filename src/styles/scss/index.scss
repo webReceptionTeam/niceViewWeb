@@ -1,3 +1,8 @@
 /* 统一引入陪配置 */
 @import './scss/media.scss'; // meadia引入
 @import './scss/variable.scss'; // 个性化引入
+
+
+.d-flex {
+  display: flex;
+}
