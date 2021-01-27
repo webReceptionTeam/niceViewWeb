@@ -28,7 +28,7 @@ const viewRouter = {
                 {
                     // 用户博客内层布局
                     path: 'article',
-                    component: () => import('@/views/a.vue'),
+                    component: () => import('@/views/articleBox/index.vue'),
                     name: 'articleBox',
                     children: [
                         {
