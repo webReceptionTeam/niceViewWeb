@@ -16,10 +16,11 @@
 </template>
 
 <script>
-// import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useHandleScroll } from './useIndex'
 import asideBox from './components'
+import { filterGetRoutePath, b, c } from '@/utils/filterData'
 export default {
   name: 'userHome',
   components: { asideBox },
@@ -29,6 +30,17 @@ export default {
       console.log(route.path)
       open(route.path + '/user-center/user-info')
     }
+    onMounted(() => {
+      let rou = route.path.slice(1)
+      let list = rou.split('/')
+      console.log(
+        list,
+        list[1],
+        filterGetRoutePath(route.path),
+
+        '测试'
+      )
+    })
     const handleScroll = useHandleScroll()
     return {
       btn,

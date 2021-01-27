@@ -6,8 +6,6 @@
     <asideCard class="aside-box" card="classification" />
     <asideCard class="aside-box" card="comment" />
     <asideCard class="aside-box" />
-    <div>热门文章模块</div>
-    <div>最新评论模块</div>
   </aside>
 </template>
 
