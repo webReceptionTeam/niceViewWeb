@@ -55,7 +55,6 @@ export default {
   min-height: calc(100% - 52px);
   &-top {
     height: 100px;
-    // background: url('@/assets/user-view/user-header.png') no-repeat center;
     background: url('../../assets/user-view/user-header.png') no-repeat center;
     background-size: 1920px auto;
   }
@@ -64,7 +63,7 @@ export default {
     padding: 0 24px 0;
     margin: 0 auto;
     padding-bottom: 32px;
-    height: 10000px;
+    // height: 10000px;
     main {
       float: right;
       // background: red;
