@@ -1,9 +1,11 @@
 // 过滤路由地址拿到动态用户名
-export function filterGetRoutePath(path) {
+import { useRoute } from 'vue-router'
+export function filterGetRoutePath() {
     let userName = '', articleId = '';
-    if (path) {
-        let route = path.slice(1)
-        let pathNameList = route.split('/')
+    let route = useRoute()
+    if (route.path) {
+        let routeList = route.path.slice(1)
+        let pathNameList = routeList.split('/')
         userName = pathNameList[0]
         if (pathNameList.length > 1) {
             articleId = pathNameList[pathNameList.length - 1]

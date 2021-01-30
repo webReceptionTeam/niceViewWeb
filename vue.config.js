@@ -31,7 +31,7 @@ module.exports = {
       errors: true
     },
     proxy: {
-      // http://8.131.91.95:3000/users/login
+      // 环境接口ip
       '/api': {
         target: 'http://8.131.91.95:3000', //   注册
         changeOrigin: true, // 是否跨域
@@ -39,6 +39,7 @@ module.exports = {
           '^/api': 'http://8.131.91.95:3000' // 重写接口
         }
       },
+      // 本地接口ip
       '/local': {
         target: 'http://127.0.0.1:3000', //   注册
         changeOrigin: true, // 是否跨域

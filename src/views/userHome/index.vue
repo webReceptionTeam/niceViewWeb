@@ -20,7 +20,7 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useHandleScroll } from './useIndex'
 import asideBox from './components'
-import { filterGetRoutePath, b, c } from '@/utils/filterData'
+import { filterGetRoutePath } from '@/utils/filterData'
 export default {
   name: 'userHome',
   components: { asideBox },

@@ -6,3 +6,19 @@
 .d-flex {
   display: flex;
 }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+
+button,
+input,
+textarea {
+  outline: none;
+  border: 0;
+}
