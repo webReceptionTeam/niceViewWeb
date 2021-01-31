@@ -11,6 +11,7 @@
         <router-view></router-view>
       </main>
     </div>
+
     <!-- <myNav :refList="refList" :navList="list" /> -->
   </div>
 </template>
@@ -53,8 +54,10 @@ export default {
 <style lang="scss" scoped>
 .user-home {
   min-height: calc(100% - 52px);
+  width: 100%;
   &-top {
     height: 100px;
+    width: 100%;
     background: url('../../assets/user-view/user-header.png') no-repeat center;
     background-size: 1920px auto;
   }

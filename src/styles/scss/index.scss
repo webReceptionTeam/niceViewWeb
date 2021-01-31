@@ -3,10 +3,6 @@
 @import './scss/variable.scss'; // 个性化引入
 
 
-.d-flex {
-  display: flex;
-}
-
 button,
 html input[type="button"],
 input[type="reset"],
@@ -21,4 +17,13 @@ input,
 textarea {
   outline: none;
   border: 0;
+}
+
+
+.d-flex {
+  display: flex;
+}
+
+.c-p {
+  cursor: pointer;
 }
