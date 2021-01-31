@@ -5,7 +5,16 @@
       <div class="article-info-box">
         <div class="bar-content">
           <span class="follow-nickName">CSDN资讯</span>
-          <span class="time">2021-01-29 17:56:18 </span>
+          <span class="time">
+            <el-tooltip placement="bottom">
+              <span class="c-p">2021-01-29 17:56:18</span>
+              <template #content>
+                最后发布 2021-01-29 17:56:18<br />
+                首次发布2021-01-29 17:56:18
+              </template>
+            </el-tooltip>
+          </span>
+
           <span class="read">166</span>
           <span class="favorites">收藏</span>
         </div>
@@ -87,8 +96,7 @@ export default {
       background: #f8f8f8;
       background-color: rgb(248, 248, 248);
       border-radius: 4px;
-      padding: 0 8px;
-      margin-bottom: 10px;
+      padding: 0 8px 10px;
       position: relative;
       .bar-content {
         span {

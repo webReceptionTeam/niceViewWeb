@@ -55,4 +55,7 @@ const userConsoleRouter = {
     name: "userConsole",
     children: []
 }
+// const userAddEditor = {
+//     path: '/editor'
+// }
 export { userPersonalRouter, userConsoleRouter }
