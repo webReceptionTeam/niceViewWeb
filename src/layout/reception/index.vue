@@ -4,7 +4,9 @@
     <div style="height: 48px">
       <myHeader />
     </div>
-    <router-view />
+    <div class="layout-box">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -27,4 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.layout-box {
+  margin: 0 auto;
+}
 </style>

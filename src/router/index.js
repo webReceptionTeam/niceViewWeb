@@ -25,6 +25,20 @@ const routes = [
         component: () => import('@/login/registerLogin.vue'),
         name: "registerLogin",
     },
+    {
+        path: "/nav",
+        component: () => import('@/layout/reception'),
+        name: "nav",
+        children: [
+            {
+                // 用户博客首页布局
+                path: '',
+                component: () => import('@/views/navigation/index.vue'),
+                name: "navigationBox",
+            }
+        ]
+        // navigationBox
+    },
     // 404
     {
         path: '/404',
