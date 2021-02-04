@@ -143,7 +143,7 @@ export default {
   background: #fff;
   padding: 0 24px;
   min-width: 1366px;
-  z-index: 10;
+  z-index: 100;
 }
 .toolbar {
   position: fixed;
