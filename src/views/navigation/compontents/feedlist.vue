@@ -3,6 +3,7 @@
     <div
       class="feed-list-item"
       v-infinite-scroll="loadScroll"
+      :infinite-scroll-disabled="loading"
       v-for="(item, index) in blogList"
       :key="index"
     >
@@ -34,6 +35,7 @@
         </div>
       </div>
     </div>
+    <div v-show="loading">加载中</div>
   </div>
 </template>
 
@@ -42,35 +44,19 @@ import { ref, watchEffect } from 'vue'
 export default {
   name: 'feedlist',
   setup(props) {
-    let blogList = ref(10)
-    function debounce(fn, wait) {
-      let timer = null
-      return function () {
-        if (timer !== null) {
-          clearTimeout(timer)
-        }
-        timer = setTimeout(fn, wait)
-      }
-    }
+    let blogList = ref(10),
+      loading = ref(false)
     const loadScroll = () => {
-      //   return setTimeout(() => {
-
-      //   }, 1000)
-      console.log(111)
-      debounce(() => {
-        console.log('测试')
+      loading.value = true
+      setTimeout(() => {
         blogList.value += 2
-      }, 500)
+        loading.value = false
+      }, 2000)
     }
-
-    // watchEffect((onInvalidate) => {
-    //   setTimeout(() => {
-    //     loadScroll()
-    //   }, 1000)
-    // })
     return {
       blogList,
-      loadScroll
+      loadScroll,
+      loading
     }
   }
 }
@@ -78,8 +64,8 @@ export default {
 
 <style lang="scss" scoped>
 .feed-list {
-  height: 500px;
-  overflow: auto;
+  // height: 500px;
+  // overflow: auto;
   &-item {
     padding: 18px 24px 13px 24px;
     background: #fff;

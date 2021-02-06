@@ -10,9 +10,10 @@
       >
       </el-tab-pane>
     </el-tabs>
-    <blog-view v-show="activeName == '00'" />
+    <component :is="viewName[activeName]" />
+    <!-- <blog-view v-show="activeName == '00'" />
     <collect-view v-show="activeName == '01'" />
-    <follow-view v-show="activeName == '02'" />
+    <follow-view v-show="activeName == '02'" /> -->
     <blogFooter />
   </div>
 </template>
@@ -27,15 +28,20 @@ export default {
   components: { blogView, collectView, followView },
   setup(props) {
     let blogTabList = ref([
-      { tabId: '00', table: '博客' },
-      // { tabId: '', table: '资源 ' },
-      // { tabId: '', table: '论坛' },
-      // { tabId: '', table: '问答 ' },
-      { tabId: '01', table: '收藏' },
-      { tabId: '02', table: '关注' }
-    ])
-    let activeName = ref('00')
-    return { blogTabList, activeName }
+        { tabId: '00', table: '博客' },
+        // { tabId: '', table: '资源 ' },
+        // { tabId: '', table: '论坛' },
+        // { tabId: '', table: '问答 ' },
+        { tabId: '01', table: '收藏' },
+        { tabId: '02', table: '关注' }
+      ]),
+      activeName = ref('01'),
+      viewName = ref({
+        '00': 'blogView',
+        '01': 'collectView',
+        '02': 'followView'
+      })
+    return { blogTabList, activeName, viewName }
   },
   methods: {
     handleClick() {}
