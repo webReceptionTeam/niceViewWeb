@@ -5,57 +5,87 @@
  */
 // 个人中心
 const userPersonalRouter = {
-    path: '/user-center',
-    redirect: { name: 'userInfo' },
-    component: () => import('@/views/user-center/index.vue'),
+    path: '/userCenter',
+    component: () => import('@/layout/reception'),
+    meta: { redirect: '' },
     name: "userCadadenter",
-    meta: {
-        us: '11'
-    },
     children: [
         {
-            path: 'user-info',
-            component: () => import('@/views/user-center/components/user-info/index.vue'),
-            name: 'userInfo',
+            path: '',
+            redirect: { name: 'userInfo' },
+            component: () => import('@/views/userCenter/index.vue'),
+            name: "userCadadenterBox",
             meta: {
-                usinfo: '22'
-            }
-        },
-        {
-            path: 'account-set',
-            component: () => import('@/views/user-center/components/account-set/index.vue'),
-            name: 'accountasdSet',
-            meta: {
-                usinfo: '22'
-            }
-        },
-        {
-            path: 'my-favorites',
-            component: () => import('@/views/user-center/components/my-favorites/index.vue'),
-            name: 'myFavordsites',
-            meta: {
-                usinfo: '22'
-            }
-        },
-        {
-            path: 'my-test',
-            component: () => import('@/views/user-center/components/my-test/index.vue'),
-            name: 'myTesaasdasdt',
-            meta: {
-                usinfo: '22'
-            }
-        },
+                us: '11'
+            },
+            children: [
+                {
+                    path: 'user-info',
+                    component: () => import('@/views/userCenter/components/user-info/index.vue'),
+                    name: 'userInfo',
+                    meta: {
+                        usinfo: '22'
+                    }
+                },
+                {
+                    path: 'account-set',
+                    component: () => import('@/views/userCenter/components/account-set/index.vue'),
+                    name: 'accountasdSet',
+                    meta: {
+                        usinfo: '22'
+                    }
+                },
+                {
+                    path: 'my-favorites',
+                    component: () => import('@/views/userCenter/components/my-favorites/index.vue'),
+                    name: 'myFavordsites',
+                    meta: {
+                        usinfo: '22'
+                    }
+                },
+                {
+                    path: 'my-test',
+                    component: () => import('@/views/userCenter/components/my-test/index.vue'),
+                    name: 'myTesaasdasdt',
+                    meta: {
+                        usinfo: '22'
+                    }
+                },
+                {
+                    path: 'setting',
+                    component: () => import('@/views/userCenter/components/user-setting/index.vue'),
+                    name: 'myUserSetting',
+                    meta: {
+                        usinfo: '22'
+                    }
+                },
+            ]
+        }
     ]
 }
 // 用户的博客管理设置等
 const userConsoleRouter = {
     path: '/userConsole',
-    // redirect: { name: 'userInfo' },
-    component: () => import('@/views/user-center/index.vue'),
+    component: () => import('@/layout/reception'),
     name: "userConsole",
-    children: []
+    children: [
+        {
+            path: '',
+            component: () => import('@/views/userConsole/index.vue'),
+            meta: { redirect: '' },
+            name: "userConsoleBox",
+            children: [
+                {
+                    path: '',
+                    component: () => import('@/views/userConsole/components/home/index.vue'),
+                    meta: { redirect: '' },
+                    name: "userConsoleHome",
+                }
+            ]
+        }
+    ]
 }
 // const userAddEditor = {
 //     path: '/editor'
 // }
-export { userPersonalRouter, userConsoleRouter }
+export default [userPersonalRouter, userConsoleRouter]

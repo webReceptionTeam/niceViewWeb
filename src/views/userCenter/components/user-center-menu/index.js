@@ -1,4 +1,3 @@
-import Popper from 'element-plus/lib/el-popper'
 import { reactive, ref, onBeforeMount } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -17,32 +16,18 @@ export function userCerterMenu() {
     },
     {
       id: '3',
-      title: '我的收藏',
-      route: 'my-favorites'
+      title: '隐私设置',
+      route: 'setting'
     },
     {
       id: '4',
-      title: '我的测试',
-      route: 'my-test',
-      children: [
-        {
-          id: '41',
-          title: '选项1'
-        },
-        {
-          id: '42',
-          title: '选项2'
-        },
-        {
-          id: '43',
-          title: '选项3'
-        }
-      ]
+      title: '我的收藏',
+      route: 'my-favorites',
     },
     {
       id: '5',
       title: '内容管理',
-      route: ''
+      route: 'xxxx'
     }
   ])
   const handleSelect = (key, keyPath, urls) => {
@@ -51,7 +36,7 @@ export function userCerterMenu() {
       router.push(url)
     }
   }
-  onBeforeMount(() => {})
+  onBeforeMount(() => { })
   return {
     menuList,
     handleSelect

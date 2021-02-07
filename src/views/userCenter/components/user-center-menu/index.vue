@@ -14,11 +14,11 @@
       :index="item.id"
       :route="item.route"
     >
-      <i class="el-icon-setting"></i>
       <template #title>{{ item.title }}</template>
       <!-- <template #title>
         <router-link :to="item.route">{{ item.title }}</router-link>
       </template> -->
+      <!-- <a href="javascript:;">跳转</a> -->
     </el-menu-item>
   </el-menu>
 </template>
@@ -39,5 +39,21 @@ export default {
 <style lang="scss" scoped>
 .user-center-menu {
   width: 100%;
+}
+// is-active
+/deep/ .el-menu {
+  padding: 8px 0;
+  &-item {
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: #555666 !important;
+  }
+  &-item.is-active,
+  &-item:hover {
+    background: #f0f0f5 !important;
+    font-weight: 500 !important;
+    color: #222226 !important;
+  }
 }
 </style>
