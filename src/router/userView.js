@@ -85,7 +85,9 @@ const userConsoleRouter = {
         }
     ]
 }
-// const userAddEditor = {
-//     path: '/editor'
-// }
-export default [userPersonalRouter, userConsoleRouter]
+const userAddEditor = {
+    path: '/editor',
+    component: () => import('@/views/userAddEditor/index.vue'),
+    name: "userAddEditor",
+}
+export default [userPersonalRouter, userConsoleRouter, userAddEditor]

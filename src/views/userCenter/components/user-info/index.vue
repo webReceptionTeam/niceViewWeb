@@ -11,7 +11,10 @@
               <div class="person-name">三天两渣是也</div>
               <div
                 class="person-code-age"
-                style="background-color: rgb(209, 221, 241); color: rgb(69, 81, 101);"
+                style="
+                  background-color: rgb(209, 221, 241);
+                  color: rgb(69, 81, 101);
+                "
               >
                 <span data-v-df75d7f8="">码龄1年</span>
               </div>
@@ -27,19 +30,18 @@
         </div>
         <div class="general-info-b"></div>
       </div>
-      <div class="base-info">
-        <h3 class="base-info-head">基本信息</h3>
-      </div>
     </div>
-    <div class="edu-info"></div>
-    <div class="job-info"></div>
-    <div class="interest-tag"></div>
+    <userInfoModule userInfoType="00" />
+    <userInfoModule userInfoType="01" />
+    <userInfoModule userInfoType="02" />
   </div>
 </template>
 
 <script>
+import userInfoModule from './userInfoModule'
 export default {
-  name: 'userInfo'
+  name: 'userInfo',
+  components: { userInfoModule }
 }
 </script>
 <style lang="scss" scoped>
@@ -138,19 +140,6 @@ export default {
     .general-info-b {
       display: flex;
       align-items: center;
-    }
-  }
-  .base-info {
-    min-width: 998px;
-    padding: 24px 16px 16px;
-    background: #fff;
-    margin-bottom: 16px;
-    .base-info-head {
-      font-size: 18px;
-      line-height: 24px;
-      font-weight: 600;
-      color: #2e2e2e;
-      margin-bottom: 16px;
     }
   }
 }
