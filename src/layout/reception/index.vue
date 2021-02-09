@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%; height: 100%">
+  <div style="width: 100%; height: calc(100% - 48px)">
     <!-- 头 -->
     <div style="height: 48px">
       <myHeader />
@@ -7,6 +7,7 @@
     <div class="layout-box">
       <router-view />
     </div>
+    <blogFooter v-if="!metaFooter" />
   </div>
 </template>
 
@@ -24,6 +25,9 @@ export default {
     onBeforeMount(() => {
       console.log(router.meta)
     })
+    return {
+      metaFooter: router.meta.blogFooter
+    }
   }
 }
 </script>

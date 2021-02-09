@@ -1,7 +1,7 @@
 <template>
   <el-menu
     :uniqueOpened="true"
-    default-active="1"
+    :default-active="active"
     class="user-center-menu"
     background-color="#fff"
     text-color="#ccc"
@@ -11,7 +11,7 @@
     <el-menu-item
       v-for="item in menuList"
       :key="item.id"
-      :index="item.id"
+      :index="item.route"
       :route="item.route"
     >
       <template #title>{{ item.title }}</template>
@@ -23,12 +23,13 @@
   </el-menu>
 </template>
 <script>
-import { userCerterMenu, handleSelect } from './index'
+import { userCerterMenu } from './index'
 export default {
   name: 'userCerterMenu',
   setup() {
-    const { menuList, handleSelect } = userCerterMenu()
+    const { menuList, handleSelect, active } = userCerterMenu()
     return {
+      active,
       menuList,
       handleSelect
     }

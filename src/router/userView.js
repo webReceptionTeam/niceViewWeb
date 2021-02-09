@@ -60,6 +60,11 @@ const userPersonalRouter = {
                     }
                 },
             ]
+        },
+        // 重定向到个人详情页
+        {
+            path: ':catchAll(.*)',
+            redirect: { name: 'userCadadenterBox' },
         }
     ]
 }

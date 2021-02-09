@@ -1,8 +1,9 @@
 import { reactive, ref, onBeforeMount } from 'vue'
 import { useRouter } from 'vue-router'
-
+import { filterGetRoutePath } from '@/utils/filterData'
 export function userCerterMenu() {
   const router = useRouter()
+  let active = ref(filterGetRoutePath().articleId)
   const menuList = reactive([
     {
       id: '1',
@@ -36,9 +37,12 @@ export function userCerterMenu() {
       router.push(url)
     }
   }
-  onBeforeMount(() => { })
+  onBeforeMount(() => {
+    console.log(filterGetRoutePath().articleId, '测试');
+  })
   return {
     menuList,
-    handleSelect
+    handleSelect,
+    active
   }
 }

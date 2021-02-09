@@ -1,6 +1,8 @@
 <template>
   <div class="console_box">
-    <div class="console_box_left">asdfasd</div>
+    <div class="console_box_left">
+      <consoleMenu />
+    </div>
     <div class="console_box_right">
       <router-view />
     </div>
@@ -8,8 +10,10 @@
 </template>
 
 <script>
+import consoleMenu from './components/menu/index'
 export default {
-  name: 'consoleBox'
+  name: 'consoleBox',
+  components: { consoleMenu }
 }
 </script>
 
@@ -24,6 +28,7 @@ export default {
   &_left {
     position: absolute;
     width: 186px;
+    height: 100%;
     top: 0;
     float: left;
     background: #fff;

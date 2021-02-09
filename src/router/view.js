@@ -9,6 +9,7 @@ const viewRouter = {
     path: '/:catch(.*)',
     component: () => import('@/layout/reception'),
     name: "viewCatchAll",
+    meta: { blogFooter: true },
     children: [
         {
             // 用户博客首页布局
