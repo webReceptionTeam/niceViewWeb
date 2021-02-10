@@ -1,48 +1,45 @@
 <template>
   <div class="console-menu">
     <a
-      href="https://editor.csdn.net/md/"
+      href="http://localhost:8080/editor"
       target="_blank"
       class="console-menu-bt console-menu-bt-md"
       ><span>Markdown编辑器</span></a
     >
     <el-menu
-      default-active="2"
+      :default-active="active"
       class="el-menu-vertical-demo"
       unique-opened
-      @open="handleOpen"
-      @close="handleClose"
     >
-      <el-menu-item index="1">
-        <template #title>
-          <i class="el-icon-s-home"></i>
-          <span>首页</span>
-        </template>
-      </el-menu-item>
-      <el-submenu index="2">
-        <template #title>
-          <i class="el-icon-edit"></i>
-          <span>内容创作</span>
-        </template>
-        <el-menu-item index="2-1">发布博客</el-menu-item>
-      </el-submenu>
-      <el-submenu index="3">
-        <template #title>
-          <i class="el-icon-edit"></i>
-          <span>内容管理</span>
-        </template>
-        <el-menu-item index="3-1">文章管理</el-menu-item>
-        <el-menu-item index="3-2">评论管理</el-menu-item>
-        <el-menu-item index="3-3">分类管理</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
-        <template #title>数据观星</template>
-      </el-menu-item>
-      <el-menu-item index="5">
-        <i class="el-icon-setting"></i>
-        <template #title>设置</template>
-      </el-menu-item>
+      <template v-for="item in menuList" :key="item.id">
+        <el-submenu
+          v-if="item.children && item.children.length > 0"
+          :index="item.route"
+        >
+          <template #title>
+            <i :class="item.icon"></i>
+            <span>{{ item.title }}</span>
+          </template>
+          <a
+            v-for="child in item.children"
+            :key="child.id"
+            :href="child.route"
+            :target="child.open ? '_blank' : ''"
+          >
+            <el-menu-item :index="child.route">
+              {{ child.title }}
+            </el-menu-item>
+          </a>
+        </el-submenu>
+        <a v-else :href="item.route" :target="item.open ? '_blank' : ''">
+          <el-menu-item :index="item.route">
+            <template #title>
+              <i :class="item.icon"></i>
+              <span>{{ item.title }}</span>
+            </template>
+          </el-menu-item>
+        </a>
+      </template>
     </el-menu>
     <div class="console-menu-bottom">
       <img src="@/assets/company/company_wechat.jpg" class="top-img" alt="" />
@@ -52,8 +49,86 @@
 </template>
 
 <script>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { filterGetRoutePath } from '@/utils/filterData'
 export default {
-  name: 'consoleMenu',
+  name: 'userConsoleMenu',
+  setup(props) {
+    let menuList = ref([
+      {
+        id: '1',
+        icon: 'el-icon-s-home',
+        image: '',
+        title: '首页',
+        route: 'home'
+      },
+      {
+        id: '2',
+        icon: 'el-icon-edit',
+        image: '',
+        title: '内容创作',
+        route: '/editor',
+        open: true
+      },
+      {
+        id: '3',
+        icon: 'el-icon-edit',
+        image: '',
+        title: '内容管理',
+        route: 'home',
+        children: [
+          {
+            parentId: '3-1',
+            title: '文章管理',
+            route: 'article'
+          },
+          {
+            parentId: '3-2',
+            title: '评论管理',
+            route: 'comment'
+          },
+          {
+            parentId: '3-1',
+            title: '分类管理',
+            route: 'classification'
+          }
+        ]
+      },
+      {
+        id: '4',
+        icon: 'el-icon-setting',
+        image: '',
+        title: '数据观星',
+        route: 'blogData'
+      },
+      {
+        id: '5',
+        icon: 'el-icon-setting',
+        image: '',
+        title: '设置',
+        route: 'configBlog'
+      }
+    ])
+    const router = useRouter()
+    let active = ref(
+      filterGetRoutePath().articleId == 'classAdd'
+        ? 'classification'
+        : filterGetRoutePath().articleId
+    )
+    const handleSelect = (key, keyPath, urls) => {
+      const url = urls.route
+      console.log(key, keyPath, urls)
+      if (url) {
+        router.push(url)
+      }
+    }
+    return {
+      menuList,
+      handleSelect,
+      active
+    }
+  },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath)

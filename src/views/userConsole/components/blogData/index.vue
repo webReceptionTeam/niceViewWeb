@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'blogData'
+  name: 'userConsoleBlogData'
 }
 </script>
 

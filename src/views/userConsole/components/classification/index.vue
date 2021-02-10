@@ -1,10 +1,10 @@
 <template>
-  <div>allComment</div>
+  <div>userConsoleClassification</div>
 </template>
 
 <script>
 export default {
-  name: 'allComment'
+  name: 'userConsoleClassification'
 }
 </script>
 

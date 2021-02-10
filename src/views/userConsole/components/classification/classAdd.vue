@@ -1,10 +1,10 @@
 <template>
-  <div>commentAdd</div>
+  <div>userConsoleClassAdd</div>
 </template>
 
 <script>
 export default {
-  name: 'commentAdd'
+  name: 'userConsoleClassAdd'
 }
 </script>
 

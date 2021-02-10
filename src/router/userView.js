@@ -74,19 +74,75 @@ const userConsoleRouter = {
     component: () => import('@/layout/reception'),
     name: "userConsole",
     children: [
+        // 内容管理
         {
             path: '',
+            redirect: { name: 'userConsoleHome' },
             component: () => import('@/views/userConsole/index.vue'),
             meta: { redirect: '' },
             name: "userConsoleBox",
             children: [
+                // 内容首页 
                 {
-                    path: '',
+                    path: 'home',
                     component: () => import('@/views/userConsole/components/home/index.vue'),
                     meta: { redirect: '' },
                     name: "userConsoleHome",
+                },
+                // 文章管理
+                {
+                    path: 'article',
+                    component: () => import('@/views/userConsole/components/article/index.vue'),
+                    meta: { redirect: '' },
+                    name: "userConsoleArticle",
+                },
+                // 文章管理
+                {
+                    path: 'article',
+                    component: () => import('@/views/userConsole/components/article/index.vue'),
+                    meta: { redirect: '' },
+                    name: "userConsoleArticle",
+                },
+                // 评论管理
+                {
+                    path: 'comment',
+                    component: () => import('@/views/userConsole/components/comment/index.vue'),
+                    meta: { redirect: '' },
+                    name: "userConsoleComment",
+                },
+                // 分类管理
+                {
+                    path: 'classification',
+                    component: () => import('@/views/userConsole/components/classification/index.vue'),
+                    meta: { redirect: '' },
+                    name: "userConsoleClassification",
+                },
+                {
+                    path: 'classAdd',
+                    component: () => import('@/views/userConsole/components/classification/classAdd.vue'),
+                    meta: { redirect: '' },
+                    name: "userConsoleClassAdd",
+                },
+                // 数据观星
+                {
+                    path: 'blogData',
+                    component: () => import('@/views/userConsole/components/blogData/index.vue'),
+                    meta: { redirect: '' },
+                    name: "userConsoleBlogData",
+                },
+                // 文章设置
+                {
+                    path: 'configBlog',
+                    component: () => import('@/views/userConsole/components/configBlog/index.vue'),
+                    meta: { redirect: '' },
+                    name: "userConsoleConfigBlog",
                 }
             ]
+        },
+        // 重定向到设置管理首页
+        {
+            path: ':catchAll(.*)',
+            redirect: { name: 'userConsoleBox' },
         }
     ]
 }

@@ -5,7 +5,7 @@
 
 <script>
 export default {
-  name: 'configBlog'
+  name: 'userConsoleConfigBlog'
 }
 </script>
 
