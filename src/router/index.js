@@ -4,14 +4,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routerHistory = createWebHistory()
 
 const routes = [
-
-    // 首页
-    {
-        path: '/',
-        component: () => import('@/layout/reception/home/index.vue'),
-        name: "LayoutHome",
-        meta: { toolbar: true },
-    },
     // 前台登录
     {
         path: '/login',
@@ -24,20 +16,6 @@ const routes = [
         path: '/register',
         component: () => import('@/login/registerLogin.vue'),
         name: "registerLogin",
-    },
-    {
-        path: "/nav",
-        component: () => import('@/layout/reception'),
-        name: "nav",
-        children: [
-            {
-                // 用户博客首页布局
-                path: '',
-                component: () => import('@/views/navigation/index.vue'),
-                name: "navigationBox",
-            }
-        ]
-        // navigationBox
     },
     // 404
     {

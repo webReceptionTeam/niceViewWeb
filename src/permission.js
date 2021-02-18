@@ -24,10 +24,15 @@ const businessList = []
 
 // 判断前后项目逻辑 待调整
 const premission = window.localStorage.getItem("premission")
-router.addRoute(premission == '1' ? systemRouter : viewRouter)
+if (premission != '1') {
+    viewRouter.map(item => {
+        router.addRoute(item)
+    })
+}
 if (token) {
-    // 用户登录后添加路由 前台
-    userView.map(item => {
+    // 用户登录后添加路由 前台 或 管理系统
+    const routerList = premission == '1' ? systemRouter : userView
+    routerList.map(item => {
         router.addRoute(item)
     })
 }

@@ -12,24 +12,24 @@
 </template>
 
 <script>
-import myHeader from './myHeader'
-import { onBeforeMount } from 'vue'
-import { useRoute } from 'vue-router'
+import myHeader from "./headerView";
+import { onBeforeMount } from "vue";
+import { useRoute } from "vue-router";
 export default {
-  name: 'reception',
+  name: "reception",
   components: {
-    myHeader
+    myHeader,
   },
   setup(props) {
-    const router = useRoute()
+    const router = useRoute();
     onBeforeMount(() => {
-      console.log(router.meta)
-    })
+      console.log(router.meta);
+    });
     return {
-      metaFooter: router.meta.blogFooter
-    }
-  }
-}
+      metaFooter: router.meta.blogFooter,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

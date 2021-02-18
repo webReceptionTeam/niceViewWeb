@@ -5,30 +5,28 @@
       <p class="description">共同学习，共同进步</p>
     </div>
     <div class="opt-box">
-      <a href="" class="btn btn-sm">管理博客</a>
-      <a href="javascript:;" class="btn btn-sm" @click.stop="updataSkin"
-        >换皮肤啦</a
-      >
+      <a href="http://localhost:8080/userConsole/home" class="btn btn-sm">管理博客</a>
+      <a href="javascript:;" class="btn btn-sm" @click.stop="updataSkin">换皮肤啦</a>
       <div class="skin-template-box" v-if="skinViewFlag">换肤设置</div>
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
-import { useSkin } from './useLogic.js'
+import { ref } from "vue";
+import { useSkin } from "./useLogic.js";
 export default {
-  name: 'headerView',
+  name: "headerView",
   setup(props) {
     // 用户名 自定义名称优先不然展示用户账号
-    let userName = ref('涛涛')
-    let skin = useSkin()
+    let userName = ref("涛涛");
+    let skin = useSkin();
     return {
       userName,
-      ...skin
-    }
-  }
-}
+      ...skin,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -101,7 +99,7 @@ export default {
     }
     .skin-template-box:before {
       position: absolute;
-      content: '';
+      content: "";
       right: 36px;
       top: -12px;
       margin-right: 0;

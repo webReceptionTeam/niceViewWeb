@@ -31,10 +31,7 @@
             class="input-with-select"
           >
             <template #append>
-              <el-button
-                icon="el-icon-search"
-                @click="searchClickHandler"
-              ></el-button>
+              <el-button icon="el-icon-search" @click="searchClickHandler"></el-button>
             </template>
           </el-input>
         </div>
@@ -47,7 +44,10 @@
             <router-link to="/register">注册</router-link>
           </span>
           <el-dropdown @command="commandCallback" v-else>
-            <a href="javascript:;" class="avater-wrap"
+            <a
+              href="http://localhost:8080/weixin_44933553"
+              class="avater-wrap"
+              target="_blank"
               ><el-avatar :size="32" :src="circleUrl"></el-avatar
             ></a>
             <template #dropdown>
@@ -86,9 +86,7 @@
           </el-dropdown>
           <a href="javascript:;" class="shoucang">收藏</a>
           <a href="javascript:;" class="message">消息</a>
-          <el-button type="danger" icon="el-icon-edit" round
-            >创作中心</el-button
-          >
+          <el-button type="danger" icon="el-icon-edit" round>创作中心</el-button>
         </div>
       </el-col>
     </el-row>
@@ -96,29 +94,27 @@
 </template>
 
 <script>
-import { onBeforeMount, ref, toRefs } from 'vue'
-import { useRoute } from 'vue-router'
-import { useInitNav } from './use/nav'
-import { useSearch } from './use/search'
-import { useAvater } from './use/avater'
-import { useIsLogin } from './use/isLogin'
+import { onBeforeMount, ref, toRefs } from "vue";
+import { useRoute } from "vue-router";
+import { useInitNav } from "./use/nav";
+import { useSearch } from "./use/search";
+import { useAvater } from "./use/avater";
+import { useIsLogin } from "./use/isLogin";
 export default {
-  name: 'my-header',
+  name: "my-header",
 
   setup(props, context) {
-    let toolbarClass = ref(false)
-    const route = useRoute()
-    toolbarClass = route.meta.toolbar
+    let toolbarClass = ref(false);
+    const route = useRoute();
+    toolbarClass = route.meta.toolbar;
     //是否已经登录
-    const { isLogin } = useIsLogin()
+    const { isLogin } = useIsLogin();
     //导航相关逻辑
-    const { activeIndex, handleSelect, navList } = useInitNav()
+    const { activeIndex, handleSelect, navList } = useInitNav();
     //搜索
-    const { searchInput, searchClickHandler } = useSearch()
+    const { searchInput, searchClickHandler } = useSearch();
     //头像以及退出前台登录
-    const { circleUrl, userInfo, commandCallback, directTo } = useAvater(
-      isLogin
-    )
+    const { circleUrl, userInfo, commandCallback, directTo } = useAvater(isLogin);
 
     return {
       navList,
@@ -131,10 +127,10 @@ export default {
       commandCallback,
       directTo,
       ...toRefs(userInfo),
-      toolbarClass
-    }
-  }
-}
+      toolbarClass,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
