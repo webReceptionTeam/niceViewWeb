@@ -17,5 +17,7 @@ export default {
 
 <style lang="scss" scoped>
 .class-add {
+  min-height: 800px;
+  background: #fff;
 }
 </style>
