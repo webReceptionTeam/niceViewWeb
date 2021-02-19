@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import myHeader from "./headerView";
+import myHeader from "./headerView/index";
 import { onBeforeMount } from "vue";
 import { useRoute } from "vue-router";
 export default {

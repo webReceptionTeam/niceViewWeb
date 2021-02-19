@@ -7,9 +7,9 @@ const systemRouter = [
         meta: { liu: '11' },
         children: [
             {
-                path: 'aaa',
-                component: () => import('@/components/HelloWorld.vue'),
-                name: "HelloWorld",
+                path: 'viewConfigHome',
+                component: () => import('@/systemViews/viewConfigHome/index.vue'),
+                name: "viewConfigHome",
                 meta: {
                     tao: '11'
                 }
