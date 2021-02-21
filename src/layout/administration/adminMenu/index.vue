@@ -8,8 +8,11 @@
         </template>
       </el-menu-item>
       <el-submenu index="2">
+        <!--  -->
         <template #title><i class="el-icon-menu"></i>前台页面配置</template>
-        <el-menu-item index="2-1">首页配置</el-menu-item>
+        <a href="viewConfigHome">
+          <el-menu-item index="2-1">首页配置 </el-menu-item>
+        </a>
         <el-menu-item index="2-2">头部配置</el-menu-item>
         <el-menu-item index="2-3">博客配置</el-menu-item>
         <el-menu-item index="2-4">个人中心</el-menu-item>
