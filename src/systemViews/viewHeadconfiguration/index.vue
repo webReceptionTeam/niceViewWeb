@@ -1,10 +1,10 @@
 <template>
-  <div></div>
+  <div>头部配置</div>
 </template>
 
 <script>
 export default {
-  name: "viewHeadconfiguration",
+  name: "viewHeadConfiguration",
   setup() {
     return {};
   },

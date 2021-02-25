@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <!-- 这里要做博客相关配置 -->
-  </div>
+  <div>用户管理</div>
 </template>
 
 <script>
 export default {
-  name: "blogConfiguration",
+  name: "manageUsers",
   setup() {
     return {};
   },

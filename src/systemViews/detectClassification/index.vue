@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <!-- 这里要做博客相关配置 -->
-  </div>
+  <div>检测分类</div>
 </template>
 
 <script>
 export default {
-  name: "blogConfiguration",
+  name: "detectClassification",
   setup() {
     return {};
   },

@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <!-- 这里要做博客相关配置 -->
-  </div>
+  <div>个人中心</div>
 </template>
 
 <script>
 export default {
-  name: "blogConfiguration",
+  name: "viewConfigPersonalCenter",
   setup() {
     return {};
   },
