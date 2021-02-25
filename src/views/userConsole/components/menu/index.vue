@@ -6,16 +6,9 @@
       class="console-menu-bt console-menu-bt-md"
       ><span>Markdown编辑器</span></a
     >
-    <el-menu
-      :default-active="active"
-      class="el-menu-vertical-demo"
-      unique-opened
-    >
+    <el-menu :default-active="active" class="el-menu-vertical-demo" unique-opened>
       <template v-for="item in menuList" :key="item.id">
-        <el-submenu
-          v-if="item.children && item.children.length > 0"
-          :index="item.route"
-        >
+        <el-submenu v-if="item.children && item.children.length > 0" :index="item.route">
           <template #title>
             <i :class="item.icon"></i>
             <span>{{ item.title }}</span>
@@ -49,95 +42,95 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { filterGetRoutePath } from '@/utils/filterData'
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { filterGetRoutePath } from "@/utils/filterData";
 export default {
-  name: 'userConsoleMenu',
+  name: "userConsoleMenu",
   setup(props) {
     let menuList = ref([
       {
-        id: '1',
-        icon: 'el-icon-s-home',
-        image: '',
-        title: '首页',
-        route: 'home'
+        id: "1",
+        icon: "el-icon-s-home",
+        image: "",
+        title: "首页",
+        route: "home",
       },
       {
-        id: '2',
-        icon: 'el-icon-edit',
-        image: '',
-        title: '内容创作',
-        route: '/editor',
-        open: true
+        id: "2",
+        icon: "el-icon-edit",
+        image: "",
+        title: "内容创作",
+        route: "/editor",
+        open: true,
       },
       {
-        id: '3',
-        icon: 'el-icon-edit',
-        image: '',
-        title: '内容管理',
-        route: 'home',
+        id: "3",
+        icon: "el-icon-edit",
+        image: "",
+        title: "内容管理",
+        route: "home",
         children: [
           {
-            parentId: '3-1',
-            title: '文章管理',
-            route: 'article'
+            parentId: "3-1",
+            title: "文章管理",
+            route: "article",
           },
           {
-            parentId: '3-2',
-            title: '评论管理',
-            route: 'comment'
+            parentId: "3-2",
+            title: "评论管理",
+            route: "comment",
           },
           {
-            parentId: '3-1',
-            title: '分类管理',
-            route: 'classification'
-          }
-        ]
+            parentId: "3-1",
+            title: "分类管理",
+            route: "classification",
+          },
+        ],
       },
       {
-        id: '4',
-        icon: 'el-icon-setting',
-        image: '',
-        title: '数据观星',
-        route: 'blogData'
+        id: "4",
+        icon: "el-icon-setting",
+        image: "",
+        title: "数据观星",
+        route: "blogData",
       },
       {
-        id: '5',
-        icon: 'el-icon-setting',
-        image: '',
-        title: '设置',
-        route: 'configBlog'
-      }
-    ])
-    const router = useRouter()
+        id: "5",
+        icon: "el-icon-setting",
+        image: "",
+        title: "设置",
+        route: "configBlog",
+      },
+    ]);
+    const router = useRouter();
     let active = ref(
-      filterGetRoutePath().articleId == 'classAdd'
-        ? 'classification'
+      filterGetRoutePath().articleId == "classAdd"
+        ? "classification"
         : filterGetRoutePath().articleId
-    )
+    );
     const handleSelect = (key, keyPath, urls) => {
-      const url = urls.route
-      console.log(key, keyPath, urls)
+      const url = urls.route;
+      console.log(key, keyPath, urls);
       if (url) {
-        router.push(url)
+        router.push(url);
       }
-    }
+    };
     return {
       menuList,
       handleSelect,
-      active
-    }
+      active,
+    };
   },
   methods: {
     handleOpen(key, keyPath) {
-      console.log(key, keyPath)
+      console.log(key, keyPath);
     },
     handleClose(key, keyPath) {
-      console.log(key, keyPath)
-    }
-  }
-}
+      console.log(key, keyPath);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -155,13 +148,7 @@ export default {
     font-weight: 500;
   }
   &-bt-md {
-    background: linear-gradient(
-      92deg,
-      #ffba40,
-      #ff503e 37%,
-      #ff2f50 81%,
-      #ff1b40
-    );
+    background: linear-gradient(92deg, #ffba40, #ff503e 37%, #ff2f50 81%, #ff1b40);
     color: #fff;
     margin-top: 16px;
     margin-bottom: 10px;
