@@ -55,7 +55,8 @@ module.exports = {
       alias: {
         '@': resolve('src'),
         // SingleMember: resolve('src/components/SingleMember'),
-        'images': resolve('public/images')
+        'images': resolve('public/images'),
+        'fonts': resolve('public/fonts')
       }
     }
     // externals: {
@@ -76,5 +77,11 @@ module.exports = {
         })
         .end()
     })
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title = '我的网站'
+        return args
+      })
   }
 }
