@@ -1,9 +1,32 @@
 <template>
-  <el-breadcrumb separator="/">
-    <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="index">{{
-      item.name
-    }}</el-breadcrumb-item>
-  </el-breadcrumb>
+  <div class="system_header">
+    <el-breadcrumb separator="/">
+      <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="index">{{
+        item.name
+      }}</el-breadcrumb-item>
+    </el-breadcrumb>
+    <div class="title_avater">
+      <el-badge is-dot
+        ><blIcon class="news" :fontClass="'xiaoxitongzhi'" fontSize="25"
+      /></el-badge>
+      <el-avatar class="avatar" :size="30" :src="squareUrl"></el-avatar>
+      <div class="user_name">管理员</div>
+      <el-dropdown>
+        <span class="el-dropdown-link">
+          下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item>黄金糕</el-dropdown-item>
+            <el-dropdown-item>狮子头</el-dropdown-item>
+            <el-dropdown-item>螺蛳粉</el-dropdown-item>
+            <el-dropdown-item disabled>双皮奶</el-dropdown-item>
+            <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -103,11 +126,36 @@ export default {
       });
       breadcrumbList.value = navTab;
     });
+    let squareUrl = ref(
+      "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
+    );
     return {
       breadcrumbList,
+      squareUrl,
     };
   },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.system_header {
+  display: flex;
+  justify-content: space-between;
+  .title_avater {
+    display: flex;
+    align-items: center;
+    /deep/ .el-badge {
+      height: 25px;
+    }
+    .news {
+      cursor: pointer;
+    }
+    .avatar {
+      margin: 0 15px 0;
+    }
+    .user_name {
+      margin-right: 10px;
+    }
+  }
+}
+</style>

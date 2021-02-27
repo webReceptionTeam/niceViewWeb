@@ -6,6 +6,13 @@
   "description": "优美的开发图标",
   "glyphs": [
     {
+      "icon_id": "3860873",
+      "name": "消息",
+      "font_class": "xiaoxitongzhi",
+      "unicode": "e68c",
+      "unicode_decimal": 59020
+    },
+    {
       "icon_id": "868526",
       "name": "icon-看过",
       "font_class": "iconkanguo",
