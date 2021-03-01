@@ -99,6 +99,7 @@ export default {
         id: "4",
         router: "accountNumberList",
         children: [
+          { id: "4-3", meunName: "个人资料", router: "personalSettings" },
           { id: "4-1", meunName: "账号列表", router: "accountNumberList" },
           { id: "4-2", meunName: "测试模块", router: "testModule" },
         ],

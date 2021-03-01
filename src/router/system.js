@@ -100,7 +100,13 @@ const systemRouter = [
                 component: () => import('@/systemViews/interfaceConfiguration/index.vue'),
                 name: "interfaceConfiguration",
             },
-            // ** 个人数据 **
+            // ** 个人设置 **
+            // 个人资料
+            {
+                path: 'personalSettings',
+                component: () => import('@/systemViews/personalSettings/index.vue'),
+                name: "personalSettings",
+            },
             // 账号列表
             {
                 path: 'accountNumberList',
