@@ -15,6 +15,7 @@ http.interceptors.request.use(
     (config) => {
         // 设置中文编码
         config.headers['Content-Type'] = 'application/json;charset=UTF-8'
+        config.headers['authorization'] = localStorage.getItem('token') || ''
         return config
     },
     (err) => {
