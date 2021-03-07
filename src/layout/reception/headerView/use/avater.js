@@ -17,7 +17,9 @@ export function useAvater(isLogin) {
     const commandCallback = (commad) => {
         //根据菜单项commad值做不同处理
         switch (commad) {
-            case 'personal': console.log('去个人中心页'); break;
+            case 'personal':
+                router.push('/userCenter/user-info')
+                console.log('去个人中心页'); break;
             case 'manage': console.log('去内容管理页'); break;
             case 'exit': exitLogin(); break;
         }

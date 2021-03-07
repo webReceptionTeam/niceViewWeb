@@ -15,38 +15,38 @@
 </template>
 
 <script>
-import { onMounted } from 'vue'
-import { useRoute } from 'vue-router'
-import { useHandleScroll } from './useIndex'
-import asideBox from './components'
-import { filterGetRoutePath } from '@/utils/filterData'
+import { onMounted } from "vue";
+import { useRoute } from "vue-router";
+import { useHandleScroll } from "./useIndex";
+import asideBox from "./components";
+import { filterGetRoutePath } from "@/utils/filterData";
 export default {
-  name: 'userHome',
+  name: "userHome",
   components: { asideBox },
   setup(props) {
-    let route = useRoute()
+    let route = useRoute();
     const btn = () => {
-      console.log(route.path)
-      open(route.path + '/user-center/user-info')
-    }
+      console.log(route.path);
+      open(route.path + "/user-center/user-info");
+    };
     onMounted(() => {
-      let rou = route.path.slice(1)
-      let list = rou.split('/')
+      let rou = route.path.slice(1);
+      let list = rou.split("/");
       console.log(
         list,
         list[1],
         filterGetRoutePath(route.path),
 
-        '测试'
-      )
-    })
-    const handleScroll = useHandleScroll()
+        "测试"
+      );
+    });
+    const handleScroll = useHandleScroll();
     return {
       btn,
-      ...handleScroll
-    }
-  }
-}
+      ...handleScroll,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -56,7 +56,7 @@ export default {
   &-top {
     height: 100px;
     width: 100%;
-    background: url('../../assets/user-view/user-header.png') no-repeat center;
+    background: url("../../assets/user-view/user-header.png") no-repeat center;
     background-size: 1920px auto;
   }
 

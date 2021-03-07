@@ -28,7 +28,7 @@ export function userCerterMenu() {
     {
       id: '5',
       title: '内容管理',
-      route: 'xxxx'
+      route: '/userConsole/article'
     }
   ])
   const handleSelect = (key, keyPath, urls) => {
