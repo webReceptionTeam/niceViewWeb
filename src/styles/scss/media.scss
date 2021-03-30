@@ -4,7 +4,7 @@
 @media screen and (max-width: 1919px) and (min-width: 1440px) {
 
   .home_wrap .content_wrap,
-  .user-home .header-box {
+  .user-home {
     width: 1232px;
   }
 
@@ -12,10 +12,7 @@
     margin-left: 626px !important;
   }
 
-  .user-home-box,
-  .layout-box {
-    width: 1366px;
-  }
+
 
   .user-home main {
     width: 1010px;
@@ -25,13 +22,8 @@
 @media screen and (max-width: 1439px) and (min-width: 1281px) {
 
   .home_wrap .content_wrap,
-  .user-home .header-box {
+  .user-home {
     width: 1004px;
-  }
-
-  .user-home-box,
-  .layout-box {
-    width: 1116px;
   }
 
   .user-home main {
@@ -43,16 +35,72 @@
 @media screen and (max-width: 1280px) {
 
   .home_wrap .content_wrap,
-  .user-home .header-box {
+  .user-home {
     width: 1004px;
   }
 
-  .user-home-box,
-  .layout-box {
-    width: 1116px;
-  }
 
   .user-home main {
     width: 760px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+
+
+  .home_wrap .content_wrap {
+    width: 1692px;
+  }
+
+
+
+  .box-nav {
+    margin-left: 856px !important;
+  }
+
+}
+
+
+// 用户首页 大屏1366px
+
+@media screen and (min-width: 1366px) {
+  .user-home {
+    width: 1325px;
+
+    &-top {
+      .header-box {
+        width: 1325px;
+      }
+    }
+
+    &-box {
+      width: 1325px;
+
+      main {
+        width: 1010px;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 1366px) {
+
+  .user-home {
+    width: 1075px;
+
+    &-top {
+      .header-box {
+        width: 1075px;
+      }
+    }
+
+    &-box {
+      width: 1075px;
+
+      main {
+        width: 760px;
+      }
+    }
   }
 }

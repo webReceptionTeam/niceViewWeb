@@ -1,9 +1,9 @@
 <template>
   <div class="user-home">
-    <div class="user-home-top">
-      <headerView />
+    <div class="user-home-top" v-if="!userViewFlag">
+      <headerView v-if="!errorFlag" />
     </div>
-    <div class="user-home-box">
+    <div class="user-home-box" v-if="!errorFlag">
       <!-- 左侧模块 -->
       <aside-box />
       <main>
@@ -15,35 +15,22 @@
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import { useHandleScroll } from "./useIndex";
+// import { useHandleScroll } from "./useIndex";
 import asideBox from "./components";
 import { filterGetRoutePath } from "@/utils/filterData";
 export default {
   name: "userHome",
   components: { asideBox },
   setup(props) {
-    let route = useRoute();
-    const btn = () => {
-      console.log(route.path);
-      open(route.path + "/user-center/user-info");
-    };
-    onMounted(() => {
-      let rou = route.path.slice(1);
-      let list = rou.split("/");
-      console.log(
-        list,
-        list[1],
-        filterGetRoutePath(route.path),
+    let route = useRoute(),
+      userViewFlag = ref(filterGetRoutePath().articleId || ''),
+      errorFlag = route?.meta?.errorPage404 || false;
 
-        "测试"
-      );
-    });
-    const handleScroll = useHandleScroll();
     return {
-      btn,
-      ...handleScroll,
+      userViewFlag,
+      errorFlag
     };
   },
 };
@@ -61,9 +48,11 @@ export default {
   }
 
   &-box {
-    padding: 0 24px 0;
     margin: 0 auto;
     padding-bottom: 32px;
+    padding-top: 10px;
+    // position: relative;
+    // -webkit-box-sizing:border-box
     // height: 10000px;
     main {
       float: right;

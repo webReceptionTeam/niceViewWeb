@@ -24,12 +24,12 @@ const viewRouter = [
                 name: "navigationBox",
             }
         ]
-        // navigationBox
     },
     {
         // 博客各个用户博客信息
         path: '/:catch(.*)',
         component: () => import('@/layout/reception'),
+        redirect: { name: 'userHome' },
         name: "viewCatchAll",
         meta: { blogFooter: true },
         children: [
@@ -64,6 +64,12 @@ const viewRouter = [
                         ]
                     }
                 ]
+            },
+            {
+                // 错误路由
+                path: ':catchAll(.*)',
+                component: () => import('@/views/userHome/index.vue'),
+                meta: { errorPage404: true },
             }
         ]
     }

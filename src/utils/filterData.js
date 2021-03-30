@@ -3,7 +3,7 @@ import { useRoute } from 'vue-router'
 export function filterGetRoutePath() {
     let userName = '', articleId = '';
     let route = useRoute()
-    if (route.path) {
+    if (route && route.path) {
         let routeList = route.path.slice(1)
         let pathNameList = routeList.split('/')
         userName = pathNameList[0]

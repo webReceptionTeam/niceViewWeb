@@ -5,7 +5,7 @@
       <p class="description">共同学习，共同进步</p>
     </div>
     <div class="opt-box">
-      <a href="http://localhost:8080/userConsole/home" class="btn btn-sm">管理博客</a>
+      <a href="/userConsole/home" class="btn btn-sm">管理博客</a>
       <a href="javascript:;" class="btn btn-sm" @click.stop="updataSkin">换皮肤啦</a>
       <div class="skin-template-box" v-if="skinViewFlag">换肤设置</div>
     </div>
@@ -15,6 +15,7 @@
 <script>
 import { ref } from "vue";
 import { useSkin } from "./useLogic.js";
+
 export default {
   name: "headerView",
   setup(props) {
@@ -24,6 +25,7 @@ export default {
     return {
       userName,
       ...skin,
+
     };
   },
 };

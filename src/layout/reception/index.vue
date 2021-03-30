@@ -1,12 +1,10 @@
 <template>
-  <div style="width: 100%; height: calc(100% - 48px)">
-    <!-- 头 -->
-    <div style="height: 48px">
-      <myHeader />
-    </div>
-    <div class="layout-box">
-      <router-view />
-    </div>
+  <!-- 头 -->
+  <div style="height: 48px">
+    <myHeader />
+  </div>
+  <div class="layout-box">
+    <router-view />
     <blogFooter v-if="!metaFooter" />
   </div>
 </template>
@@ -34,6 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 .layout-box {
-  margin: 0 auto;
+  width: 100%;
+  height: calc(100% - 48px);
 }
 </style>

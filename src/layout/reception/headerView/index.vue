@@ -4,9 +4,10 @@
       <el-col :span="8">
         <div class="header-left-wrap">
           <h1 class="logo">
-            <router-link to="/"><img src="images/logo.png" /></router-link>
+            <router-link to="/">
+              <img src="images/logo.png" />
+            </router-link>
           </h1>
-
           <el-menu
             active-text-color="red"
             :default-active="activeIndex"
@@ -17,19 +18,14 @@
             <el-menu-item
               v-for="(item, index) in navList"
               :key="index"
-              :index="index + ''"
-              >{{ item.text }}</el-menu-item
-            >
+              :index="item.to"
+            >{{ item.text }}</el-menu-item>
           </el-menu>
         </div>
       </el-col>
       <el-col :span="8">
         <div class="header-middle-wrap">
-          <el-input
-            placeholder="请输入内容"
-            v-model="searchInput"
-            class="input-with-select"
-          >
+          <el-input placeholder="请输入内容" v-model="searchInput" class="input-with-select">
             <template #append>
               <el-button icon="el-icon-search" @click="searchClickHandler"></el-button>
             </template>
@@ -44,17 +40,16 @@
             <router-link to="/register">注册</router-link>
           </span>
           <el-dropdown @command="commandCallback" v-else>
-            <a
-              href="http://localhost:8080/weixin_44933553"
-              class="avater-wrap"
-              target="_blank"
-              ><el-avatar :size="32" :src="circleUrl"></el-avatar
-            ></a>
+            <a href="http://localhost:8080/weixin_44933553" class="avater-wrap" target="_blank">
+              <el-avatar :size="32" :src="circleUrl"></el-avatar>
+            </a>
             <template #dropdown>
               <el-dropdown-menu>
                 <div class="userinfo-menu">
                   <p class="nick_name">{{ nickname }}</p>
-                  <p class="level"><i class="el-icon-star-on"></i></p>
+                  <p class="level">
+                    <i class="el-icon-star-on"></i>
+                  </p>
                   <el-divider></el-divider>
                   <div class="user-info">
                     <a href="javascript:;" @click="directTo('粉丝页path')">
@@ -72,15 +67,15 @@
                   </div>
                 </div>
                 <el-divider></el-divider>
-                <el-dropdown-item command="personal"
-                  ><i class="el-icon-user-solid"></i>个人中心</el-dropdown-item
-                >
-                <el-dropdown-item command="manage"
-                  ><i class="el-icon-document"></i>内容管理</el-dropdown-item
-                >
-                <el-dropdown-item divided command="exit"
-                  ><i class="el-icon-switch-button"></i>退出</el-dropdown-item
-                >
+                <el-dropdown-item command="personal">
+                  <i class="el-icon-user-solid"></i>个人中心
+                </el-dropdown-item>
+                <el-dropdown-item command="manage">
+                  <i class="el-icon-document"></i>内容管理
+                </el-dropdown-item>
+                <el-dropdown-item divided command="exit">
+                  <i class="el-icon-switch-button"></i>退出
+                </el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -154,6 +149,9 @@ export default {
   height: 48px;
   padding: 0 10px;
 }
+.header-right-wrap {
+  justify-content: flex-end;
+}
 
 .logo {
   width: 80px;
@@ -220,9 +218,38 @@ export default {
 .message {
   color: #2e2e2e;
   margin: 0 20px;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 400;
   &:hover {
     color: red;
+  }
+}
+::v-deep {
+  .el-button.el-button--danger {
+    padding: 9px 16px;
+    border-radius: 5px;
+  }
+  .el-input {
+    .el-input__inner {
+      height: 35px;
+      background: #f5f6f7;
+    }
+    .el-input-group__append,
+    .el-input-group__prepend {
+      background: #ff4d4d;
+      margin: -10px -25px;
+      border: 1px solid #ff4d4d;
+      .el-icon-search {
+        font-size: 20px;
+        color: #fff;
+      }
+    }
+  }
+  .el-menu-item {
+    font-weight: 500;
+  }
+  .el-menu-item.is-active {
+    font-weight: 800 !important;
   }
 }
 </style>
