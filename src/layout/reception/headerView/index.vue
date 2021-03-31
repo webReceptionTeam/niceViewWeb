@@ -224,7 +224,7 @@ export default {
     color: red;
   }
 }
-::v-deep {
+:v-deep {
   .el-button.el-button--danger {
     padding: 9px 16px;
     border-radius: 5px;
