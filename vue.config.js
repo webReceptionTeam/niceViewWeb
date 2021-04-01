@@ -17,8 +17,6 @@ module.exports = {
   publicPath: '/',
   // 组件路径
   outputDir: 'dist',
-  // 项目路径
-  // outputDir: 'prod',
   assetsDir: 'static',
   // lintOnSave: process.env.NODE_ENV === "development",
   // lintOnSave: false,

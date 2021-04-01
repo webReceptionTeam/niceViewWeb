@@ -1,22 +1,13 @@
 <template>
   <div class="login-wrap">
     <!-- 登录页 再拆 后台登录 注册 -->
-    <div
-      class="login-wrap-box"
-      v-if="!dialogVisible"
-      @keyup.enter.stop="loginBtn"
-    >
-      <div class="login-wrap-box-title">用户登录CSDN</div>
+    <div class="login-wrap-box" v-if="!dialogVisible" @keyup.enter.stop="loginBtn">
+      <div class="login-wrap-box-title">用户登录CDN</div>
       <el-tabs v-model="loginMode" @tab-click="handLoginModeClick">
         <el-tab-pane label="账号登录" name="01">
           <el-row>
             <el-col :span="24">
-              <el-input
-                placeholder="请输入用户名"
-                prefix-icon="el-icon-user-solid"
-                v-model="userName"
-              >
-              </el-input>
+              <el-input placeholder="请输入用户名" prefix-icon="el-icon-user-solid" v-model="userName"></el-input>
             </el-col>
             <el-col :span="24">
               <el-input
@@ -24,20 +15,14 @@
                 prefix-icon="el-icon-key"
                 v-model="passWord"
                 :show-password="true"
-              >
-              </el-input>
+              ></el-input>
             </el-col>
           </el-row>
         </el-tab-pane>
         <el-tab-pane label="手机登录" name="02">
           <el-row>
             <el-col :span="24">
-              <el-input
-                placeholder="请输入手机号"
-                prefix-icon="el-icon-mobile-phone"
-                v-model="phone"
-              >
-              </el-input>
+              <el-input placeholder="请输入手机号" prefix-icon="el-icon-mobile-phone" v-model="phone"></el-input>
             </el-col>
             <el-col :span="24">
               <el-input
@@ -45,8 +30,7 @@
                 prefix-icon="el-icon-unlock"
                 v-model="phoneCode"
                 class="phone-code-input"
-              >
-              </el-input>
+              ></el-input>
               <span class="phone-code" @click="getPhoneCode">获取验证码</span>
             </el-col>
           </el-row>
@@ -55,16 +39,13 @@
       <el-row>
         <el-col>
           <el-checkbox v-model="remember">记住账号</el-checkbox>
-          <span class="forgot"
-            ><span>忘记密码?</span>｜<span @click="openRegister"
-              >注册新账号</span
-            ></span
-          >
+          <span class="forgot">
+            <span>忘记密码?</span>｜
+            <span @click="openRegister">注册新账号</span>
+          </span>
         </el-col>
         <el-col style="margin-top: 10px">
-          <el-button type="primary" class="el-signin" @click="loginBtn"
-            >登陆</el-button
-          >
+          <el-button type="primary" class="el-signin" @click="loginBtn">登陆</el-button>
         </el-col>
         <el-col>
           <div class="social-contactp">
@@ -86,12 +67,7 @@
     >
       <el-row>
         <el-col :span="24">
-          <el-input
-            placeholder="请输入管理员用户名"
-            prefix-icon="el-icon-user-solid"
-            v-model="userName"
-          >
-          </el-input>
+          <el-input placeholder="请输入管理员用户名" prefix-icon="el-icon-user-solid" v-model="userName"></el-input>
         </el-col>
         <el-col :span="24">
           <el-input
@@ -99,8 +75,7 @@
             prefix-icon="el-icon-key"
             v-model="passWord"
             :show-password="true"
-          >
-          </el-input>
+          ></el-input>
         </el-col>
       </el-row>
       <template #footer>
@@ -163,9 +138,9 @@ export default {
   },
   methods: {
     // 用户登录方式切换触发
-    handLoginModeClick(type) {},
+    handLoginModeClick(type) { },
     // 获取验证码
-    getPhoneCode() {},
+    getPhoneCode() { },
     /**
      * 管理员操作
      */
@@ -208,7 +183,7 @@ export default {
   width: 100%;
   min-width: 1366px;
   min-height: 700px;
-  background: url('../assets/login.jpg') no-repeat;
+  background: url("../assets/login.jpg") no-repeat;
   background-size: 100% 100%;
   position: relative;
   &-box {
@@ -276,7 +251,7 @@ export default {
 
   h6::after,
   h6::before {
-    content: '';
+    content: "";
     border-top: 1px solid #b5b5b5;
     display: block;
     position: absolute;
