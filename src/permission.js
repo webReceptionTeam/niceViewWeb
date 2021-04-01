@@ -18,20 +18,21 @@ const token = window.localStorage.getItem('token')
  * 白名单
  *  首页 登录 注册
  */
-const whiteList = ['/', '/login', '/register']
+let whiteList = ['/login', '/register']
 // 免检权
 const businessList = []
 
 // 判断前后项目逻辑 待调整
 const premission = window.localStorage.getItem("premission")
-if (premission != '1') {
+if (premission != '1' && premission != '2') {
+    whiteList.push('/')
     viewRouter.map(item => {
         router.addRoute(item)
     })
 }
 if (token) {
     // 用户登录后添加路由 前台 或 管理系统
-    const routerList = premission == '1' ? systemRouter : userView
+    const routerList = premission == '1' || premission == '2' ? systemRouter : userView
     routerList.map(item => {
         router.addRoute(item)
     })
@@ -75,6 +76,7 @@ function userViewFeforeRouter(to, from) {
     console.log('用户路由', to.path);
 }
 
+// 路由加载后
 router.afterEach((to, from,) => {
     // 加载进度条 结束
     NProgress.done()

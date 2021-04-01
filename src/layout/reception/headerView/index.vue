@@ -224,32 +224,31 @@ export default {
     color: red;
   }
 }
-:v-deep {
-  .el-button.el-button--danger {
-    padding: 9px 16px;
-    border-radius: 5px;
+
+::v-deep(.el-button.el-button--danger) {
+  padding: 9px 16px;
+  border-radius: 5px;
+}
+::v-deep(.el-input) {
+  .el-input__inner {
+    height: 35px;
+    background: #f5f6f7;
   }
-  .el-input {
-    .el-input__inner {
-      height: 35px;
-      background: #f5f6f7;
+  .el-input-group__append,
+  .el-input-group__prepend {
+    background: #ff4d4d;
+    margin: -10px -25px;
+    border: 1px solid #ff4d4d;
+    .el-icon-search {
+      font-size: 20px;
+      color: #fff;
     }
-    .el-input-group__append,
-    .el-input-group__prepend {
-      background: #ff4d4d;
-      margin: -10px -25px;
-      border: 1px solid #ff4d4d;
-      .el-icon-search {
-        font-size: 20px;
-        color: #fff;
-      }
-    }
   }
-  .el-menu-item {
-    font-weight: 500;
-  }
-  .el-menu-item.is-active {
-    font-weight: 800 !important;
-  }
+}
+::v-deep(.el-menu-item) {
+  font-weight: 500;
+}
+::v-deep(.el-menu-item.is-active) {
+  font-weight: 800 !important;
 }
 </style>

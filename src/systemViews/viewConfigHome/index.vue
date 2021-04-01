@@ -34,7 +34,7 @@
       navName 导航名称
       navCode 导航code 不可重复
       pId
- */ -->
+  */-->
   <div class="config-home">
     <h2>首页配置</h2>
     <el-row>
@@ -46,46 +46,39 @@
             :key="item.value"
             :label="item.label"
             :value="item.value"
-          >
-          </el-option>
+          ></el-option>
         </el-select>
       </el-col>
     </el-row>
     <div>
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="name" label="模块名称" width="180"> </el-table-column>
-        <el-table-column prop="sort" label="排名" width="180"> </el-table-column>
+        <el-table-column prop="name" label="模块名称" width="180"></el-table-column>
+        <el-table-column prop="sort" label="排名" width="180"></el-table-column>
         <el-table-column prop="address" label="类型" width="300">
-          <template #default="">
+          <template #default>
             <el-select v-model="value" placeholder="请选择">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
-              >
-              </el-option>
+              ></el-option>
             </el-select>
           </template>
         </el-table-column>
         <el-table-column prop="sort" label="图片设置">
-          <template #default="">
-            <img
-              src="@/assets/home/modular.jpg"
-              alt=""
-              style="width: 80px; height: 40px"
-            />
+          <template #default>
+            <img src="@/assets/home/modular.jpg" alt style="width: 80px; height: 40px" />
           </template>
         </el-table-column>
         <el-table-column prop="sort" label="自定义图片">
-          <template #default="">
+          <template #default>
             <el-button>添加</el-button>
           </template>
         </el-table-column>
         <el-table-column prop="sort" label="是否禁用">
           <template #default>
-            <el-switch v-model="value1" active-color="#13ce66" inactive-color="#ff4949">
-            </el-switch>
+            <el-switch v-model="value1" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
           </template>
         </el-table-column>
       </el-table>
@@ -103,7 +96,7 @@ export default {
   setup() {
     let value = ref(""),
       value1 = ref(true),
-      drawer = ref(true),
+      drawer = ref(false),
       options = ref([
         {
           value: "选项1",

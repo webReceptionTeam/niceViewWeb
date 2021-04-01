@@ -119,6 +119,10 @@ const systemRouter = [
                 component: () => import('@/systemViews/testModule/index.vue'),
                 name: "testModule",
             },
+            {
+                path: '/:catch(.*)',
+                redirect: { name: 'error404' },
+            }
         ]
     },
     {
