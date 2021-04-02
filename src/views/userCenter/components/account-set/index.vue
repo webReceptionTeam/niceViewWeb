@@ -34,7 +34,7 @@
         </p>
       </li>
       <li class="accout-body-item">
-        <span> 登陆记录 </span>
+        <span>登录记录</span>
         <p>
           <span class="accout-open">查看记录</span>
         </p>

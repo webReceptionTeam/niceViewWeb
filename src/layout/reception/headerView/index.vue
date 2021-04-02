@@ -36,7 +36,7 @@
         <div class="header-right-wrap">
           <!-- 登录注册或头像 -->
           <span class="login-register" v-if="!isLogin">
-            <router-link to="/login">登录</router-link>/
+            <router-link :to="{ ...toLoginPath }">登录</router-link>/
             <router-link to="/register">注册</router-link>
           </span>
           <el-dropdown @command="commandCallback" v-else>
@@ -109,8 +109,7 @@ export default {
     //搜索
     const { searchInput, searchClickHandler } = useSearch();
     //头像以及退出前台登录
-    const { circleUrl, userInfo, commandCallback, directTo } = useAvater(isLogin);
-
+    const { circleUrl, userInfo, commandCallback, directTo, toLoginPath } = useAvater(isLogin);
     return {
       navList,
       handleSelect,
@@ -123,6 +122,7 @@ export default {
       directTo,
       ...toRefs(userInfo),
       toolbarClass,
+      toLoginPath
     };
   },
 };

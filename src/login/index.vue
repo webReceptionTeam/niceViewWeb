@@ -45,7 +45,7 @@
           </span>
         </el-col>
         <el-col style="margin-top: 10px">
-          <el-button type="primary" class="el-signin" @click="loginBtn">登陆</el-button>
+          <el-button type="primary" class="el-signin" @click="loginBtn">登录</el-button>
         </el-col>
         <el-col>
           <div class="social-contactp">
@@ -99,7 +99,7 @@
 // 密码 1234567
 import axios from '@/utils/http.js'
 import { onBeforeMount, ref } from 'vue'
-import { useSignIn, useOpen } from './use/signIn'
+import { useSignIn, useOpen, useSystemSign } from './use/signIn'
 import { useRoute } from 'vue-router'
 
 export default {
@@ -113,50 +113,19 @@ export default {
       route.value = useRoute()
     })
 
-    // 账号登录
+    // 用户 账号登录等
     const loginBtn = useSignIn(loginMode, route)
     // 打开页面或其他链接
     const open = useOpen()
+    // 管理员操作
+    const systemSign = useSystemSign()
     // 手机号登录
     return {
       route,
       loginMode,
       ...loginBtn,
-      ...open
-    }
-  },
-  data() {
-    return {
-      // loginMode: '01', // 01 账号密码登录 02 手机号登录
-      remember: false,
-      // phone: '',
-      // phoneCode: '',
-      dialogVisible: false,
-      systemUserName: '',
-      systemPassWord: ''
-    }
-  },
-  methods: {
-    // 用户登录方式切换触发
-    handLoginModeClick(type) { },
-    // 获取验证码
-    getPhoneCode() { },
-    /**
-     * 管理员操作
-     */
-    // 管理员弹层
-    openSystem() {
-      this.dialogVisible = true
-      this.systemUserName = ''
-      this.systemPassWord = ''
-    },
-    // 管理员登录
-    systemBtn() {
-      this.dialogVisible = false
-    },
-    // 取消管理员登录
-    handleClose(done) {
-      this.dialogVisible = false
+      ...open,
+      ...systemSign
     }
   }
 }

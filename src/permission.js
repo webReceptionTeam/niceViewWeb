@@ -58,9 +58,9 @@ function systemBeforeRouter(to, from) {
     if (token) {
         console.log(to.path);
     } else {
-        // 判断是否需要登陆 在此之前需要判断是否登陆啦
+        // 判断是否需要登录 在此之前需要判断是否登录啦
         if (whiteList.indexOf(to.path) == -1) {
-            // 重定向登陆页
+            // 重定向登录页
             console.log(to.path);
             if (to.path == '/404') {
                 return { path: "/login" }

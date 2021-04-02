@@ -29,8 +29,19 @@ http.interceptors.response.use(
         let code = response.data.code
         switch (code) {
             case 0:
+                // 接口无问题
+                console.log('接口正常');
                 break;
-
+            case 32:
+            case 30:
+            case 31:
+                // token过期及无效及校验失败
+                console.log('token过期及无效及校验失败');
+                break;
+            case -4:
+                console.log('没带token');
+                // 没带token
+                break;
             default:
                 break;
         }
