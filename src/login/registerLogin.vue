@@ -4,12 +4,7 @@
       <h4>用户注册</h4>
       <el-row>
         <el-col :span="24">
-          <el-input
-            placeholder="请输入注册账号"
-            prefix-icon="el-icon-user-solid"
-            v-model="username"
-          >
-          </el-input>
+          <el-input placeholder="请输入注册账号" prefix-icon="el-icon-user-solid" v-model="username"></el-input>
         </el-col>
         <el-col :span="24">
           <el-input
@@ -17,8 +12,7 @@
             prefix-icon="el-icon-key"
             v-model="password"
             :show-password="true"
-          >
-          </el-input>
+          ></el-input>
         </el-col>
         <el-col :span="24">
           <el-input
@@ -26,23 +20,16 @@
             prefix-icon="el-icon-key"
             v-model="repassword"
             :show-password="true"
-          >
-          </el-input>
+          ></el-input>
         </el-col>
         <el-col :span="24">
-          <el-input
-            placeholder="请输入您的昵称"
-            prefix-icon="el-icon-tickets"
-            v-model="nickname"
-          >
-          </el-input>
+          <el-input placeholder="请输入您的昵称" prefix-icon="el-icon-tickets" v-model="nickname"></el-input>
         </el-col>
         <el-col :span="24" class="register-btn">
-          <el-button type="primary" class="el-signin" @click="loginBtn"
-            >注 册</el-button
-          >
+          <el-button type="primary" class="el-signin" @click="loginBtn">注 册</el-button>
           <p class="new-reg-guide-login">
-            已有账号？<span class="login_btn" @click="openLogin">登录</span>
+            已有账号？
+            <span class="login_btn" @click="openLogin">登录</span>
           </p>
         </el-col>
       </el-row>
@@ -73,7 +60,7 @@ export default {
   width: 100%;
   min-width: 1366px;
   min-height: 700px;
-  background: url('../assets/login.jpg') no-repeat;
+  background: url("../assets/login.jpg") no-repeat;
   background-size: 100% 100%;
   position: relative;
   &-box {
@@ -89,6 +76,7 @@ export default {
     h4 {
       font-size: 18px;
       text-align: center;
+      margin: 15px 0;
     }
     &-title {
       position: absolute;
@@ -123,6 +111,7 @@ export default {
   font-size: 14px;
   color: #9b9b9b;
   padding-left: 5px;
+  margin-top: 5px;
 }
 
 .login_btn {

@@ -51,9 +51,15 @@
           <div class="social-contactp">
             <h6>社交帐号登录</h6>
             <div class="mode">
-              <span>qq</span>
-              <span>微信</span>
-              <span @click="openSystem">我是管理员</span>
+              <span>
+                <blIcon fontSize="30" fontClass="QQ"></blIcon>
+              </span>
+              <span>
+                <blIcon fontSize="30" fontClass="weixin"></blIcon>
+              </span>
+              <span @click="openSystem">
+                <blIcon fontSize="30" fontClass="yingyongguanliyuanguanli"></blIcon>
+              </span>
             </div>
           </div>
         </el-col>
@@ -81,7 +87,7 @@
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="dialogVisible = false">取消登录</el-button>
-          <el-button type="primary" @click="systemBtn">登录</el-button>
+          <el-button type="primary" @click="systemLoginBtn">登录</el-button>
         </span>
       </template>
     </el-dialog>
@@ -237,6 +243,9 @@ export default {
     margin-top: 20px;
     display: flex;
     justify-content: space-around;
+    > span {
+      cursor: pointer;
+    }
   }
 }
 // 弹层

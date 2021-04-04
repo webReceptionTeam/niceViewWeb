@@ -1,4 +1,8 @@
 <template>
+  <!-- info 接口是干啥的
+   用户图片地址放到-- 不能每次都请求 节约性能
+   https://cube.elemecdn.com/ 这是什么地址 没网也可以访问
+  -->
   <!-- /**
  分类模块
   1 首页
@@ -91,6 +95,7 @@
 
 <script>
 import { ref } from "vue";
+import { useHomeData } from './use/index'
 export default {
   name: "viewConfigHome",
   setup() {
@@ -127,7 +132,8 @@ export default {
         },
       ]);
 
-    return { value, options, tableData, value1, drawer };
+    const honeData = useHomeData()
+    return { value, options, tableData, value1, drawer, ...honeData };
   },
 };
 </script>

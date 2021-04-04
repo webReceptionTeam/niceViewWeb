@@ -1,27 +1,28 @@
 <template>
   <div class="system_header">
     <el-breadcrumb separator="/">
-      <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="index">{{
-        item.name
-      }}</el-breadcrumb-item>
+      <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="index">
+        {{
+          item.name
+        }}
+      </el-breadcrumb-item>
     </el-breadcrumb>
     <div class="title_avater">
-      <el-badge is-dot
-        ><blIcon class="news" :fontClass="'xiaoxitongzhi'" fontSize="25"
-      /></el-badge>
+      <el-badge is-dot>
+        <blIcon class="news" :fontClass="'xiaoxitongzhi'" fontSize="25" />
+      </el-badge>
       <el-avatar class="avatar" :size="30" :src="squareUrl"></el-avatar>
       <div class="user_name">管理员</div>
       <el-dropdown>
         <span class="el-dropdown-link">
-          下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+          {{ userNmae }}
+          <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>黄金糕</el-dropdown-item>
-            <el-dropdown-item>狮子头</el-dropdown-item>
-            <el-dropdown-item>螺蛳粉</el-dropdown-item>
-            <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-            <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+            <el-dropdown-item></el-dropdown-item>
+            <el-dropdown-item>修改密码</el-dropdown-item>
+            <el-dropdown-item @click="useLogout">退出</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -32,7 +33,7 @@
 <script>
 import { ref, onBeforeMount } from "vue";
 import { filterGetRoutePath } from "@/utils/filterData";
-
+import { userLogout } from '@/api/loginApi'
 export default {
   name: "adminHeader",
   setup() {
@@ -48,6 +49,7 @@ export default {
         path: "viewConfigHome",
       },
     ]);
+    let userNmae = ref(window.localStorage.nickname || '管理员')
     let meunList = ref([
       {
         meunName: "首页",
@@ -130,9 +132,17 @@ export default {
     let squareUrl = ref(
       "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
     );
+
+    // 退出
+    const useLogout = async () => {
+      await userLogout()
+      window.location.href = '/login'
+    }
     return {
       breadcrumbList,
       squareUrl,
+      userNmae,
+      useLogout
     };
   },
 };

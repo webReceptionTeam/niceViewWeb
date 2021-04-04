@@ -1,6 +1,6 @@
 import axios from 'axios'
 const premission = window.localStorage.getItem("premission")
-
+const premissionFlag = premission == '1' || premission == '2' ? true : false
 const http = axios.create({
     // 在config文件夹下dev.evn.js和prod.env.js里分别配置开发和生产环境对应的路径前缀
     // baseURL: '/api',
@@ -37,6 +37,7 @@ http.interceptors.response.use(
             case 31:
                 // token过期及无效及校验失败
                 console.log('token过期及无效及校验失败');
+                hrefLogin()
                 break;
             case -4:
                 console.log('没带token');
@@ -48,9 +49,12 @@ http.interceptors.response.use(
         return response
     },
     (error) => {
-        window.location.href = premission == '1' || premission == '2' ? '/login' : '/'
+        hrefLogin()
         return Promise.reject(error)
     }
 )
 
+const hrefLogin = () => {
+    window.location.href = premissionFlag ? '/login' : '/'
+}
 export default http
