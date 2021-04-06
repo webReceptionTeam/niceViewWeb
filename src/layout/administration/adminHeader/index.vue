@@ -114,7 +114,6 @@ export default {
         if (item.children) {
           item.children.forEach((child) => {
             if (child.router == active.value) {
-              console.log(child.router, active.value);
               navTab = [
                 {
                   name: item.meunName,
@@ -168,5 +167,8 @@ export default {
       margin-right: 10px;
     }
   }
+}
+.el-dropdown-link {
+  cursor: pointer !important;
 }
 </style>

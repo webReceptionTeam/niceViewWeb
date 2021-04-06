@@ -41,67 +41,59 @@
   */-->
   <div class="config-home">
     <h2>首页配置</h2>
-    <el-row>
-      <el-col :span="2">排序设置</el-col>
+    <el-row class="config-home-header">
       <el-col :span="6">
-        <el-select v-model="value" placeholder="请选择">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          ></el-option>
-        </el-select>
+        <el-button @click="abcd" v-premissionBtn="'adfas'">排序设置应用</el-button>
+      </el-col>
+      <el-col :span="18" class="right">
+        <el-button type="primary">添加</el-button>
       </el-col>
     </el-row>
-    <div>
-      <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="name" label="模块名称" width="180"></el-table-column>
-        <el-table-column prop="sort" label="排名" width="180"></el-table-column>
-        <el-table-column prop="address" label="类型" width="300">
-          <template #default>
-            <el-select v-model="value" placeholder="请选择">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
+    <div style="padding:24px;background:#fff">
+      <el-table :data="tableData" style="width: 100%" @cell-click="celClick">
+        <el-table-column prop="title" label="模块名称" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="orders" label="顺序" align="center"></el-table-column>
+        <el-table-column prop="type" label="类型" align="center"></el-table-column>
+        <el-table-column prop label="图标" align="center">
+          <template #default="scope">
+            <!-- <img src="@/assets/home/modular.jpg" alt style="width: 80px; height: 40px" /> -->
+            <blIcon
+              fontSize="30"
+              :fontClass="scope.row.icon"
+              v-if="scope.row.icon.indexOf('el') == -1"
+            ></blIcon>
+            <i v-else :class="scope.row.icon"></i>
           </template>
         </el-table-column>
-        <el-table-column prop="sort" label="图片设置">
-          <template #default>
-            <img src="@/assets/home/modular.jpg" alt style="width: 80px; height: 40px" />
-          </template>
-        </el-table-column>
-        <el-table-column prop="sort" label="自定义图片">
-          <template #default>
-            <el-button>添加</el-button>
-          </template>
-        </el-table-column>
-        <el-table-column prop="sort" label="是否禁用">
-          <template #default>
-            <el-switch v-model="value1" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+        <el-table-column prop="TypeSize" label="模块个数" width="300" align="center"></el-table-column>
+        <el-table-column fixed="right" width="100" label="是否起用">
+          <template #default="scope">
+            <el-switch
+              @click.stop
+              v-model="scope.row.disable"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            ></el-switch>
           </template>
         </el-table-column>
       </el-table>
     </div>
-    <el-drawer title="我是标题" v-model="drawer" direction="rtl">
-      <span>我来啦!</span>
-    </el-drawer>
+    <drawerBox />
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import { useHomeData } from './use/index'
+import { ElMessage } from 'element-plus'
+import drawerBox from './drawerBox'
 export default {
   name: "viewConfigHome",
+  components: { drawerBox },
   setup() {
     let value = ref(""),
+      form = reactive({}),
       value1 = ref(true),
-      drawer = ref(false),
       options = ref([
         {
           value: "选项1",
@@ -123,19 +115,38 @@ export default {
           value: "选项5",
           label: "北京烤鸭",
         },
-      ]),
-      tableData = ref([
-        {
-          sort: "1",
-          name: "热门话题",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
       ]);
 
     const honeData = useHomeData()
-    return { value, options, tableData, value1, drawer, ...honeData };
+    const abcd = () => {
+      ElMessage('只是一条消息提示')
+    }
+    return { value, options, form, value1, ...honeData, abcd };
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.config-home {
+  > h2 {
+    padding: 10px 0;
+    font-size: 20px;
+  }
+  &-header {
+    padding: 24px 24px 0;
+    background: #fff;
+    .right {
+      .el-button {
+        float: right;
+      }
+    }
+  }
+}
+.el-table {
+  border: 1px solid #ebeef5;
+  border-bottom: none;
+  i {
+    font-size: 18px;
+  }
+}
+</style>

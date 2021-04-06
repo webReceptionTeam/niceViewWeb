@@ -1,0 +1,8 @@
+/* reset elementUI message */
+.el-message {
+  top: 20px !important;
+}
+
+.el-message:not(:last-child) {
+  visibility: hidden;
+}

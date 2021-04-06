@@ -1,4 +1,6 @@
-import { createApp, ref } from 'vue'
+// vue根实例
+import { createApp } from 'vue'
+// 引用根页面
 import App from './App.vue';
 
 // 引入ElementPlus ui库
@@ -13,6 +15,8 @@ import store from './store'
 import './permission.js'
 // 全局注册文件引入
 import registerComponent from './register_workbench.js'
+// 自定义指令
+import Direatives from './utils/directives'
 // 全局样式
 import './styles/index.scss'
 
@@ -26,6 +30,8 @@ app.use(router)
 app.use(store)
 // 全局注册
 registerComponent(app)
+// 自定义指令注册
+Direatives(app)
 // 全局挂载自定义方法及数据
 app.config.globalProperties.ljt = '江涛'
 /**
