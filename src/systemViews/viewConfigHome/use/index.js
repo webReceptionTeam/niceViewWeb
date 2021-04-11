@@ -1,10 +1,14 @@
 import { onMounted, ref, provide } from 'vue'
 import { homeQuer } from '@/api/system'
 import { ElMessage } from 'element-plus'
-
+let tableData = ref([]);
+export function useData() {
+  return {
+    tableData
+  }
+}
 export function useHomeData() {
-  let tableData = ref([]),
-    drawerFlag = ref(false);
+  let drawerFlag = ref(false);
 
 
   onMounted(() => {

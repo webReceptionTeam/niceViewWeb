@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <!-- 这里要做博客相关配置 -->
-  </div>
+  <div>这里要做博客相关配置</div>
 </template>
 
 <script>

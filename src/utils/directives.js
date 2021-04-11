@@ -1,5 +1,6 @@
 import { Object } from "core-js";
 
+// 指令树
 const directiveData = {
   'premissionBtn': {
     // 指令是具有一组生命周期的钩子：
@@ -29,6 +30,7 @@ const directiveData = {
   }
 }
 
+// 添加所有指令
 const Direatives = (app) => {
   Object.keys(directiveData).forEach(key => {
     app.directive(key, directiveData[key])

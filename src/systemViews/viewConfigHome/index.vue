@@ -84,7 +84,7 @@
 
 <script>
 import { ref, reactive } from "vue";
-import { useHomeData } from './use/index'
+import { useHomeData, useData } from './use/index'
 import { ElMessage } from 'element-plus'
 import drawerBox from './drawerBox'
 export default {
@@ -118,10 +118,11 @@ export default {
       ]);
 
     const honeData = useHomeData()
+    const useDatas = useData()
     const abcd = () => {
       ElMessage('只是一条消息提示')
     }
-    return { value, options, form, value1, ...honeData, abcd };
+    return { value, options, form, value1, ...honeData, abcd, ...useDatas };
   },
 };
 </script>
