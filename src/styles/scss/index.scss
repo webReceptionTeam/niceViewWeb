@@ -10,9 +10,21 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
+  min-width: 88px;
+  padding: 9px 20px !important;
 }
 
+// 弹出确认恇取消全局样式
+.el-message-box__headerbtn {
+  min-width: 0;
+  padding: 0 !important;
+}
 
+.el-message-box__message {
+  min-height: 60px;
+}
+
+// 按钮 输入框 输入域
 button,
 input,
 textarea {
@@ -20,11 +32,23 @@ textarea {
   border: 0;
 }
 
-
-.d-flex {
+// 弹性布局
+.displayfix {
   display: flex;
 }
 
-.c-p {
+// 清除浮动
+.clearfix:after,
+.clearfix:before {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+// 鼠标指针小手
+.cursorfix {
   cursor: pointer;
 }

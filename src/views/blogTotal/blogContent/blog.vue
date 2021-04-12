@@ -1,37 +1,30 @@
 <template>
   <div class="blog-box">
-    <div class="d-flex blog-box-header">
+    <div class="displayfix blog-box-header">
       <div class="left">
         <el-checkbox v-model="original">原创</el-checkbox>
         <el-breadcrumb separator-class="el-icon-arrow-right" v-if="screenFlag">
-          <el-breadcrumb-item :to="{ path: '/' + allBlog }"
-            >全部文章</el-breadcrumb-item
-          >
+          <el-breadcrumb-item :to="{ path: '/' + allBlog }">全部文章</el-breadcrumb-item>
           <el-breadcrumb-item>活动管理</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
       <div class="right">
-        <span class="sort">排序：</span
-        ><span
+        <span class="sort">排序：</span>
+        <span
           style="margin-right: 24px"
           :class="{ select: sortType == '01' }"
           @click="sortClick('01')"
-          >按最后发布时间</span
-        ><span
+        >按最后发布时间</span>
+        <span
           style="margin-right: 24px"
           :class="{ select: sortType == '02' }"
           @click="sortClick('02')"
-          >按发布量</span
-        >
+        >按发布量</span>
       </div>
     </div>
 
     <div class="article-list">
-      <div
-        class="article-item-box"
-        v-for="(item, index) in articleList"
-        :key="index"
-      >
+      <div class="article-item-box" v-for="(item, index) in articleList" :key="index">
         <h4>
           <span class="article-type">原创</span>
           标题部分
@@ -45,12 +38,9 @@
         </p>
         <div class="info-box">
           <span class="date">2019-07-01 20:15:55</span>
-          <span class="read-num"
-            ><img
-              src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"
-              alt=""
-            />21</span
-          >
+          <span class="read-num">
+            <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt />21
+          </span>
         </div>
         <div class="opt-box">
           <button class="btn-opt" data-type="top">置顶</button>
@@ -58,21 +48,15 @@
             class="btn-opt"
             data-type="edit"
             href="https://editor.csdn.net/md?articleId=94406189"
-            >编辑</a
-          >
+          >编辑</a>
           <button class="btn-opt" data-type="delete">删除</button>
         </div>
       </div>
       <div class="pagination-box">
-        <el-pagination background layout="prev, pager, next" :total="1000">
-        </el-pagination>
+        <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
       </div>
 
-      <el-empty
-        v-if="articleList.length == 0"
-        :image-size="200"
-        description="空空如也"
-      ></el-empty>
+      <el-empty v-if="articleList.length == 0" :image-size="200" description="空空如也"></el-empty>
     </div>
   </div>
 </template>
@@ -215,7 +199,7 @@ export default {
           background-color: transparent;
         }
         .btn-opt:hover,
-        .btn-opt[data-type='delete'] {
+        .btn-opt[data-type="delete"] {
           color: #fc5531;
         }
       }

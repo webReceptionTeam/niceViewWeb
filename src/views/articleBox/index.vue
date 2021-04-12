@@ -7,10 +7,10 @@
           <span class="follow-nickName">CSDN资讯</span>
           <span class="time">
             <el-tooltip placement="bottom">
-              <span class="c-p">2021-01-29 17:56:18</span>
+              <span class="cursorfix">2021-01-29 17:56:18</span>
               <template #content>
-                最后发布 2021-01-29 17:56:18<br />
-                首次发布2021-01-29 17:56:18
+                最后发布 2021-01-29 17:56:18
+                <br />首次发布2021-01-29 17:56:18
               </template>
             </el-tooltip>
           </span>
@@ -22,9 +22,7 @@
           <span class="label">文章标签：</span>
           <a href="/asdf/article" target="_blank" class="tag-link">测试</a>
         </div>
-        <div class="operating" @click="operatingFlag = !operatingFlag">
-          版权
-        </div>
+        <div class="operating" @click="operatingFlag = !operatingFlag">版权</div>
       </div>
       <el-collapse-transition>
         <div class="article-copyright" v-show="operatingFlag">
@@ -34,9 +32,8 @@
             版权协议，转载请附上原文出处链接和本声明。
           </div>
           <div class="article-source-link">
-            本文链接：<a href="/asdf/article" target="_blank"
-              >http://localhost:8080/asdf/article</a
-            >
+            本文链接：
+            <a href="/asdf/article" target="_blank">http://localhost:8080/asdf/article</a>
           </div>
         </div>
       </el-collapse-transition>
@@ -211,7 +208,7 @@ export default {
   }
 
   .tool-df:hover.tool-df::before {
-    content: '取消关注';
+    content: "取消关注";
     position: absolute;
     top: 0;
     left: 0;

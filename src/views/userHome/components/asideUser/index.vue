@@ -1,9 +1,9 @@
 <template>
   <div>
     <!-- 用户名称及头像 -->
-    <div class="profile-title d-flex">
+    <div class="profile-title displayfix">
       <div class="profile-title-imgbox">
-        <img src="https://profile.csdnimg.cn/B/7/6/3_duxinshuxiaobian" alt="" />
+        <img src="https://profile.csdnimg.cn/B/7/6/3_duxinshuxiaobian" alt />
       </div>
       <div class="profile-title-info">
         <div class="name">涛涛</div>
@@ -15,7 +15,7 @@
       </div>
     </div>
     <!-- 用户排名及发访问量 -->
-    <div class="profile-info d-flex">
+    <div class="profile-info displayfix">
       <dl class="text-center" v-for="item in 5" :key="item">
         <dt class="count">10万+</dt>
         <dd :class="{ font: item < 4 }">原创</dd>
@@ -23,7 +23,7 @@
     </div>
     <div class="item-rank"></div>
     <!-- 粉丝 评论等 -->
-    <div class="data-info d-flex">
+    <div class="data-info displayfix">
       <dl class="text-center" v-for="item in 5" :key="item">
         <dt class="count">10万+</dt>
         <dd :class="{ font: item < 4 }">积分</dd>
@@ -37,8 +37,7 @@
           class="bt-button personal-letter"
           href="https://im.csdn.net/chat/duxinshuxiaobian"
           target="_blank"
-          >私信</a
-        >
+        >私信</a>
       </div>
       <div class="opt-letter-watch-box">
         <a class="personal-watch bt-button">关注</a>

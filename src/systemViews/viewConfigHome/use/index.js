@@ -1,4 +1,4 @@
-import { onMounted, ref, provide } from 'vue'
+import { onMounted, ref, provide, reactive } from 'vue'
 import { homeQuer } from '@/api/system'
 import { ElMessage } from 'element-plus'
 let tableData = ref([]);
@@ -8,14 +8,15 @@ export function useData() {
   }
 }
 export function useHomeData() {
-  let drawerFlag = ref(false);
-
-
+  let drawerFlag = ref(true),
+    // homeData = reactive({ item: {} })
+    homeData = ref({})
   onMounted(() => {
     getHomeData()
 
   })
 
+  // 查询首页全量数据
   const getHomeData = async () => {
     const { data: res } = await homeQuer()
     console.log(res, '测试首页');
@@ -28,15 +29,15 @@ export function useHomeData() {
     }
   }
   const celClick = (row, column, cell, event) => {
-    if (row.disable) {
-      drawerFlag.value = true
-      // provide('flag', drawerFlag.value)
-      provide.flag = true
-      console.log('000')
-    }
+    // if (row.disable) {
+
+    // }
+    drawerFlag.value = true
+    homeData.value = row
   }
   // 共享数据
   provide('drawerFlag', drawerFlag)
+  provide('drawerHomeItem', homeData)
   return {
     tableData, drawerFlag, celClick
   }
