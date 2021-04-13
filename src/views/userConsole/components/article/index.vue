@@ -17,8 +17,7 @@
             :key="item.value"
             :label="item.label"
             :value="item.value"
-          >
-          </el-option>
+          ></el-option>
         </el-select>
       </el-col>
       <el-col :span="3">
@@ -28,8 +27,7 @@
             :key="item.value"
             :label="item.label"
             :value="item.value"
-          >
-          </el-option>
+          ></el-option>
         </el-select>
       </el-col>
       <el-col :span="4" :offset="1">
@@ -39,8 +37,7 @@
             :key="item.value"
             :label="item.label"
             :value="item.value"
-          >
-          </el-option>
+          ></el-option>
         </el-select>
       </el-col>
       <el-col :span="4">
@@ -50,8 +47,7 @@
             :key="item.value"
             :label="item.label"
             :value="item.value"
-          >
-          </el-option>
+          ></el-option>
         </el-select>
       </el-col>
       <el-col :span="5" :offset="1">
@@ -72,9 +68,15 @@
           <div class="item-info-left">
             <span>2019年07月01日 20:15:55</span>
             <span class="border"></span>
-            <p class="readComment"><i class="el-icon-s-home"></i>12</p>
-            <p class="readComment"><i class="el-icon-s-home"></i>12</p>
-            <p class="readComment"><i class="el-icon-s-home"></i>12</p>
+            <p class="readComment">
+              <i class="el-icon-s-home"></i>12
+            </p>
+            <p class="readComment">
+              <i class="el-icon-s-home"></i>12
+            </p>
+            <p class="readComment">
+              <i class="el-icon-s-home"></i>12
+            </p>
           </div>
           <div class="item-info-right">
             <span>编辑</span>
@@ -93,12 +95,12 @@ export default defineComponent({
   name: "userConsoleArticle",
   setup(props) {
     let tabList = ref([
-        { id: "1", name: "全部", total: 100, type: "00" },
-        { id: "2", name: "公开", total: 100, type: "01" },
-        { id: "3", name: "私密", total: 100, type: "02" },
-        { id: "4", name: "审核", total: 100, type: "03" },
-        { id: "5", name: "回收站", total: 100, type: "04" },
-      ]),
+      { id: "1", name: "全部", total: 100, type: "00" },
+      { id: "2", name: "公开", total: 100, type: "01" },
+      { id: "3", name: "私密", total: 100, type: "02" },
+      { id: "4", name: "审核", total: 100, type: "03" },
+      { id: "5", name: "回收站", total: 100, type: "04" },
+    ]),
       TabActive = ref("1"),
       value = ref(""),
       input = ref(""),
@@ -120,7 +122,7 @@ export default defineComponent({
           label: "2019",
         },
       ]);
-    const handleClick = () => {};
+    const handleClick = () => { };
     return {
       tabList,
       TabActive,
@@ -138,32 +140,35 @@ export default defineComponent({
   background: #fff;
   padding: 20px 24px 24px;
   min-height: 800px;
-  /deep/ .el-tabs__nav-wrap::after {
-    display: none;
-  }
-  /deep/ .el-button:hover {
-    background-color: #fc5531;
-    color: #fff;
-  }
-  /deep/ .el-button {
-    padding: 0 24px;
-    border: 1px solid #fc5531;
-    border-color: #fc5531;
-    font-size: 14px;
-    color: #fc5531;
-    -webkit-transition: background-color 0.3s ease-in, border-color 0.3s ease-in;
-    transition: background-color 0.3s ease-in, border-color 0.3s ease-in;
-    line-height: 30px;
-    border-radius: 4px;
-  }
-  /deep/ .el-input__inner {
-    height: 32px;
-  }
-  /deep/ .el-input__icon {
-    line-height: 32px;
-  }
-  /deep/ .el-select {
-    margin-right: 20px;
+  ::v-deep(.el) {
+    &-tabs__nav-wrap::after {
+      display: none;
+    }
+    &-button:hover {
+      background-color: #fc5531;
+      color: #fff;
+    }
+    &-button {
+      padding: 0 24px;
+      border: 1px solid #fc5531;
+      border-color: #fc5531;
+      font-size: 14px;
+      color: #fc5531;
+      -webkit-transition: background-color 0.3s ease-in,
+        border-color 0.3s ease-in;
+      transition: background-color 0.3s ease-in, border-color 0.3s ease-in;
+      line-height: 30px;
+      border-radius: 4px;
+    }
+    &-input__inner {
+      height: 32px;
+    }
+    &-input__icon {
+      line-height: 32px;
+    }
+    &-select {
+      margin-right: 20px;
+    }
   }
   .article-list {
     margin-top: 20px;

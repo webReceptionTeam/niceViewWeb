@@ -25,7 +25,7 @@
         <div class="table-body">
           <div class="table-body-tr">
             <div>
-              <img src="@/assets/home/modular.jpg" alt="" />
+              <img src="@/assets/home/modular.jpg" alt />
               <div>数据</div>
             </div>
             <div>
@@ -35,7 +35,7 @@
               <a href="javascript:;">测试</a>
             </div>
             <div>
-              <el-switch v-model="value" active-color="#13ce66"> </el-switch>
+              <el-switch v-model="value" active-color="#13ce66"></el-switch>
             </div>
             <div>10</div>
           </div>
@@ -51,13 +51,13 @@ export default {
   name: "userConsoleClassification",
   setup(props) {
     let tabList = ref([
-        { id: "1", name: "全部", total: "", type: "00" },
-        { id: "2", name: "审核未通过", total: "", type: "01" },
-        { id: "3", name: "回收站", total: "", type: "02" },
-      ]),
+      { id: "1", name: "全部", total: "", type: "00" },
+      { id: "2", name: "审核未通过", total: "", type: "01" },
+      { id: "3", name: "回收站", total: "", type: "02" },
+    ]),
       TabActive = ref("1"),
       value = ref(false);
-    const handleClick = () => {};
+    const handleClick = () => { };
 
     return {
       tabList,
@@ -99,7 +99,7 @@ export default {
       font-weight: 700;
     }
   }
-  /deep/ .el-tabs__nav-wrap::after {
+  ::v-deep(.el-tabs__nav-wrap::after) {
     display: none;
   }
   .content {

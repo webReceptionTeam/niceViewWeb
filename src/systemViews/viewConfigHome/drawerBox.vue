@@ -36,28 +36,39 @@
           </el-table>
         </div>
         <div v-if="addDataFlag || modifyFlag">
-          <el-form ref="form" :model="form" label-width="120px">
+          <el-form ref="form" label-width="100px" style="padding-right:20px">
+            <h2>一级模块</h2>
             <el-row>
               <el-col :span="12">
-                <el-form-item label="活动名称">
-                  <el-input v-model="form.name"></el-input>
+                <el-form-item label="标题">
+                  <el-input v-model="title"></el-input>
+                </el-form-item>
+              </el-col>
+              <!-- <el-col :span="12">
+                <el-form-item label="类型">
+                  <el-input v-model="form.type"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="12">
-                <el-form-item label="活动名称">
-                  <el-input v-model="form.name"></el-input>
+                <el-form-item label="顺序">
+                  <el-input v-model="form.orders"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="12">
-                <el-form-item label="活动名称">
-                  <el-input v-model="form.name"></el-input>
+                <el-form-item label="模块个数">
+                  <el-input v-model="form.TypeSize"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="12">
-                <el-form-item label="活动名称">
-                  <el-input v-model="form.name"></el-input>
+                <el-form-item label="图标">
+                  <el-input v-model="form.icon"></el-input>
                 </el-form-item>
               </el-col>
+              <el-col :span="12">
+                <el-form-item label="是否禁用">
+                  <el-input v-model="form.disable"></el-input>
+                </el-form-item>
+              </el-col>-->
             </el-row>
           </el-form>
         </div>

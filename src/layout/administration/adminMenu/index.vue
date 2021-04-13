@@ -37,9 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ {
-  .el-menu {
-    border-right: none;
-  }
+::v-deep(.el-menu) {
+  border-right: none;
 }
 </style>

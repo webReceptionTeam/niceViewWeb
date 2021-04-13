@@ -7,9 +7,9 @@
       <el-form-item label="博客描述：">
         <el-input v-model="form.description"></el-input>
       </el-form-item>
-      <el-form-item label="皮肤设置："> </el-form-item>
-      <el-form-item label="">
-        <el-button type="primary"> 保存 </el-button>
+      <el-form-item label="皮肤设置："></el-form-item>
+      <el-form-item label>
+        <el-button type="primary">保存</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -39,11 +39,11 @@ export default {
   background: #fff;
   padding: 24px;
   min-height: 800px;
-  /deep/ {
-    .el-input__inner {
+  ::v-deep(.el) {
+    &-input__inner {
       width: 500px;
     }
-    .el-button--primary {
+    &-button--primary {
       border: 1px solid rgb(252, 85, 49);
       background-color: rgb(252, 85, 49);
       min-width: 96px;
@@ -59,9 +59,9 @@ export default {
       border-radius: 20px;
       transition: color 0.15s ease 0s;
     }
-    .el-button--primary,
-    .el-button--primary:focus,
-    .el-button--primary:hover {
+    &-button--primary,
+    &-button--primary:focus,
+    &-button--primary:hover {
       background: #fc5531;
       color: #fff;
     }

@@ -1,4 +1,4 @@
-import { inject, ref, reactive } from '@vue/runtime-core'
+import { inject, ref, toRefs, reactive, shallowReactive } from '@vue/runtime-core'
 // <!-- card 卡片类型 Banners 横幅 link 链接 List 列表  team 团队 等 -->
 // 表格展示维护
 const headerData = {
@@ -54,9 +54,16 @@ export function useMain() {
     modifyFlag = ref(false),
     addDataFlag = ref(true),
     form = reactive({
-      name: ''
+      title: '',
+      // title: ref(''),
+      // type: ref(''),
+      // orders: ref(''),
+      // TypeSize: ref(''),
+      // icon: ref(''),
+      // disable: ref(''),
     })
 
+  form.title = '1231'
   let tableHeader = headerData.card
 
   return {
@@ -66,6 +73,6 @@ export function useMain() {
     tableHeader,
     modifyFlag,
     addDataFlag,
-    form
+    ...toRefs(form)
   }
 }

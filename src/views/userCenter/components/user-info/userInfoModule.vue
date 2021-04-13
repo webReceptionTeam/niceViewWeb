@@ -79,112 +79,71 @@
       <div class="edit-icon" @click="editFlag = true">编辑</div>
     </ul>
     <div class="base-info-edit" v-if="editFlag">
-      <el-form
-        ref="form"
-        :model="userInfo"
-        label-width="80px"
-        label-position="top"
-      >
+      <el-form ref="form" :model="userInfo" label-width="80px" label-position="top">
         <el-row :gutter="48" v-if="userInfoType == '00'">
           <el-col :span="12">
             <el-form-item label="用户昵称">
-              <el-input
-                v-model="userInfo.name"
-                placeholder="请输入昵称"
-              ></el-input> </el-form-item
-          ></el-col>
-          <el-col :span="12"
-            ><div class="text">每月仅支持修改 1 次</div></el-col
-          >
+              <el-input v-model="userInfo.name" placeholder="请输入昵称"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <div class="text">每月仅支持修改 1 次</div>
+          </el-col>
           <el-col :span="12">
             <el-form-item label="用户ID">
-              <el-input
-                :disabled="true"
-                v-model="userInfo.name"
-              ></el-input> </el-form-item
-          ></el-col>
+              <el-input :disabled="true" v-model="userInfo.name"></el-input>
+            </el-form-item>
+          </el-col>
           <el-col :span="12">
             <el-form-item label="真实姓名">
-              <el-input v-model="userInfo.name"></el-input> </el-form-item
-          ></el-col>
+              <el-input v-model="userInfo.name"></el-input>
+            </el-form-item>
+          </el-col>
           <el-col :span="12">
             <el-form-item label="性别">
               <el-radio v-model="userInfo.gender" label="1" border>男</el-radio>
               <el-radio v-model="userInfo.gender" label="2" border>女</el-radio>
-            </el-form-item></el-col
-          >
+            </el-form-item>
+          </el-col>
           <el-col :span="12">
             <el-form-item label="出生日期">
-              <el-date-picker
-                v-model="userInfo.birthday"
-                type="date"
-                placeholder="请设置您的出生日期"
-              >
-              </el-date-picker> </el-form-item
-          ></el-col>
+              <el-date-picker v-model="userInfo.birthday" type="date" placeholder="请设置您的出生日期"></el-date-picker>
+            </el-form-item>
+          </el-col>
           <el-col :span="12">
             <el-form-item label="开始工作">
-              <el-date-picker
-                v-model="userInfo.theWorkTime"
-                type="month"
-                placeholder=""
-              >
-              </el-date-picker> </el-form-item
-          ></el-col>
+              <el-date-picker v-model="userInfo.theWorkTime" type="month" placeholder></el-date-picker>
+            </el-form-item>
+          </el-col>
           <el-col :span="12">
             <el-form-item label="所在地区">
-              <el-cascader
-                v-model="userInfo.city"
-                :options="options"
-                @change="handleChange"
-              ></el-cascader>
+              <el-cascader v-model="userInfo.city" :options="options" @change="handleChange"></el-cascader>
             </el-form-item>
           </el-col>
           <el-col :span="24">
             <el-form-item label="个人简介">
-              <el-input
-                type="textarea"
-                :rows="4"
-                placeholder="你很懒，还没有添加简介"
-                v-model="userInfo.name"
-              >
-              </el-input> </el-form-item
-          ></el-col>
+              <el-input type="textarea" :rows="4" placeholder="你很懒，还没有添加简介" v-model="userInfo.name"></el-input>
+            </el-form-item>
+          </el-col>
         </el-row>
 
         <el-row :gutter="48" v-if="userInfoType == '01'">
           <el-col :span="12">
             <el-form-item label="学校名称">
-              <el-input
-                v-model="userInfo.name"
-                placeholder="请填写 例如：北京大学"
-              ></el-input>
+              <el-input v-model="userInfo.name" placeholder="请填写 例如：北京大学"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="专业">
-              <el-input
-                v-model="userInfo.name"
-                placeholder="请填写 例如：计算机科学与技术"
-              ></el-input>
+              <el-input v-model="userInfo.name" placeholder="请填写 例如：计算机科学与技术"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="24">
             <el-form-item label="入学时间">
               <div class="tiem">
-                <el-date-picker
-                  v-model="userInfo.theWorkTime"
-                  type="month"
-                  placeholder="请选择入学时间"
-                >
-                </el-date-picker>
+                <el-date-picker v-model="userInfo.theWorkTime" type="month" placeholder="请选择入学时间"></el-date-picker>
                 <div class="to">至</div>
-                <el-date-picker
-                  v-model="userInfo.theWorkTime"
-                  type="month"
-                  placeholder="请选择毕业时间"
-                >
-                </el-date-picker>
+                <el-date-picker v-model="userInfo.theWorkTime" type="month" placeholder="请选择毕业时间"></el-date-picker>
               </div>
             </el-form-item>
           </el-col>
@@ -196,8 +155,7 @@
                   :key="item.id"
                   :label="item.name"
                   :value="item.id"
-                >
-                </el-option>
+                ></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -206,18 +164,12 @@
         <el-row :gutter="48" v-if="userInfoType == '02'">
           <el-col :span="12">
             <el-form-item label="公司名称">
-              <el-input
-                v-model="userInfo.name"
-                placeholder="请填写 例如：XXXX"
-              ></el-input>
+              <el-input v-model="userInfo.name" placeholder="请填写 例如：XXXX"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="职业名称">
-              <el-input
-                v-model="userInfo.name"
-                placeholder="请填写 例如：高级算法工程师"
-              ></el-input>
+              <el-input v-model="userInfo.name" placeholder="请填写 例如：高级算法工程师"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -228,8 +180,7 @@
                   :key="item.id"
                   :label="item.name"
                   :value="item.id"
-                >
-                </el-option>
+                ></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -237,16 +188,8 @@
         <el-row>
           <el-col :span="24">
             <div class="btn-box">
-              <el-button class="edit-btn-cancel" round @click="editFlag = false"
-                >取消</el-button
-              >
-              <el-button
-                class="edit-btn-save"
-                type="primary"
-                round
-                @click="editFlag = false"
-                >保存</el-button
-              >
+              <el-button class="edit-btn-cancel" round @click="editFlag = false">取消</el-button>
+              <el-button class="edit-btn-save" type="primary" round @click="editFlag = false">保存</el-button>
             </div>
           </el-col>
         </el-row>
@@ -429,7 +372,7 @@ export default {
   &-edit {
     padding: 24px 40px;
     background: #f8f8f8;
-    /deep/ .el-form {
+    ::v-deep(.el-form) {
       .el-form-item__label {
         line-height: 16px;
         padding-bottom: 8px;

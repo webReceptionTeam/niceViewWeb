@@ -1,10 +1,6 @@
 <template>
   <div class="aside-content search-comter">
-    <el-input
-      placeholder="搜博主文章"
-      v-model="input3"
-      class="input-with-select"
-    >
+    <el-input placeholder="搜博主文章" v-model="input3" class="input-with-select">
       <template #append>
         <el-button icon="el-icon-search"></el-button>
       </template>
@@ -29,7 +25,10 @@ export default {
 .aside-content {
   padding: 8px 16px;
 }
-/deep/ .el-input .el-input__inner {
-  height: 32px;
+
+::v-deep(.el) {
+  &-input &-input__inner {
+    height: 32px;
+  }
 }
 </style>

@@ -8,16 +8,11 @@
     active-text-color="#000"
     @select="handleSelect"
   >
-    <el-menu-item
-      v-for="item in menuList"
-      :key="item.id"
-      :index="item.route"
-      :route="item.route"
-    >
+    <el-menu-item v-for="item in menuList" :key="item.id" :index="item.route" :route="item.route">
       <template #title>{{ item.title }}</template>
       <!-- <template #title>
         <router-link :to="item.route">{{ item.title }}</router-link>
-      </template> -->
+      </template>-->
       <!-- <a href="javascript:;">跳转</a> -->
     </el-menu-item>
   </el-menu>
@@ -42,7 +37,7 @@ export default {
   width: 100%;
 }
 // is-active
-/deep/ .el-menu {
+::v-deep(.el-menu) {
   padding: 8px 0;
   &-item {
     height: 48px;

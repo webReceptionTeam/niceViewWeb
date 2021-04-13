@@ -103,15 +103,17 @@ export default {
     line-height: 42px;
     border-bottom: 1px solid #f0f2f5;
     .left {
-      /deep/ .el-breadcrumb {
-        line-height: 42px;
-      }
-      /deep/ .el-breadcrumb__inner {
-        font-weight: 500;
-        color: #303133;
-      }
-      /deep/ .el-breadcrumb__separator {
-        color: #303133;
+      ::v-deep(.el) {
+        &-breadcrumb {
+          line-height: 42px;
+        }
+        &-breadcrumb__inner {
+          font-weight: 500;
+          color: #303133;
+        }
+        &-breadcrumb__separator {
+          color: #303133;
+        }
       }
     }
     .right {
