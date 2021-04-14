@@ -1,30 +1,9 @@
 import { inject, ref, toRefs, reactive, shallowReactive } from '@vue/runtime-core'
-// <!-- card 卡片类型 Banners 横幅 link 链接 List 列表  team 团队 等 -->
-// 表格展示维护
-const headerData = {
-  card: [
-    {
-      prop: "img",
-      label: "图片",
-    },
-    {
-      prop: "title",
-      label: "模块标题",
-      showOverflowTooltip: true
-    },
-    {
-      prop: "lastDate",
-      label: "最近更新日期",
-    },
-    {
-      prop: "lastDate",
-      label: "最近更新时间",
-    }
-  ],
-  banners: [],
-  team: [],
-  link: []
-}
+
+import { headerData } from './data'
+
+
+
 export function useMain() {
   // 展示模块详情
   let drawerFlag = inject('drawerFlag'),
@@ -52,18 +31,8 @@ export function useMain() {
       "img": "2123222"
     }]),
     modifyFlag = ref(false),
-    addDataFlag = ref(true),
-    form = reactive({
-      title: '',
-      // title: ref(''),
-      // type: ref(''),
-      // orders: ref(''),
-      // TypeSize: ref(''),
-      // icon: ref(''),
-      // disable: ref(''),
-    })
+    addDataFlag = ref(true)
 
-  form.title = '1231'
   let tableHeader = headerData.card
 
   return {
@@ -73,6 +42,7 @@ export function useMain() {
     tableHeader,
     modifyFlag,
     addDataFlag,
-    ...toRefs(form)
+
+
   }
 }

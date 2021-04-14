@@ -36,41 +36,7 @@
           </el-table>
         </div>
         <div v-if="addDataFlag || modifyFlag">
-          <el-form ref="form" label-width="100px" style="padding-right:20px">
-            <h2>一级模块</h2>
-            <el-row>
-              <el-col :span="12">
-                <el-form-item label="标题">
-                  <el-input v-model="title"></el-input>
-                </el-form-item>
-              </el-col>
-              <!-- <el-col :span="12">
-                <el-form-item label="类型">
-                  <el-input v-model="form.type"></el-input>
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="顺序">
-                  <el-input v-model="form.orders"></el-input>
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="模块个数">
-                  <el-input v-model="form.TypeSize"></el-input>
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="图标">
-                  <el-input v-model="form.icon"></el-input>
-                </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="是否禁用">
-                  <el-input v-model="form.disable"></el-input>
-                </el-form-item>
-              </el-col>-->
-            </el-row>
-          </el-form>
+          <configData />
         </div>
       </div>
       <div class="drawer-box-floot">
@@ -85,11 +51,13 @@
 <script>
 import { useMain } from './use/drawerBox'
 import { ruleTime } from '@/utils/public'
+import configData from './config'
 export default {
   setup() {
     const main = useMain()
     return { ...main }
   },
+  components: { configData },
   methods: {
     // 因setup不可用this所以写在此出 后期是否可以写在setup中-源码调整 截至日期 2021-12-30当天
     // 关闭事件
