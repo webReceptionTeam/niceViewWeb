@@ -3,16 +3,10 @@
     <!-- 账号配置
     {{ objlist }}-->
     <blIcon v-for="(item, index) in objlist.glyphs" :fontClass="item.font_class" :key="index"></blIcon>
-    <el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
-    <el-dialog title="提示" v-model="dialogVisible" width="30%" :before-close="handleClose">
-      <span>这是一段信息</span>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-        </span>
-      </template>
-    </el-dialog>
+    <el-button type="text" @click="handleClose">点击打开 Dialog</el-button>
+    <input ref="input" style="opacity: 0;" type="text" value />
+
+    <iconSelectionTimorous></iconSelectionTimorous>
     <ul class="icon-list"></ul>
   </div>
 </template>
@@ -34,11 +28,11 @@ export default {
   },
   methods: {
     handleClose(done) {
-      this.$confirm('确认关闭？')
-        .then(_ => {
-          done();
-        })
-        .catch(_ => { });
+      // window.copy('123123')
+      const oInput = this.$refs.input
+      oInput.value = 'name'
+      oInput.select();
+      document.execCommand("Copy");
     }
   }
 };
