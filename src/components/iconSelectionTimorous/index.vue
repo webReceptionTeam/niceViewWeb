@@ -1,11 +1,6 @@
 <template>
-  <blog-dialog
-    :dialogVisible.sync="dialogVisible"
-    width="60%"
-    @handleClose="handleCloses"
-    title="图标选择"
-  >
-    <input ref="input" style="opacity: 0;" type="text" />
+  <blog-dialog width="60%" @handleClose="handleCloses" title="图标选择" :handleCloseFlag="true">
+    <input ref="iconInputRef" style="opacity: 0;" type="text" />
     <el-tabs v-model="iconType" type="card">
       <el-tab-pane label="图标库" name="fontClass">
         <ul>
@@ -42,53 +37,62 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 // 阿里巴巴图标库json
 const json = require("fonts/iconfont.json");
 // el图标库json
 const jsonPlus = require('@/utils/iconfontPlus.json')
+
 export default {
   name: 'iconSelectionTimorous',
   props: {
+    // 使用方式
     clickCopyFlag: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
-  emits: ["clickName"],
+  // 自定义事件需要定义
+  emits: ["clickName", "iconClose"],
   setup(props, context) {
-    let fontList = ref(json),
+    let dialogVisible = inject('dialogVisible'),
+      fontList = ref(json),
       fontListPlus = ref(jsonPlus),
-      dialogVisible = ref(true),
-      iconType = ref('fontClass')
+      iconType = ref('fontClass'),
+      iconInputRef = ref(null),
+      valFlag = ref('');
 
     // 退出前事件
-    const handleCloses = () => {
+    const handleCloses = (ev) => {
+      context.emit('iconClose', ev)
       dialogVisible.value = false
+      valFlag.value = ''
     }
 
+    // 图标点击事件
     const iconClick = (val) => {
-      console.log(val, '999');
+      valFlag.value = val
+      // 判断需要那种方式
       if (props.clickCopyFlag) {
-        console.log(context);
-        // const oInput = this.$refs.input
-        // oInput.value = val
-        // oInput.select();
-        // document.execCommand("Copy");
+        const oInput = iconInputRef.value
+        oInput.value = val
+        oInput.select();
+        document.execCommand("Copy");
       } else {
         context.emit('clickName', val)
       }
+      handleCloses()
     }
 
     return {
       fontList,
       fontListPlus,
-      dialogVisible,
       handleCloses,
       iconType,
-      iconClick
+      iconClick,
+      iconInputRef
     };
-  }
+  },
 }
 </script>
 
