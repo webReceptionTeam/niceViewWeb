@@ -1,9 +1,9 @@
 <template>
   <div>
+    <h2>一级模块</h2>
     <el-form ref="form" label-width="100px" style="padding-right:20px">
-      <h2>一级模块</h2>
       <el-row>
-        <el-col :span="12">
+        <el-col :span="24">
           <el-form-item label="标题">
             <el-input v-model="title"></el-input>
           </el-form-item>
@@ -21,11 +21,6 @@
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="顺序">
-            <el-input v-model.number="orders" maxlength="5" show-word-limit></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
           <el-form-item label="模块个数">
             <el-select v-model="TypeSize" placeholder="请选择">
               <el-option
@@ -38,8 +33,22 @@
           </el-form-item>
         </el-col>
         <el-col :span="12">
+          <el-form-item label="顺序">
+            <el-input-number v-model="orders" :step="1"></el-input-number>
+          </el-form-item>
+        </el-col>
+        <el-col :span="24">
           <el-form-item label="图标">
-            <el-input v-model="icon"></el-input>
+            <div v-if="icon" class="config-icon">
+              <blogIcon :fontName="icon"></blogIcon>
+            </div>
+            <div v-else class="cursorfix" style="font-size: 20px" @click="openIconSelect">
+              <i class="el-icon-plus"></i>
+            </div>
+            <iconSelectionTimorous @iconClose="handleClose" @clickName="clickName"></iconSelectionTimorous>
+            <div class="del cursorfix" v-if="icon" @click="emptyIcon">
+              <i class="el-icon-close"></i>
+            </div>
           </el-form-item>
         </el-col>
         <el-col :span="12">
@@ -49,6 +58,7 @@
         </el-col>
       </el-row>
     </el-form>
+    <h2>二级模块</h2>
   </div>
 </template>
 
@@ -64,4 +74,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.config-icon {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.del {
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  left: 25px;
+  height: 20px;
+  line-height: 20px;
+}
 </style>

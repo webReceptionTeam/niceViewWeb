@@ -1,6 +1,5 @@
 <template>
   <blog-dialog width="60%" @handleClose="handleCloses" title="图标选择" :handleCloseFlag="true">
-    <input ref="iconInputRef" style="opacity: 0;" type="text" />
     <el-tabs v-model="iconType" type="card">
       <el-tab-pane label="图标库" name="fontClass">
         <ul>
@@ -33,6 +32,7 @@
         </ul>
       </el-tab-pane>
     </el-tabs>
+    <input ref="iconInputRef" style="opacity: 0;" type="text" />
   </blog-dialog>
 </template>
 
@@ -135,7 +135,7 @@ ul {
 }
 ::v-deep(.el) {
   &-tab-pane {
-    max-height: 600px;
+    max-height: 400px;
     overflow-y: auto;
   }
   &-tabs {

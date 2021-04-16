@@ -7,7 +7,7 @@
     <el-button type="text" @click="forgetPunctuation = true">点击打开 Dialog</el-button>
     <input ref="input" style="opacity: 0;" type="text" value />
 
-    <iconSelectionTimorous @iconClose="handleClose"></iconSelectionTimorous>
+    <iconSelectionTimorous @iconClose="handleClose" @clickName="clickName"></iconSelectionTimorous>
     <ul class="icon-list"></ul>
   </div>
 </template>

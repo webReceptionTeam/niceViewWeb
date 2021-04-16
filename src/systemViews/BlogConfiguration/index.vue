@@ -1,12 +1,18 @@
 <template>
-  <div>这里要做博客相关配置</div>
+  <div>
+    <button @click="blogListFlag = true">这里要做博客相关配置</button>
+    <blogListDialog></blogListDialog>
+  </div>
 </template>
 
 <script>
+import { ref, provide } from 'vue'
 export default {
   name: "blogConfiguration",
   setup() {
-    return {};
+    let blogListFlag = ref(false)
+    provide('blogListFlag', blogListFlag)
+    return { blogListFlag };
   },
 };
 </script>
