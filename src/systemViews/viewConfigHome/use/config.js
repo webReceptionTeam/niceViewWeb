@@ -1,4 +1,5 @@
 import { reactive, toRefs, provide, ref } from 'vue'
+import { ElMessage } from 'element-plus'
 import {
   moduleTypeList,
   sizeTypeList
@@ -6,6 +7,7 @@ import {
 
 export function useMain() {
   let iconFlag = ref(false),
+
     configData = reactive({
       title: '',
       type: 'card',
@@ -31,6 +33,7 @@ export function useMain() {
   const openIconSelect = () => {
     iconFlag.value = true
   }
+
   return {
     moduleTypeList,
     sizeTypeList,
@@ -38,6 +41,52 @@ export function useMain() {
     handleClose,
     clickName,
     emptyIcon,
-    openIconSelect
+    openIconSelect,
+  }
+}
+
+export function useChildrenMain() {
+  let blogListFlag = ref(false),
+    linkList = ref([
+      {
+        link: '',
+        name: ''
+      }
+    ]),
+    cardList = ref([]);
+
+  provide('blogListFlag', blogListFlag)
+
+  // 博客选中返回事件
+  const changeBnt = (list) => {
+    // list.forEach(item => {
+    //   cardList.value.push(item)
+    // }) 
+
+    cardList.value = list
+    console.log(cardList.value);
+
+  }
+
+  // 添加连接
+  const linkAdd = () => {
+    linkList.value.push({ link: '', name: '' })
+  }
+  // 删除连接
+  const linkDel = (i) => {
+    if (linkList.value.length > 1) {
+      linkList.value.splice(i, 1)
+    } else {
+      ElMessage('至少保留一个连接')
+    }
+  }
+
+  return {
+    linkList,
+    blogListFlag,
+    cardList,
+    changeBnt,
+    linkDel,
+    linkAdd
   }
 }

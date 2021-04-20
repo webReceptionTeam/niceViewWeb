@@ -59,16 +59,57 @@
       </el-row>
     </el-form>
     <h2>二级模块</h2>
+
+    <div v-if="type == 'link'">
+      <div class="clearfix" style=" margin-bottom:30px">
+        <el-button type="primary" style="float:right" @click="linkAdd">添加连接</el-button>
+      </div>
+      <el-form ref="form" label-width="100px">
+        <el-row v-for="(item,index) in  linkList" :key="index">
+          <el-col :span="11">
+            <el-form-item label="连接名称">
+              <el-input v-model="item.name"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="11">
+            <el-form-item label="连接地址">
+              <el-input v-model="item.link"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="2">
+            <div class="del-btn cursorfix" @click="linkDel(index)">
+              <i class="el-icon-delete"></i>
+            </div>
+          </el-col>
+        </el-row>
+      </el-form>
+    </div>
+    <div v-if="type == 'card'">
+      <div class="clearfix" style=" margin-bottom:30px">
+        <el-button @click="blogListFlag = true" style="float:right">选择博客</el-button>
+      </div>
+      <blogListDialog @change="changeBnt"></blogListDialog>
+      <el-table :data="cardList" style="width: 100%">
+        <el-table-column prop="title" width="200" label="博客标题" show-overflow-tooltip></el-table-column>
+        <el-table-column prop label="图片" align="center">
+          <template #default="scope"></template>
+        </el-table-column>
+        <el-table-column fixed="right" width="100" label="操作">
+          <template #default="scope">删除</template>
+        </el-table-column>
+      </el-table>
+    </div>
   </div>
 </template>
 
 <script>
 
-import { useMain } from './use/config'
+import { useMain, useChildrenMain } from './use/config'
 export default {
   setup() {
-    const main = useMain()
-    return { ...main }
+    const main = useMain(),
+      childrenMain = useChildrenMain()
+    return { ...main, ...childrenMain }
   }
 }
 </script>
@@ -86,5 +127,17 @@ export default {
   left: 25px;
   height: 20px;
   line-height: 20px;
+}
+.del-btn {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  background: #f56c6c;
+  border-radius: 50%;
+  line-height: 35px;
+  margin-left: 10px;
+  .el-icon-delete {
+    color: #fff;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <el-drawer
     :title="drawerHomeItem.title || '添加'"
-    size="50%"
+    size="60%"
     v-model="drawerFlag"
     :before-close="drawerClose"
     :with-header="false"
@@ -101,7 +101,8 @@ export default {
     }
   }
   &-content {
-    flex: 1;
+    height: calc(100% - 150px);
+    overflow: auto;
     .el-form {
       width: 100%;
     }

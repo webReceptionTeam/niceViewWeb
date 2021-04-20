@@ -2,7 +2,9 @@
 
 // 日期处理
 const ruleTime = (value, fmt = 'yyyy-MM-dd HH:mm:ss') => {
-
+  if (!value) {
+    return '-'
+  }
   let d = value ? new Date(value) : new Date()
   let o = {
     'M+': d.getMonth() + 1, // 月份
@@ -30,8 +32,8 @@ const ruleTime = (value, fmt = 'yyyy-MM-dd HH:mm:ss') => {
     }
   }
   return fmt
-
 }
+
 export {
   ruleTime
 }
