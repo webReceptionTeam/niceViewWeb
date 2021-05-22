@@ -4,6 +4,7 @@ import { ElMessage } from 'element-plus'
 import { str_decrypt } from '@/utils/dense.js'
 import { useRoute } from 'vue-router'
 import { userLogin } from '@/api/loginApi'
+import { setOtherCookie } from '@/utils/auth.js'
 
 /**
  * 用户登录操作
@@ -57,11 +58,12 @@ export function useSignIn(loginMode) {
     }
 }
 
-const loginFn = async () => {
+const loginFn = async (flag = false) => {
     let route = useRoute()
     let { data: res } = await userLogin({
         userName: userName.value,
-        userPassWord: passWord.value
+        userPassWord: passWord.value,
+        systemFlag: flag
     })
     if (res.code == 0) {
         //登录成功从响应头里拿token存入Localstorage
@@ -79,8 +81,12 @@ const loginFn = async () => {
         localStorage.setItem('nickname', nickname);
         localStorage.setItem('gender', gender);
         localStorage.setItem('premission', premission);
+        await setOtherCookie('token', premission)
+        // router.push(path)
+        // router.replace(path)
+        window.location.href = path
 
-        router.push(path)
+
     } else if (res.code == -1) {
         ElMessage.warning({
             message: res.msg,
@@ -110,7 +116,7 @@ export function useSystemSign() {
     // 管理员登录
     const systemLoginBtn = async () => {
         try {
-            await loginFn()
+            await loginFn(true)
             dialogVisible.value = false
         } catch (error) {
             ElMessage.error('请求超时，请稍后再试！');

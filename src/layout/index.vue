@@ -8,7 +8,7 @@
 <script>
 import administration from './administration'
 import reception from './reception'
-import { ref ,onBeforeMount} from 'vue'
+import { ref, onBeforeMount } from 'vue'
 import { useRoute } from "vue-router"
 export default {
   name: 'Layout',
@@ -21,7 +21,7 @@ export default {
     let viewIs = ref('')
     const route = useRoute()
 
-    onBeforeMount(()=>{
+    onBeforeMount(() => {
       console.log(route.path, '路由名称判断')
       if (route.path.indexOf('/system') != -1) {
         viewIs.value = 'administration'
@@ -29,13 +29,12 @@ export default {
         viewIs.value = 'reception'
       }
     })
-    
 
     return {
       viewIs
     }
   },
-  
+
 }
 </script>
 

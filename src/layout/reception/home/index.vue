@@ -5,15 +5,15 @@
       <div class="index_nav">
         <ul class="index_nav_left">
           <li>
-            <img src="@/assets/home/nav-index.png" alt="" />
+            <img src="@/assets/home/nav-index.png" alt />
             <span>首页</span>
           </li>
           <li>
-            <img src="@/assets/home/nav-index.png" alt="" />
+            <img src="@/assets/home/nav-index.png" alt />
             <span>首页</span>
           </li>
           <li>
-            <img src="@/assets/home/nav-index.png" alt="" />
+            <img src="@/assets/home/nav-index.png" alt />
             <span>首页</span>
           </li>
         </ul>
@@ -25,7 +25,7 @@
         <div class="index_nav_right">
           <ul class="nav_right_wrap">
             <li v-for="(item, index) in 4" :key="index">
-              <img src="@/assets/home/nav-index.png" alt="" />
+              <img src="@/assets/home/nav-index.png" alt />
               <span>其他</span>
             </li>
           </ul>
@@ -132,6 +132,9 @@ export default {
       refList,
       list,
     };
+  },
+  mounted() {
+    emitter.on()
   },
 };
 </script>

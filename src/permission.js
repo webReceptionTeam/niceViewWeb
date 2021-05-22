@@ -11,9 +11,11 @@ import systemRouter from './router/system'
 // 加密函数
 import { str_encrypt } from '@/utils/dense'
 
+import { getOtherCookie } from '@/utils/auth.js'
+
 NProgress.configure({ showSpinner: false });
 // token
-const token = window.localStorage.getItem('token')
+const token = getOtherCookie('token')
 /**
  * 白名单
  *  首页 登录 注册
@@ -30,6 +32,7 @@ if (premission != '1' && premission != '2') {
         router.addRoute(item)
     })
 }
+
 if (token) {
     // 用户登录后添加路由 前台 或 管理系统
     const routerList = premission == '1' || premission == '2' ? systemRouter : userView

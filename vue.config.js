@@ -51,7 +51,7 @@ module.exports = {
     name: 'asOneWishes',
     resolve: {
       alias: {
-        '@': resolve('src'),
+        // '@': resolve('src'),
         // SingleMember: resolve('src/components/SingleMember'),
         'images': resolve('public/images'),
         'fonts': resolve('public/fonts')
