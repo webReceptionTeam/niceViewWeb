@@ -5,6 +5,8 @@
 npm install
 ```
 
+安装依赖可能会失败 请不要心急
+
 ### Compiles and hot-reloads for development
 ```
 npm run dev
