@@ -5,7 +5,10 @@
 npm install
 ```
 
-安装依赖可能会失败 请不要心急
+安装依赖可能会失败 请不要心急 请跑下边这个命令
+```
+cnpm i vue-loader-v16 --save-dev
+```
 
 ### Compiles and hot-reloads for development
 ```
