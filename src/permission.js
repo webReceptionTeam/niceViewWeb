@@ -39,6 +39,11 @@ if (token) {
     routerList.map(item => {
         router.addRoute(item)
     })
+} else {
+    whiteList.push('/')
+    viewRouter.map(item => {
+        router.addRoute(item)
+    })
 }
 
 // 路由加载前

@@ -25,6 +25,9 @@ npm run build
 npm run lint
 ```
 
+### 关于github网站打开及提交代码问题
+See [配置本地hosts](https://blog.csdn.net/fantasy_wxe/article/details/108957886)
+
 ### Customize configuration
 #### Configuration Reference
 See [vue-cli @3.0.0](https://cli.vuejs.org/config/)(https://www.vue3js.cn/docs/zh/).

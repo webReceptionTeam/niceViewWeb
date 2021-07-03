@@ -49,7 +49,8 @@ http.interceptors.response.use(
         return response
     },
     (error) => {
-        hrefLogin()
+        // hrefLogin()
+        console.log(error);
         return Promise.reject(error)
     }
 )

@@ -5,6 +5,7 @@ import { headerData } from './data'
 
 
 export function useMain() {
+  // ** inject() can only be used inside setup() or functional components.
   // 展示模块详情
   let drawerFlag = inject('drawerFlag'),
     drawerHomeItem = inject('drawerHomeItem'),

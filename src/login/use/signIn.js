@@ -84,7 +84,7 @@ const loginFn = async (flag = false) => {
         await setOtherCookie('token', premission)
         // router.push(path)
         // router.replace(path)
-        window.location.href = path
+        // window.location.href = path
 
 
     } else if (res.code == -1) {
