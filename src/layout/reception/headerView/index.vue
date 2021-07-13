@@ -81,7 +81,7 @@
           </el-dropdown>
           <a href="javascript:;" class="shoucang">收藏</a>
           <a href="javascript:;" class="message">消息</a>
-          <el-button type="danger" icon="el-icon-edit" round>创作中心</el-button>
+          <el-button type="danger" icon="el-icon-edit" round @click="toEditor">创作中心</el-button>
         </div>
       </el-col>
     </el-row>
@@ -105,24 +105,27 @@ export default {
     //是否已经登录
     const { isLogin } = useIsLogin();
     //导航相关逻辑
-    const { activeIndex, handleSelect, navList } = useInitNav();
+    const { activeIndex, handleSelect, navList, toEditor } = useInitNav();
     //搜索
     const { searchInput, searchClickHandler } = useSearch();
     //头像以及退出前台登录
     const { circleUrl, userInfo, commandCallback, directTo, toLoginPath } = useAvater(isLogin);
     return {
       navList,
-      handleSelect,
-      activeIndex,
-      searchInput,
-      searchClickHandler,
       circleUrl,
       isLogin,
+      activeIndex,
+      searchInput,
+      toolbarClass,
+      toLoginPath,
+      circleUrl,
+      isLogin,
+      ...toRefs(userInfo),
+      searchClickHandler,
       commandCallback,
       directTo,
-      ...toRefs(userInfo),
-      toolbarClass,
-      toLoginPath
+      handleSelect,
+      toEditor
     };
   },
 };

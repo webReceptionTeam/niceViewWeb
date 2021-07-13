@@ -11,6 +11,15 @@ const store = createStore({
         abc(state) {
             state.count++
         }
+    },
+    getters: {
+
+    },
+    actions: {
+
+    },
+    modules: {
+
     }
 })
 

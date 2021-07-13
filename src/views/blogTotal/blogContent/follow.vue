@@ -5,26 +5,28 @@
         data-type="FollowNum"
         :class="{ active: followActive == 'attention' }"
         @click="followTabType('attention')"
-        >TA关注的人（ 2 ）</span
-      ><span
+      >TA关注的人（ 2 ）</span>
+      <span
         data-type="FollowFan"
         :class="{ active: followActive == 'fans' }"
         @click="followTabType('fans')"
-        >TA的粉丝（ 1 ）</span
-      >
+      >TA的粉丝（ 1 ）</span>
     </div>
     <ul class="follow-box-user">
       <li v-for="(item, index) in 3" :key="index">
         <div class="user-left">
           <img src="@/assets/nav/monkey.png" />
           <dl>
-            <dd><h4>涛涛专属</h4></dd>
+            <dd>
+              <h4>涛涛专属</h4>
+            </dd>
             <dt>码龄好几年</dt>
           </dl>
         </div>
-        <p class="button" :class="{ active: followActive == 'attention' }">
-          {{ followActive == 'attention' ? '已关注' : '关注' }}
-        </p>
+        <p
+          class="button"
+          :class="{ active: followActive == 'attention' }"
+        >{{ followActive == 'attention' ? '已关注' : '关注' }}</p>
       </li>
       <div class="article-login">- 到底了 -</div>
     </ul>
@@ -148,7 +150,7 @@ export default {
         background: #fff5f2;
       }
       .button:hover.active::before {
-        content: '取消关注';
+        content: "取消关注";
         position: absolute;
         width: 100%;
         height: 100%;

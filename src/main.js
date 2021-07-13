@@ -7,6 +7,9 @@ import App from './App.vue';
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
 
+// 引入md插件
+import MarkDown from './utils/markdown.js'
+
 // 路由引入
 import router from './router'
 // vuex引入
@@ -32,6 +35,8 @@ app.use(store)
 registerComponent(app)
 // 自定义指令注册
 Direatives(app)
+// 挂载mavonEditor
+MarkDown(app)
 // 全局挂载自定义方法及数据
 app.config.globalProperties.ljt = '江涛'
 /**

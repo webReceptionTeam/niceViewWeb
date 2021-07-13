@@ -59,7 +59,7 @@ const viewRouter = [
                                 // 匹配全部路由 为了拿到动态博客id
                                 path: ':catchAll(.*)',
                                 // path: 'adsfa',
-                                component: () => import('@/views/b.vue'),
+                                component: () => import('@/views/articleBox/index.vue'),
                             }
                         ]
                     }

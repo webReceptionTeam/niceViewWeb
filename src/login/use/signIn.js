@@ -82,7 +82,7 @@ const loginFn = async (flag = false) => {
         localStorage.setItem('gender', gender);
         localStorage.setItem('premission', premission);
         await setOtherCookie('token', premission)
-        // router.push(path)
+        router.push(path)
         // router.replace(path)
         // window.location.href = path
 
