@@ -1,5 +1,5 @@
 import { reactive, ref } from 'vue'
-import { ElMessage } from 'element-plus'
+import { ElMessage } from '@/utils/message.js'
 import { filterGetRoutePath } from "@/utils/filterData";
 import { useRouter } from "vue-router";
 import { useIsLogin } from "./isLogin";

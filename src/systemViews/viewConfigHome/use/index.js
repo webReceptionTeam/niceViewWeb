@@ -1,6 +1,6 @@
 import { onMounted, ref, provide, reactive } from 'vue'
 import { homeQuer } from '@/api/system'
-import { ElMessage } from 'element-plus'
+import { ElMessage } from '@/utils/message.js'
 let tableData = ref([]);
 export function useData() {
   return {

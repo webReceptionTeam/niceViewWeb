@@ -6,7 +6,7 @@
         <ul class="index_nav_left">
           <li>
             <img src="@/assets/home/nav-index.png" alt />
-            <span>首页</span>
+            <span @click="btn">首1页</span>
           </li>
           <li>
             <img src="@/assets/home/nav-index.png" alt />
@@ -56,6 +56,7 @@
 import emitter from "@/utils/eventBus";
 import myHeader from "../headerView";
 import { onBeforeMount, provide, onMounted, ref } from "vue";
+import { ElMessage } from '@/utils/message.js'
 export default {
   name: "LayoutHome",
   components: { myHeader },
@@ -135,6 +136,18 @@ export default {
   },
   mounted() {
     emitter.on()
+  },
+  methods: {
+    btn() {
+      // ElMessage('lasf')
+      // ElMessage.info('lasf')
+      // this.$message('24234')
+      ElMessage({
+        showClose: true,
+        message: '已自动为您跳转到登录页',
+        type: 'success'
+      });
+    }
   },
 };
 </script>

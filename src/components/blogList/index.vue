@@ -33,7 +33,7 @@
 import { ref, toRefs, reactive, watch, inject, provide } from 'vue'
 import { blogQuery } from '@/api/index'
 import { ruleTime } from '@/utils/public'
-import { ElMessage } from 'element-plus'
+import { ElMessage } from '@/utils/message.js'
 export default {
   name: "blogListDialog",
   props: {

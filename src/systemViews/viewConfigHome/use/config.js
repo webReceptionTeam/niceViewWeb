@@ -1,5 +1,5 @@
 import { reactive, toRefs, provide, ref } from 'vue'
-import { ElMessage } from 'element-plus'
+import { ElMessage } from '@/utils/message.js'
 import {
   moduleTypeList,
   sizeTypeList

@@ -40,7 +40,7 @@
             <router-link to="/register">注册</router-link>
           </span>
           <el-dropdown @command="commandCallback" v-else>
-            <a href="http://localhost:8080/weixin_44933553" class="avater-wrap" target="_blank">
+            <a href="/weixin_44933553" class="avater-wrap" target="_blank">
               <el-avatar :size="32" :src="circleUrl"></el-avatar>
             </a>
             <template #dropdown>

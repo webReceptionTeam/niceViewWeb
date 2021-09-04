@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import router from '@/router/index'
-import { ElMessage } from 'element-plus'
+import { ElMessage } from '@/utils/message.js'
 import { str_decrypt } from '@/utils/dense.js'
 import { useRoute } from 'vue-router'
 import { userLogin } from '@/api/loginApi'
@@ -82,9 +82,9 @@ const loginFn = async (flag = false) => {
         localStorage.setItem('gender', gender);
         localStorage.setItem('premission', premission);
         await setOtherCookie('token', premission)
-        router.push(path)
+        // router.push(path)
         // router.replace(path)
-        // window.location.href = path
+        window.location.href = path
 
 
     } else if (res.code == -1) {

@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import router from '@/router/index'
-import { ElMessage } from 'element-plus'
+import { ElMessage } from '@/utils/message.js'
 import { userRegister } from '@/api/loginApi'
 export function useSignIn() {
     let username = ref('')

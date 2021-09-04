@@ -6,6 +6,7 @@ import App from './App.vue';
 // 引入ElementPlus ui库
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
+import { Message } from './utils/message'
 
 // 引入md插件
 import MarkDown from './utils/markdown.js'
@@ -27,6 +28,8 @@ import './styles/index.scss'
 const app = createApp(App)
 // 挂载ElementPlus
 app.use(ElementPlus)
+// 调整elm消息提示
+Message(app)
 // 挂载router
 app.use(router)
 // vuex

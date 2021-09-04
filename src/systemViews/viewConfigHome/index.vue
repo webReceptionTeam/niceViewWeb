@@ -85,7 +85,7 @@
 <script>
 import { ref, reactive } from "vue";
 import { useHomeData, useData } from './use/index'
-import { ElMessage } from 'element-plus'
+import { ElMessage } from '@/utils/message.js'
 import drawerBox from './drawerBox'
 export default {
   name: "viewConfigHome",
