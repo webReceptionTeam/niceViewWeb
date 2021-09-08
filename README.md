@@ -1,4 +1,4 @@
-# myvue
+# niceVieWeb
 
 ## Project setup
 ```
