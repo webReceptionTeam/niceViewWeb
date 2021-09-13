@@ -7,6 +7,8 @@ npm install
 
 安装依赖可能会失败 请不要心急 请跑下边这个命令
 ```
+npm i vue-loader-v16 --save-dev
+或
 cnpm i vue-loader-v16 --save-dev
 ```
 
@@ -45,11 +47,11 @@ See [Ant Design of Vue](https://2x.antdv.com/docs/vue/introduce-cn/).
 ```
 ├── build                      # 构建相关
 ├── mock                       # 项目mock 模拟数据
-├── plop-templates             # 基本模板
 ├── public                     # 静态资源
 │   │── favicon.ico            # favicon图标
-│   └── index.html             # html模板
-│   └── fonts                  # 项目所有 svg icons
+│   │── index.html             # html模板
+│   │── fonts                  # 项目所有 svg icons
+│   └── images                 # 图片
 ├── src                        # 源代码
 │   ├── api                    # 所有请求
 │   ├── assets                 # 主题 字体等静态资源 ---
@@ -57,23 +59,25 @@ See [Ant Design of Vue](https://2x.antdv.com/docs/vue/introduce-cn/).
 │   ├── |——...                 # 其他的公用组件
 │   ├── directive              # 全局指令 ---
 │   ├── lang                   # 国际化 language
-│   ├── layout                 # 全局 layout
+│   ├── layout                 # 公共布局
 │   ├── router                 # 路由
 │   ├── store                  # 全局 store管理
 │   ├── styles                 # 全局样式
+│   ├── systemViews            # 后台管理页面
 │   ├── utils                  # 全局公用方法
 │   ├── |——validate.js         # 表单校验的公用方法 --
 │   ├── |——auth.js             # 存储封装
 │   ├── |——eventBus.js         # 兄弟传值
+│   ├── |——iconfontPlus.json   # el ui 的图标列表维护
 │   ├── |——http.js             # axios配置（请求拦截和返回拦截）的公用方法
-│   ├── vendor                 # 公用vendor
-│   ├── views                  # views 所有页面
+│   ├── views                  # views 前台页面
 │   ├── App.vue                # 入口页面
 │   ├── main.js                # 入口文件 加载组件 初始化等
 │   └── permission.js          # 权限管理
 │   └── register_workbench.js  # 全局组件注册及合并有等
 ├── tests                      # 测试
 ├── .env.xxx                   # 环境变量配置
+├── .editorconfig              # 项目格式化配置
 ├── .eslintrc.js               # eslint 配置项
 ├── .babelrc                   # babel-loader 配置
 ├── vue.config.js              # vue-cli 配置
