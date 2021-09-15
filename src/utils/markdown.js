@@ -5,13 +5,6 @@ import '@kangc/v-md-editor/lib/style/base-editor.css';
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
 import '@kangc/v-md-editor/lib/theme/style/vuepress.css';
 
-
-// 提示信息
-import createTipPlugin from '@kangc/v-md-editor/lib/plugins/tip/index';
-import '@kangc/v-md-editor/lib/plugins/tip/tip.css';
-
-VueMarkdownEditor.use(createTipPlugin());
-
 import Prism from 'prismjs';
 
 VueMarkdownEditor.use(vuepressTheme, {

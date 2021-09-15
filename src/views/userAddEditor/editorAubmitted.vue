@@ -1,10 +1,10 @@
 <template>
-  <div class="modal_box">
+  <div class="modal_box" v-if="staySubmitFlag">
     <div class="modal_inner">
       <div class="modal_content">
         <div class="modal_content_title">
           <h2>发布文章</h2>
-          <h1>X</h1>
+          <h1 @click="clear">X</h1>
         </div>
         <div class="modal_content_native">
           <span>
@@ -17,38 +17,41 @@
           </span>
         </div>
 
-        <el-form label-width="80px">
+        <el-form v-model="editorData" label-width="80px">
           <el-form-item label="文章标签">
-            <el-checkbox-group v-model="value">
-              <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-              <el-checkbox label="地推活动" name="type"></el-checkbox>
-              <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-              <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-              <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-              <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+            <el-checkbox-group v-model="editorData.blogLabel">
+              <el-checkbox label="美食/餐厅线上活动" name="1"></el-checkbox>
+              <el-checkbox label="地推活动" name="2"></el-checkbox>
+              <el-checkbox label="线下主题活动" name="3"></el-checkbox>
+              <el-checkbox label="线下主题活动" name="4"></el-checkbox>
+              <el-checkbox label="线下主题活动" name="5"></el-checkbox>
+              <el-checkbox label="单纯品牌曝光" name="6"></el-checkbox>
             </el-checkbox-group>
           </el-form-item>
           <el-form-item label="分类专栏">
-            <el-checkbox-group v-model="checkBox">
-              <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-              <el-checkbox label="地推活动" name="type"></el-checkbox>
-              <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-              <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-              <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-              <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+            <el-checkbox-group v-model="editorData.blogClass">
+              <el-checkbox label="美食/餐厅线上活动" name="1"></el-checkbox>
+              <el-checkbox label="地推活动" name="2"></el-checkbox>
+              <el-checkbox label="线下主题活动" name="3"></el-checkbox>
+              <el-checkbox label="线下主题活动" name="4"></el-checkbox>
+              <el-checkbox label="线下主题活动" name="5"></el-checkbox>
+              <el-checkbox label="单纯品牌曝光" name="6"></el-checkbox>
             </el-checkbox-group>
           </el-form-item>
           <el-form-item label="发布形式">
-            <el-radio-group v-model="type">
-              <el-radio label="公开"></el-radio>
-              <el-radio label="私密"></el-radio>
-              <el-radio label="粉丝可见"></el-radio>
+            <el-radio-group v-model="editorData.blogType">
+              <el-radio
+                v-for="item in visibleModeLists"
+                :key="item.value"
+                :label="item.value"
+                :value="item.value"
+              >{{ item.label }}</el-radio>
             </el-radio-group>
           </el-form-item>
           <el-form-item label="文章类型">
-            <el-select v-model="value1" placeholder="请选择">
+            <el-select v-model="editorData.visibleMode" placeholder="请选择">
               <el-option
-                v-for="item in options"
+                v-for="item in blogTypeLists"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
@@ -57,9 +60,9 @@
           </el-form-item>
         </el-form>
         <div class="modal_content_foots">
-          <button>取消</button>
-          <button class="btn-c-blue">存为草稿</button>
-          <button class="btn-c-red">发布文章</button>
+          <button @click="clear">取消</button>
+          <button class="btn-c-blue" @click="submit('draft')">存为草稿</button>
+          <button class="btn-c-red" @click="submit('release')">发布文章</button>
         </div>
       </div>
     </div>
@@ -67,34 +70,63 @@
 </template>
 
 <script>
-import { ref } from "vue"
+import { ref, reactive } from "vue"
+import { addBlog } from '@/api/niceView.js'
+import { blogTypeList, visibleModeList } from '@/utils/options.js'
+import { getLocalStorage } from '@/utils/auth.js'
+import { ElMessage } from '@/utils/message.js'
 export default {
   name: "editorAubmitted",
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    content: {
+      type: String,
+      default: ''
+    }
+  },
   setup(props) {
-    let type = ref(''),
-      checkBox = ref([]),
-      value = ref([1]),
-      value1 = ref([1]),
-      options = ref([
-        {
-          value: '1',
-          label: "原创"
-        },
-        {
-          value: '2',
-          label: "笔记"
-        },
-        {
-          value: '3',
-          label: "转载"
-        },
-      ]);
+    let editorData = reactive({
+      blogLabel: [],
+      blogClass: [],
+      blogType: '',
+      visibleMode: ''
+    })
+    const blogTypeLists = ref(blogTypeList)
+    const visibleModeLists = ref(visibleModeList)
+    let staySubmitFlag = ref(false)
+
+
+    const submit = async (type) => {
+      try {
+        const { data: res } = await addBlog({
+          userId: getLocalStorage('userid'),
+          ...editorData,
+          ...props
+        })
+        if (res.code === '200') {
+          console.log(res, '----');
+          ElMessage.success(res.msg || '添加成功')
+        } else {
+          ElMessage.error(res.msg || '接口异常')
+        }
+      } catch (error) {
+        ElMessage.error('网络异常')
+      }
+    }
+
+    const clear = () => {
+      staySubmitFlag.value = !staySubmitFlag.value
+    }
     return {
-      type,
-      checkBox,
-      value,
-      value1,
-      options,
+      blogTypeLists,
+      visibleModeLists,
+      staySubmitFlag,
+      editorData,
+      submit,
+      clear
     }
   }
 }

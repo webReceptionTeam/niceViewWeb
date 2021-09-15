@@ -11,32 +11,35 @@
     </div>
     <!-- {{ markdown }} -->
     <!-- <v-md-preview-html :html="markdown" preview-class="vuepress-markdown-body"></v-md-preview-html> -->
-    <editorAubmitted />
+    <editorAubmitted ref="editorAubmittedRef" :title="ditorTitle" :content="markdown" />
   </div>
 </template>
 
 <script>
 import editorAubmitted from './editorAubmitted.vue'
+import { ref, onMounted, } from 'vue'
 export default {
   name: 'userAddEditor',
   components: { editorAubmitted },
-  data() {
+  setup(props) {
+    let markdown = ref('asfasfasdfa'),
+      ditorTitle = ref('');
+    const editorAubmittedRef = ref(null)
+
+    onMounted(() => {
+      ditorTitle.value = new Date().toLocaleDateString()
+    })
+
+    const btn = (type) => {
+      editorAubmittedRef.value.clear()
+    }
     return {
-      markdown: 'asd',
-      ditorTitle: ''
+      markdown,
+      ditorTitle,
+      editorAubmittedRef,
+      btn
     }
-  },
-  mounted() {
-    this.ditorTitle = new Date().toLocaleDateString()
-  },
-  methods: {
-    btn(type) {
-      let a = {
-        str: type,
-        num: '11'
-      }
-    }
-  },
+  }
 }
 </script>
 

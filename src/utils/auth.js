@@ -30,3 +30,8 @@ export function getSession(key) {
 export function removeSession(key) {
     return sessionStorage.removeItem(key)
 }
+
+// 获取localStorage
+export function getLocalStorage(key) {
+    return localStorage.getItem(key)
+}

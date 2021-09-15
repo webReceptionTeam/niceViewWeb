@@ -25,7 +25,7 @@ http.interceptors.request.use(
 // 返回拦截器
 http.interceptors.response.use(
     (response) => {
-        console.log(response, ';909909090');
+        console.log(response, '--->>>接口返回参数--全量');
         let code = response.data.code
         switch (code) {
             case 0:
