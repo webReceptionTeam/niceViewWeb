@@ -35,3 +35,12 @@ export function removeSession(key) {
 export function getLocalStorage(key) {
     return localStorage.getItem(key)
 }
+
+// 过期 注销删除信息
+export function removeTokenData() {
+    removeOtherCookie('token')
+    removeSession('premission')
+    removeSession('userid')
+    removeSession('nickname')
+    removeSession('gender')
+}

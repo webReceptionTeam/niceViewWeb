@@ -100,6 +100,20 @@ export default {
 
 
     const submit = async (type) => {
+      let msg = ''
+      if (editorData.blogLabel.length === 0) {
+        msg = '文章标签'
+      } else if (editorData.blogClass.length === 0) {
+        msg = '分类专栏'
+      } else if (!editorData.blogType) {
+        msg = '发布形式'
+      } else if (!editorData.visibleMode) {
+        msg = '文章类型'
+      }
+      if (msg) {
+        ElMessage.warning(msg + "未选择")
+        return
+      }
       try {
         const { data: res } = await addBlog({
           userId: getLocalStorage('userid'),

@@ -89,7 +89,7 @@
 </template>
 
 <script>
-import { onBeforeMount, ref, toRefs } from "vue";
+import { ref, toRefs } from "vue";
 import { useRoute } from "vue-router";
 import { useInitNav } from "./use/nav";
 import { useSearch } from "./use/search";

@@ -34,7 +34,7 @@
 import { ref, onBeforeMount } from "vue";
 import { filterGetRoutePath } from "@/utils/filterData";
 import { userLogout } from '@/api/loginApi'
-import { removeOtherCookie } from '@/utils/auth.js'
+import { removeTokenData } from '@/utils/auth.js'
 export default {
   name: "adminHeader",
   setup() {
@@ -136,11 +136,7 @@ export default {
     // 退出
     const useLogout = async () => {
       await userLogout()
-      await removeOtherCookie('token')
-      window.localStorage.removeItem('premission')
-      window.localStorage.removeItem('userid')
-      window.localStorage.removeItem('nickname')
-      window.localStorage.removeItem('gender')
+      await removeTokenData()
       window.location.href = '/login'
     }
     return {

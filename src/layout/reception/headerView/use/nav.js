@@ -3,6 +3,7 @@ import { ElMessage } from '@/utils/message.js'
 import { filterGetRoutePath } from "@/utils/filterData";
 import { useRouter } from "vue-router";
 import { useIsLogin } from "./isLogin";
+import { getOtherCookie } from '@/utils/auth.js'
 
 export function useInitNav() {
     let activeIndex = ref(
@@ -24,7 +25,8 @@ export function useInitNav() {
 
     const toEditor = () => {
         let { getIsLogin } = useIsLogin()
-        if (getIsLogin()) {
+        const token = getOtherCookie('token')
+        if (getIsLogin() && token) {
             window.open('/editor')
         } else {
             ElMessage('当前您未登陆');
