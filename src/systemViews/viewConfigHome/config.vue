@@ -60,7 +60,7 @@
     </el-form>
     <h2>二级模块</h2>
 
-    <div v-if="type == 'link'">
+    <div v-if="type === 'link'">
       <div class="clearfix" style=" margin-bottom:30px">
         <el-button type="primary" style="float:right" @click="linkAdd">添加连接</el-button>
       </div>
@@ -84,7 +84,7 @@
         </el-row>
       </el-form>
     </div>
-    <div v-if="type == 'card'">
+    <div v-if="type === 'card'">
       <div class="clearfix" style=" margin-bottom:30px">
         <el-button @click="blogListFlag = true" style="float:right">选择博客</el-button>
       </div>
@@ -112,7 +112,7 @@ export default {
     return { ...main, ...childrenMain }
   }
 }
-</script>
+ </script>
 
 <style lang="scss" scoped>
 .config-icon {

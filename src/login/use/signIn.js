@@ -65,7 +65,7 @@ const loginFn = async (flag = false) => {
         userPassWord: passWord.value,
         systemFlag: flag
     })
-    if (res.code == 0) {
+    if (res.code === 0) {
         //登录成功从响应头里拿token存入Localstorage
         let path = '/'
         if (route && route.query && route.query.redirect) {
@@ -87,7 +87,7 @@ const loginFn = async (flag = false) => {
         window.location.href = path
 
 
-    } else if (res.code == -1) {
+    } else if (res.code === -1) {
         ElMessage.warning({
             message: res.msg,
             type: 'warning'

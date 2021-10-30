@@ -3,12 +3,12 @@
     <div class="follow-box-type">
       <span
         data-type="FollowNum"
-        :class="{ active: followActive == 'attention' }"
+        :class="{ active: followActive === 'attention' }"
         @click="followTabType('attention')"
       >TA关注的人（ 2 ）</span>
       <span
         data-type="FollowFan"
-        :class="{ active: followActive == 'fans' }"
+        :class="{ active: followActive === 'fans' }"
         @click="followTabType('fans')"
       >TA的粉丝（ 1 ）</span>
     </div>
@@ -25,8 +25,8 @@
         </div>
         <p
           class="button"
-          :class="{ active: followActive == 'attention' }"
-        >{{ followActive == 'attention' ? '已关注' : '关注' }}</p>
+          :class="{ active: followActive === 'attention' }"
+        >{{ followActive === 'attention' ? '已关注' : '关注' }}</p>
       </li>
       <div class="article-login">- 到底了 -</div>
     </ul>
@@ -45,7 +45,7 @@ export default {
     return { followActive, followTabType }
   }
 }
-</script>
+ </script>
 
 <style lang="scss" scoped>
 .follow-box {

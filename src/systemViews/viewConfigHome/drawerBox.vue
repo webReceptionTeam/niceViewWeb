@@ -28,7 +28,7 @@
             >
               <template #default="scope">
                 <span
-                  v-if="item.prop == 'lastDate'"
+                  v-if="item.prop === 'lastDate'"
                 >{{ scope.row[item.prop] ? timeFilter(scope.row[item.prop]) : '-' }}</span>
                 <span v-else>{{ scope.row[item.prop] || '-' }}</span>
               </template>
@@ -81,7 +81,7 @@ export default {
     }
   },
 }
-</script>
+ </script>
 
 <style lang="scss" scoped>
 .drawer-box {

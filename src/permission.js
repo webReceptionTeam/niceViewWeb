@@ -24,6 +24,7 @@ let whiteList = ['/login', '/register']
 // 免检权
 const businessList = []
 
+
 // 判断前后项目逻辑 待调整
 const premission = window.localStorage.getItem("premission")
 if (premission != '1' && premission != '2') {
@@ -31,29 +32,29 @@ if (premission != '1' && premission != '2') {
     viewRouter.map(item => {
         router.addRoute(item)
     })
-}
+} else
 
-if (token) {
-    // 用户登录后添加路由 前台 或 管理系统
-    const routerList = premission == '1' || premission == '2' ? systemRouter : userView
-    routerList.map(item => {
-        router.addRoute(item)
-    })
-} else {
-    whiteList.push('/')
-    viewRouter.map(item => {
-        router.addRoute(item)
-    })
-}
+    if (token) {
+        // 用户登录后添加路由 前台 或 管理系统
+        const routerList = premission === '1' || premission === '2' ? systemRouter : userView
+        routerList.map(item => {
+            router.addRoute(item)
+        })
+    } else {
+        whiteList.push('/')
+        viewRouter.map(item => {
+            router.addRoute(item)
+        })
+    }
 
 // 路由加载前
 router.beforeEach((to, from,) => {
     // 加载进度条 开始
     NProgress.start()
     // 公共处理位置
-
-    if (premission == '1') {
+    if (premission === '1' || premission === '2') {
         // 管理员处理方式
+        document.title = to.meta?.title || '后台管理'
         return systemBeforeRouter(to, from)
     } else {
         // 用户处理方式
@@ -70,7 +71,7 @@ function systemBeforeRouter(to, from) {
         if (whiteList.indexOf(to.path) == -1) {
             // 重定向登录页
             console.log(to.path);
-            if (to.path == '/404') {
+            if (to.path === '/404') {
                 return { path: "/login" }
             } else {
                 return { path: "/login", query: { redirect: str_encrypt(to.path || '/') } }

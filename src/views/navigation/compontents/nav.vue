@@ -5,11 +5,9 @@
         class="nav_com_li"
         v-for="(item, index) in navList"
         :key="index"
-        :class="{ active: navTab == index }"
+        :class="{ active: navTab === index }"
         @click="tabClick(index)"
-      >
-        {{ item.name }}
-      </li>
+      >{{ item.name }}</li>
     </ul>
   </el-affix>
 </template>
@@ -45,7 +43,7 @@ export default {
     }
   }
 }
-</script>
+ </script>
 
 <style lang="scss" scoped>
 ul {

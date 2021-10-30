@@ -8,7 +8,7 @@ const routes = [
     {
         path: '/login',
         component: () => import('@/login/index.vue'),
-        meta: { redirect: '' },
+        meta: { redirect: '', title: "登陆" },
         name: "Login",
     },
     // 前台注册
@@ -16,6 +16,7 @@ const routes = [
         path: '/register',
         component: () => import('@/login/registerLogin.vue'),
         name: "registerLogin",
+        meta: { title: "注册" }
     },
     // 404
     {

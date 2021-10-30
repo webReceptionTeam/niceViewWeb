@@ -3,22 +3,22 @@
     <h3 class="aside-title">{{ cardTatle[card] }}</h3>
     <div class="aside-content">
       <!-- 最多五个 -->
-      <ul class="hot-list" v-if="card == 'hot'">
+      <ul class="hot-list" v-if="card === 'hot'">
         <li v-for="item in 4" :key="item">
           HTML5知识点总结（五）
           <span class="read">7969</span>
         </li>
       </ul>
       <!-- 建议是4个 其他待定 -->
-      <ul class="classification-list" v-else-if="card == 'classification'">
+      <ul class="classification-list" v-else-if="card === 'classification'">
         <li v-for="item in 4" :key="item">
-          <img src="@/assets/user-view/vue.png" alt="" />
+          <img src="@/assets/user-view/vue.png" alt />
           <span class="text">Vue</span>
           <span class="count">8篇</span>
         </li>
       </ul>
       <!-- 最大五个评论 -->
-      <ul class="comment-list" v-else-if="card == 'comment'">
+      <ul class="comment-list" v-else-if="card === 'comment'">
         <li v-for="item in 4" :key="item">
           <a href="javascript;" class="title">三子棋（井字棋）的实现</a>
           <p class="ellipsis">
@@ -35,7 +35,7 @@
         <div class="archive-box">
           <div class="archive-list-item" v-for="item in 4" :key="item">
             <span class="year">2021年</span>
-            <span class="num">12篇 </span>
+            <span class="num">12篇</span>
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@ export default {
         height: 18px;
       }
       .ellipsis:before {
-        content: '...';
+        content: "...";
         position: absolute;
         z-index: 1;
         bottom: 0;
@@ -176,7 +176,7 @@ export default {
         background: linear-gradient(to right, transparent, #fff 40%);
       }
       .ellipsis:after {
-        content: '';
+        content: "";
         display: inline-block;
         position: absolute;
         z-index: 2;

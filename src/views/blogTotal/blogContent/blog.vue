@@ -12,12 +12,12 @@
         <span class="sort">排序：</span>
         <span
           style="margin-right: 24px"
-          :class="{ select: sortType == '01' }"
+          :class="{ select: sortType === '01' }"
           @click="sortClick('01')"
         >按最后发布时间</span>
         <span
           style="margin-right: 24px"
-          :class="{ select: sortType == '02' }"
+          :class="{ select: sortType === '02' }"
           @click="sortClick('02')"
         >按发布量</span>
       </div>
@@ -56,7 +56,7 @@
         <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
       </div>
 
-      <el-empty v-if="articleList.length == 0" :image-size="200" description="空空如也"></el-empty>
+      <el-empty v-if="articleList.length === 0" :image-size="200" description="空空如也"></el-empty>
     </div>
   </div>
 </template>
@@ -91,7 +91,7 @@ export default {
     }
   }
 }
-</script>
+ </script>
 
 <style lang="scss" scoped>
 .blog-box {

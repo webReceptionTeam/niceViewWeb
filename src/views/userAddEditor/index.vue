@@ -18,6 +18,8 @@
 <script>
 import editorAubmitted from './editorAubmitted.vue'
 import { ref, onMounted, } from 'vue'
+import { queryClass, queryLabel } from '@/api/niceView.js'
+
 export default {
   name: 'userAddEditor',
   components: { editorAubmitted },
@@ -26,8 +28,14 @@ export default {
       ditorTitle = ref('');
     const editorAubmittedRef = ref(null)
 
-    onMounted(() => {
+    onMounted(async () => {
       ditorTitle.value = new Date().toLocaleDateString()
+
+      let { data: resClass } = await queryClass({ type: '1' })
+
+      let { data: resLabel } = await queryLabel()
+      console.log(resLabel, resClass);
+
     })
 
     const btn = (type) => {

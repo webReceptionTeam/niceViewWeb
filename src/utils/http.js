@@ -1,6 +1,6 @@
 import axios from 'axios'
 const premission = window.localStorage.getItem("premission")
-const premissionFlag = premission == '1' || premission == '2' ? true : false
+const premissionFlag = premission === '1' || premission === '2' ? true : false
 const http = axios.create({
     // 在config文件夹下dev.evn.js和prod.env.js里分别配置开发和生产环境对应的路径前缀
     // baseURL: '/api',

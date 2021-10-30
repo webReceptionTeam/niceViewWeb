@@ -60,7 +60,7 @@
             <blIcon
               fontSize="30"
               :fontClass="scope.row.icon"
-              v-if="scope.row.icon.indexOf('el') == -1"
+              v-if="scope.row.icon.indexOf('el') === -1"
             ></blIcon>
             <i v-else :class="scope.row.icon"></i>
           </template>
@@ -120,7 +120,7 @@ export default {
     const honeData = useHomeData()
     const useDatas = useData()
     const abcd = () => {
-      ElMessage('只是一条消息提示')
+      ElMessage('只是一条 消息提示')
     }
     return { value, options, form, value1, ...honeData, abcd, ...useDatas };
   },

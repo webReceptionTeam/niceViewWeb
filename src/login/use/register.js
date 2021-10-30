@@ -18,14 +18,14 @@ export function useSignIn() {
         }
         try {
             let { data: res } = await userRegister(data)
-            if (res.code == 0) {
+            if (res.code === 0) {
                 ElMessage({
                     showClose: true,
                     message: res.msg + '已自动为您跳转到登录页',
                     type: 'success'
                 });
                 router.push('/login')
-            } else if (res.code == -1) {
+            } else if (res.code === -1) {
                 ElMessage.warning({
                     message: res.msg,
                     type: 'warning'

@@ -1,7 +1,7 @@
 <template>
   <div class="base-info" v-if="baseInfoType[userInfoType]">
     <div class="base-info-head">{{ baseInfoType[userInfoType] }}</div>
-    <ul class="base-info-show" v-if="userInfoType == '00' && !editFlag">
+    <ul class="base-info-show" v-if="userInfoType === '00' && !editFlag">
       <li>
         <div class="content-show-l">用户昵称</div>
         <div class="content-show-r">Mrxiaotaotao</div>
@@ -37,7 +37,7 @@
       </li>
       <div class="edit-icon" @click="editFlag = true">编辑</div>
     </ul>
-    <ul class="base-info-show" v-if="userInfoType == '01' && !editFlag">
+    <ul class="base-info-show" v-if="userInfoType === '01' && !editFlag">
       <li>
         <div class="content-show-l">学校名称</div>
         <!-- <div class="content-show-r"></div> -->
@@ -60,7 +60,7 @@
       </li>
       <div class="edit-icon" @click="editFlag = true">编辑</div>
     </ul>
-    <ul class="base-info-show" v-if="userInfoType == '02' && !editFlag">
+    <ul class="base-info-show" v-if="userInfoType === '02' && !editFlag">
       <li>
         <div class="content-show-l">公司名称</div>
         <!-- <div class="content-show-r"></div> -->
@@ -80,7 +80,7 @@
     </ul>
     <div class="base-info-edit" v-if="editFlag">
       <el-form ref="form" :model="userInfo" label-width="80px" label-position="top">
-        <el-row :gutter="48" v-if="userInfoType == '00'">
+        <el-row :gutter="48" v-if="userInfoType === '00'">
           <el-col :span="12">
             <el-form-item label="用户昵称">
               <el-input v-model="userInfo.name" placeholder="请输入昵称"></el-input>
@@ -127,7 +127,7 @@
           </el-col>
         </el-row>
 
-        <el-row :gutter="48" v-if="userInfoType == '01'">
+        <el-row :gutter="48" v-if="userInfoType === '01'">
           <el-col :span="12">
             <el-form-item label="学校名称">
               <el-input v-model="userInfo.name" placeholder="请填写 例如：北京大学"></el-input>
@@ -161,7 +161,7 @@
           </el-col>
         </el-row>
 
-        <el-row :gutter="48" v-if="userInfoType == '02'">
+        <el-row :gutter="48" v-if="userInfoType === '02'">
           <el-col :span="12">
             <el-form-item label="公司名称">
               <el-input v-model="userInfo.name" placeholder="请填写 例如：XXXX"></el-input>
@@ -239,7 +239,7 @@ export default {
               value: 'basic',
               label: 'Basic'
             },
-            {
+             {
               value: 'form',
               label: 'Form'
             },

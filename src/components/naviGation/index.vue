@@ -1,15 +1,13 @@
 <template>
   <div class="box-nav">
-    <img src="@/assets/nav/monkey.png" class="top-img" alt="" />
+    <img src="@/assets/nav/monkey.png" class="top-img" alt />
     <div
       class="item"
       v-for="(item, index) in navList"
       :key="index"
-      :class="{ chosen: tabIndex == index }"
+      :class="{ chosen: tabIndex === index }"
       @click="tabClick(index)"
-    >
-      {{ item.tabName }}
-    </div>
+    >{{ item.tabName }}</div>
     <div class="back-top" @click="tabTopClick">
       <i class="el-icon-arrow-up"></i>
     </div>
@@ -50,7 +48,7 @@ export default {
     }
   }
 }
-</script>
+ </script>
 
 <style lang="scss" scoped>
 .box-nav {

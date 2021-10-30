@@ -64,7 +64,7 @@ export default {
         pageSize: data.pageSize
       })
 
-      if (res.code == 0) {
+      if (res.code === 0) {
         tableData.value = res.data.data
         data.total = res.data.total || 0
       }
@@ -78,11 +78,11 @@ export default {
 
     // 确定选中事件
     const chooseBtn = () => {
-      if (props.blogLength == 0) {
+      if (props.blogLength === 0) {
         ElMessage('当前不需要添加博客')
         return
       }
-      if (chooseList.value.length == 0) {
+      if (chooseList.value.length === 0) {
         ElMessage('请选择要选择的博客')
         return
       }

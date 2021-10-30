@@ -20,7 +20,7 @@ export function useAdminMenu() {
       id: "5",
       children: [
         { id: "5-1", meunName: "首页配置", router: "viewConfigHome" },
-        { id: "5-2", meunName: "头部配置", router: "viewHeadConfiguration" },
+        { id: "5-21", meunName: "头部配置", router: "viewHeadConfiguration" },
         { id: "5-3", meunName: "博客配置", router: "blogConfiguration" },
         { id: "5-4", meunName: "个人中心", router: "viewConfigPersonalCenter" },
         { id: "5-5", meunName: "内容管理", router: "viewCongigContent" },

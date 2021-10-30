@@ -10,9 +10,9 @@
       ></el-tab-pane>
     </el-tabs>
     <component :is="viewName[activeName]" />
-    <!-- <blog-view v-show="activeName == '00'" />
-    <collect-view v-show="activeName == '01'" />
-    <follow-view v-show="activeName == '02'" />-->
+    <!-- <blog-view v-show="activeName === '00'" />
+    <collect-view v-show="activeName === '01'" />
+    <follow-view v-show="activeName === '02'" />-->
     <blogFooter />
   </div>
 </template>
@@ -46,7 +46,7 @@ export default {
     handleClick() { }
   }
 }
-</script>
+ </script>
 
 <style lang="scss" scoped>
 ::v-deep(.el) {

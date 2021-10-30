@@ -1,9 +1,9 @@
 <template>
   <div class="system_header">
     <el-breadcrumb separator="/">
-      <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="index">
+      <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.name">
         {{
-          item.name
+        item.name
         }}
       </el-breadcrumb-item>
     </el-breadcrumb>
@@ -31,14 +31,17 @@
 </template>
 
 <script>
-import { ref, onBeforeMount } from "vue";
+import { ref, onBeforeMount, watch } from "vue";
 import { filterGetRoutePath } from "@/utils/filterData";
 import { userLogout } from '@/api/loginApi'
 import { removeTokenData } from '@/utils/auth.js'
+import { useRoute } from 'vue-router'
+
 export default {
   name: "adminHeader",
   setup() {
     let active = ref(filterGetRoutePath().userName);
+    let routeData = useRoute()
 
     let breadcrumbList = ref([
       {
@@ -61,7 +64,7 @@ export default {
       {
         meunName: "前台页面配置",
         icon: "el-icon-menu",
-        router: "viewConfigHome",
+        router: "viewC onfigHome",
         id: "5",
         children: [
           { id: "5-1", meunName: "首页配置", router: "viewConfigHome" },
@@ -108,13 +111,38 @@ export default {
         ],
       },
     ]);
-
+    let navTab = [{ name: "首页" }];
     onBeforeMount(() => {
-      let navTab = [{ name: "首页" }];
+      toHeaderPathName()
+
+    });
+    let squareUrl = ref(
+      "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
+    );
+
+    // 退出
+    const useLogout = async () => {
+      await userLogout()
+      await removeTokenData()
+      window.location.href = '/login'
+    }
+    // 监听路由变化
+    watch(
+      () => routeData.path,
+      (a, b) => {
+        toHeaderPathName(a.split('/')[1])
+        /* ... */
+        console.log('涛涛path', a, b);
+      }
+    )
+    const toHeaderPathName = (pathNname) => {
+      if (!pathNname) {
+        pathNname = active.value
+      }
       meunList.value.forEach((item) => {
         if (item.children) {
           item.children.forEach((child) => {
-            if (child.router == active.value) {
+            if (child.router === pathNname) {
               navTab = [
                 {
                   name: item.meunName,
@@ -127,17 +155,8 @@ export default {
           });
         }
       });
+      console.log(navTab);
       breadcrumbList.value = navTab;
-    });
-    let squareUrl = ref(
-      "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
-    );
-
-    // 退出
-    const useLogout = async () => {
-      await userLogout()
-      await removeTokenData()
-      window.location.href = '/login'
     }
     return {
       breadcrumbList,

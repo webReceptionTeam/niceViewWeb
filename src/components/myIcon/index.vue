@@ -2,7 +2,7 @@
   <blIcon
     :fontSize="`${fontSize}`"
     :fontClass="fontName"
-    v-if="fontName && fontName.indexOf('el') == -1"
+    v-if="fontName && fontName.indexOf('el') === -1"
   ></blIcon>
   <i :style="`font-size: ${fontSize}px;`" v-else-if="fontName" :class="fontName"></i>
 </template>
@@ -21,7 +21,7 @@ export default {
     }
   }
 }
-</script>
+ </script>
 
 <style lang="scss" scoped>
 </style>

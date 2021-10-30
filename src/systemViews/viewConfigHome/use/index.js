@@ -20,7 +20,7 @@ export function useHomeData() {
   const getHomeData = async () => {
     const { data: res } = await homeQuer()
     console.log(res, '测试首页');
-    if (res.code == 0) {
+    if (res.code === 0) {
       tableData.value = res.data || []
     } else {
       // ElMessage.error('请求超时，请稍后再试！');
