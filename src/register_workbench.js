@@ -11,4 +11,3 @@ const registerComponent = (Vue) => {
 }
 
 export default registerComponent
-

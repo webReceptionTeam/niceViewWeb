@@ -20,7 +20,7 @@ import './permission.js'
 // 全局注册文件引入
 import registerComponent from './register_workbench.js'
 // 自定义指令
-import Direatives from './utils/directives'
+import Directives from './utils/directives'
 // 全局样式
 import './styles/index.scss'
 
@@ -37,7 +37,7 @@ app.use(store)
 // 全局注册
 registerComponent(app)
 // 自定义指令注册
-Direatives(app)
+Directives(app)
 // 挂载mavonEditor
 MarkDown(app)
 // 全局挂载自定义方法及数据
@@ -48,6 +48,13 @@ app.config.globalProperties.ljt = '江涛'
  * getCurrentInstance().appContext.config.globalProperties.ljt
  * 其他可以正常使用 this.ljt
  */
+
+// app.config.performance = true
+
+// if (process.env.NODE_ENV !== 'development') {
+//   console.log('99999');
+//   app.config.performance = true;
+// }
 
 // 链接根节点
 app.mount('#app')
