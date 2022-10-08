@@ -99,7 +99,7 @@ export default {
       font-weight: 700;
     }
   }
-  ::v-deep(.el-tabs__nav-wrap::after) {
+  ::v-deep .el-tabs__nav-wrap::after {
     display: none;
   }
   .content {

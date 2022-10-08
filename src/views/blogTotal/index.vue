@@ -49,7 +49,7 @@ export default {
  </script>
 
 <style lang="scss" scoped>
-::v-deep(.el) {
+::v-deep .el {
   &-tabs__item {
     height: 50px;
     padding: 0 20px !important;

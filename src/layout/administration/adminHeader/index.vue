@@ -175,7 +175,7 @@ export default {
   .title_avater {
     display: flex;
     align-items: center;
-    ::v-deep(.el-badge) {
+    ::v-deep .el-badge {
       height: 25px;
     }
     .news {

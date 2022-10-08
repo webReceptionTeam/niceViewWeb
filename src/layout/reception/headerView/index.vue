@@ -228,11 +228,11 @@ export default {
   }
 }
 
-::v-deep(.el-button.el-button--danger) {
+::v-deep .el-button.el-button--danger {
   padding: 9px 16px;
   border-radius: 5px;
 }
-::v-deep(.el-input) {
+::v-deep .el-input {
   .el-input__inner {
     height: 35px;
     background: #f5f6f7;
@@ -248,10 +248,10 @@ export default {
     }
   }
 }
-::v-deep(.el-menu-item) {
+::v-deep .el-menu-item {
   font-weight: 500;
 }
-::v-deep(.el-menu-item.is-active) {
+::v-deep .el-menu-item.is-active {
   font-weight: 800 !important;
 }
 </style>

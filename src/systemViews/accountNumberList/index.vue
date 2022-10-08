@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.avatar-uploader) {
+::v-deep .avatar-uploader {
   .el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
@@ -87,7 +87,7 @@ export default {
   }
 }
 
-::v-deep(.avatar) {
+::v-deep .avatar {
   width: 178px;
   height: 178px;
   display: block;

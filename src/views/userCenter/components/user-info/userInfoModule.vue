@@ -372,7 +372,7 @@ export default {
   &-edit {
     padding: 24px 40px;
     background: #f8f8f8;
-    ::v-deep(.el-form) {
+    ::v-deep .el-form {
       .el-form-item__label {
         line-height: 16px;
         padding-bottom: 8px;

@@ -61,7 +61,7 @@ export default {
   background: #fff;
   padding: 20px 24px 24px;
   min-height: 800px;
-  ::v-deep(.el-tabs__nav-wrap::after) {
+  ::v-deep .el-tabs__nav-wrap::after {
     display: none;
   }
   .comment-tab-content {

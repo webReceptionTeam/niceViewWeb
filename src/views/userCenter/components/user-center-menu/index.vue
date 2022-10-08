@@ -37,7 +37,7 @@ export default {
   width: 100%;
 }
 // is-active
-::v-deep(.el-menu) {
+::v-deep .el-menu {
   padding: 8px 0;
   &-item {
     height: 48px;

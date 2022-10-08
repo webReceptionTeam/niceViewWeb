@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.el) {
+::v-deep .el {
   &-header {
     background: #fff;
     box-shadow: inset 0 -1px 0 0 #e2e2e2;

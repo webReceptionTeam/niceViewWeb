@@ -140,7 +140,7 @@ export default defineComponent({
   background: #fff;
   padding: 20px 24px 24px;
   min-height: 800px;
-  ::v-deep(.el) {
+  ::v-deep .el {
     &-tabs__nav-wrap::after {
       display: none;
     }

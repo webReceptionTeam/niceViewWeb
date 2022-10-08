@@ -26,7 +26,7 @@ export default {
   padding: 8px 16px;
 }
 
-::v-deep(.el) {
+::v-deep .el {
   &-input &-input__inner {
     height: 32px;
   }

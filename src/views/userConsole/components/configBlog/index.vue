@@ -39,7 +39,7 @@ export default {
   background: #fff;
   padding: 24px;
   min-height: 800px;
-  ::v-deep(.el) {
+  ::v-deep .el {
     &-input__inner {
       width: 500px;
     }

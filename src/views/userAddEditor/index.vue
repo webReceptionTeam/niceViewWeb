@@ -69,7 +69,7 @@ button {
       padding-left: 20px;
       font-size: 20px;
     }
-    ::v-deep(.el-input) {
+    ::v-deep .el-input {
       margin-right: 20px;
       .el-input__inner {
         border-radius: 20px;

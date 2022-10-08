@@ -86,13 +86,13 @@ export default {
     }
   }
 }
-::v-deep(.el-col-24) {
+::v-deep .el-col-24 {
   margin-bottom: 15px;
 }
 .register-btn {
   margin-top: 10px;
 }
-::v-deep(.el-signin.el-button) {
+::v-deep .el-signin.el-button {
   // width: 240px;
   width: 100%;
   height: 40px;
@@ -100,11 +100,11 @@ export default {
   display: block;
   margin: 0 auto;
 }
-::v-deep(.el-signin.el-button--primary) {
+::v-deep .el-signin.el-button--primary {
   background-color: #4a33f5;
   border-color: #4a33f5;
 }
-::v-deep(.el-signin.el-button--primary:hover) {
+::v-deep .el-signin.el-button--primary:hover {
   opacity: 0.8;
 }
 .new-reg-guide-login {

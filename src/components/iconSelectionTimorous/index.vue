@@ -133,7 +133,7 @@ ul {
     background: rgba(238, 238, 238, 0.5);
   }
 }
-::v-deep(.el) {
+::v-deep .el {
   &-tab-pane {
     max-height: 400px;
     overflow-y: auto;

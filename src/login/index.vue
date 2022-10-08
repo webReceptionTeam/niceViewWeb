@@ -138,18 +138,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.is-active),
-::v-deep(.el-tabs__item:hover) {
+::v-deep .is-active,
+::v-deep .el-tabs__item:hover {
   color: red;
 }
-::v-deep(.el-tabs__active-bar) {
+::v-deep .el-tabs__active-bar {
   background: red;
   height: 3px;
 }
-::v-deep(.el-tabs__nav-wrap::after) {
+::v-deep .el-tabs__nav-wrap::after {
   height: 0;
 }
-::v-deep(.el-tabs__nav-scroll) {
+::v-deep .el-tabs__nav-scroll {
   display: flex;
   justify-content: center;
 }
@@ -179,21 +179,21 @@ export default {
     }
   }
 }
-::v-deep(.el-col-24) {
+::v-deep .el-col-24 {
   margin-bottom: 15px;
 }
-::v-deep(.el-signin.el-button) {
+::v-deep .el-signin.el-button {
   width: 240px;
   height: 40px;
   border-radius: 30px;
   display: block;
   margin: 0 auto;
 }
-::v-deep(.el-signin.el-button--primary) {
+::v-deep .el-signin.el-button--primary {
   background-color: #4a33f5;
   border-color: #4a33f5;
 }
-::v-deep(.el-signin.el-button--primary:hover) {
+::v-deep .el-signin.el-button--primary:hover {
   opacity: 0.8;
 }
 .forgot {
@@ -211,7 +211,7 @@ export default {
   color: blue;
   cursor: pointer;
 }
-::v-deep(.phone-code-input .el-input__inner) {
+::v-deep .phone-code-input .el-input__inner {
   padding-right: 90px;
 }
 .social-contactp {
@@ -249,7 +249,7 @@ export default {
   }
 }
 // 弹层
-::v-deep(.el-system-dialog) {
+::v-deep .el-system-dialog {
   width: 450px !important;
   height: 280px;
   border-radius: 10px;

@@ -103,7 +103,7 @@ export default {
     line-height: 42px;
     border-bottom: 1px solid #f0f2f5;
     .left {
-      ::v-deep(.el) {
+      ::v-deep .el {
         &-breadcrumb {
           line-height: 42px;
         }
